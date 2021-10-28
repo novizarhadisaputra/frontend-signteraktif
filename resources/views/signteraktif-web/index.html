@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signteraktif</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap icon CSS -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- Main css -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Mobile Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="MobileMenu" aria-labelledby="MobileMenuLabel">
+    <div class="offcanvas-header">
+      <h5></h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo.svg" alt="">
+      </a>
+      <nav class="nav flex-column p-4 side-menu">
+        <ul class="list-unstyled mb-0 py-3 pt-md-1">
+          <li class="mb-3">
+            <div class="d-flex justify-content-between">
+              <button  class="btn btn-outline-primary w-50 me-2" data-bs-toggle="modal" data-bs-target="#modalSignup">Sign Up</button >
+
+                <button  class="btn btn-outline-secondary w-50 ms-2" data-bs-toggle="modal" data-bs-target="#modalSignin">Sign In</button >
+            </div>
+            
+          </li>
+          <li class="mb-3">
+            <a class="p-2" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="search.html">Find Interpreter</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">About Us</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">Service</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">How To Use</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" href="#MobileMenu" role="button" aria-controls="offcanvasExample">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">Find Interpreter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">How To Use</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" type="button" data-bs-toggle="modal" data-bs-target="#modalSignup">Sign Up</a>
+            </li>
+            <li class="nav-item">
+              <button  class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modalSignin">Sign In</button >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bg-gradient-secondary">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="text-center text-md-start py-5">
+              <h1 class="display-4 text-white fw-bold mb-4">Find a Sign Interpreter Here </h1>
+              <p class="text-white">Now looking for a sign language interpreter, you can just lay down by opening the website or downloading the signteraktif application, you can find a sign language interpreter.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center text-md-end py-md-5">
+              <img src="assets/img/illustration1.png" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+            <div class="card mt-2 mb-5">
+              <div class="card-body">
+                <form class="row g-3">
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-0"><i class="bi bi-geo-alt"></i></span>
+                      <input type="text" class="form-control border-0 border-end rounded-0" id="InputLocation" placeholder="Choose Location">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-0"><i class="bi bi-calendar"></i></span>
+                      <select class="form-select border-0 border-end rounded-0" id="InputMonth">
+                        <option selected>Choose Month</option>
+                        <option value="1">Januari</option>
+                        <option value="2">Februari</option>
+                        <option value="3">Maret</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary w-100">Find a sign interpreter</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="d-flex justify-content-between py-4">
+          <p class="h3">Top Interpreter</p>
+          <a href="search.html">View More<i class="bi bi-arrow-right mx-1" aria-hidden="true"></i></a>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-6">
+            <div class="person-card mb-4">
+              <div class="position-relative img-hover-zoom ">
+                <a class="person-contact" href="#">
+                  <span class="badge badge rounded-pill bg-light text-dark h5"><i class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i> Contact</span>
+                </a>
+                <a type="button" data-bs-toggle="modal" data-bs-target="#modalPerson">
+                  <img src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="...">
+                  <div class="overlay"></div>
+                </a>
+              </div>
+              <div class="person-detail">
+                <h2 class="text-white person-title">Mandala Lobas</h2>
+                <div class="mb-2">
+                  <span class="small text-white">
+                    <i class="bi bi-geo-alt mx-1" aria-hidden="true"></i> Imogiri, Jogjakarta
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="person-card mb-4">
+              <div class="position-relative img-hover-zoom ">
+                <a class="person-contact" href="#">
+                  <span class="badge badge rounded-pill bg-light text-dark h5"><i class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i> Contact</span>
+                </a>
+                <a type="button" data-bs-toggle="modal" data-bs-target="#modalPerson">
+                  <img src="https://images.unsplash.com/photo-1611695434398-4f4b330623e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=435&q=80" alt="...">
+                  <div class="overlay"></div>
+                </a>
+              </div>
+              <div class="person-detail">
+                <h2 class="text-white person-title">Tobias Contenamo</h2>
+                <div class="mb-2">
+                  <span class="small text-white">
+                    <i class="bi bi-geo-alt mx-1" aria-hidden="true"></i> Grogol, Jakarta
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="person-card mb-4">
+              <div class="position-relative img-hover-zoom ">
+                <a class="person-contact" href="#">
+                  <span class="badge badge rounded-pill bg-light text-dark h5"><i class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i> Contact</span>
+                </a>
+                <a  type="button" data-bs-toggle="modal" data-bs-target="#modalPerson">
+                  <img src="https://images.unsplash.com/photo-1613338971583-57949e3523ed?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=465&q=80" alt="...">
+                  <div class="overlay"></div>
+                </a>
+              </div>
+              <div class="person-detail">
+                <h2 class="text-white person-title">Lili Wang</h2>
+                <div class="mb-2">
+                  <span class="small text-white">
+                    <i class="bi bi-geo-alt mx-1" aria-hidden="true"></i> Gedean, Surabaya
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="person-card mb-4">
+              <div class="position-relative img-hover-zoom ">
+                <a class="person-contact" href="#">
+                  <span class="badge badge rounded-pill bg-light text-dark h5"><i class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i> Contact</span>
+                </a>
+                <a  type="button" data-bs-toggle="modal" data-bs-target="#modalPerson">
+                  <img src="https://images.unsplash.com/flagged/photo-1570597719736-be24aa7bf19a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80" alt="...">
+                  <div class="overlay"></div>
+                </a>
+              </div>
+              <div class="person-detail">
+                <h2 class="text-white person-title">Mas Jaya</h2>
+                <div class="mb-2">
+                  <span class="small text-white">
+                    <i class="bi bi-geo-alt mx-1" aria-hidden="true"></i> Pasar Minggu, Jakarta
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="text-center text-md-end pt-5">
+              <img src="assets/img/illustration2.png" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center text-md-start py-5">
+              <h2 class="h1 mb-4">What is <span class="text-secondary">Signteraktif</span></h2>
+              <p>Signteraktif is an on-demand service that provides accessible communication between deaf friends and hearing people who are in the same location, using an interpreter through a gadget (mobile, tablet or laptop or computer PC) that has a camera and uses an internet connection.</p>
+              <p> Signteractive answers the practical need for accessible public services. Such as transactions with customer service, health control, meetings and much more. Signteraktif can be used on Android, IOS systems.</p>
+              <a class="btn btn-outline-primary my-5 px-5" href="#">More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-5">
+      <div class="container">
+        <h2 class="h1 my-md-5"> Why Signteraktif ?</h2>
+        <div class="row">
+          <div class="col-md-3 col-6">
+            <div class="card border-0">
+              <div class="card-body">
+                <img src="assets/img/vector1.svg" class="img-fluid mb-4" alt="">
+                <h3 class="mb-3">Easy and fast</h3>
+                <p>Easy to find and contact sign language interpreter</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="card border-0">
+              <div class="card-body">
+                <img src="assets/img/vector2.svg" class="img-fluid mb-4" alt="">
+                <h3 class="mb-3">Real time</h3>
+                <p>Communicate directly through the Interpreter</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="card border-0">
+              <div class="card-body">
+                <img src="assets/img/vector3.svg" class="img-fluid mb-4" alt="">
+                <h3 class="mb-3">On-Demand Service</h3>
+                <p>Adjusting the needs of the deaf either directly, scheduled or dialect choice.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="card border-0">
+              <div class="card-body">
+                <img src="assets/img/vector4.svg" class="img-fluid mb-4" alt="">
+                <h3 class="mb-3">Provides many choices</h3>
+                <p>You can choose JBI according to the needs of the situation (online or on site)</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-secondary py-5">
+      <div class="container">
+        <h2 class="h1 mb-5 text-white text-center"> Our service </h2>
+        <div class="row justify-content-center">
+          <div class="col-md-5">
+            <div class="card border-0 bg-secondary-dark h-100 mb-4">
+              <div class="card-body p-5">
+                <h3 class="text-white mb-3">For User</h3>
+                <p class="text-white ">We provide services to both deaf and non-deaf people (family, public servants and others) who want to find a sign language interpreter to communicate. We provide many options according to your needs and conditions.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="card border-0 bg-secondary-dark h-100 mb-4">
+              <div class="card-body p-5">
+                <h3 class="text-white mb-3">For sign Language Interpreter</h3>
+                <p class="text-white ">We provide opportunities for people who have the capacity to translate sign language to join us. To ensure the qualification of sign language interpreters, we work closely with the Yogyakarta Sign Language Interpreter Service Center (PLJ). </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <h2 class="h1 mb-5 text-center text-md-start"> Need a help ? </h2>
+        <div class="card border-0 bg-dark bg-opacity-25">
+          <div class="card-body p-5">
+            <form class="row g-3">
+              <div class="col-md-5">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text bg-white text-secondary"><i class="bi bi-envelope"></i></span>
+                  <input type="email" class="form-control border-start-0" id="InputLocation" placeholder="Email">
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text bg-white text-secondary"><i class="bi bi-person"></i></span>
+                  <input type="text" class="form-control border-start-0" id="InputLocation" placeholder="Your Name">
+                </div>
+              </div>
+              <div class="col-md-2">
+                <button type="submit" class="btn btn-primary btn-lg w-100">Contact Us</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-5">
+      <div class="container">
+        <h2 class="h1 mb-5 text-center"> Our Partners </h2>
+        <div class="row justify-content-center">
+          <div class="col col-md-2">
+            <img src="assets/img/logo-partner1.png" class="img-fluid my-4" alt="">
+          </div>
+          <div class="col col-md-2">
+            <img src="assets/img/logo-partner2.png" class="img-fluid my-4" alt="">
+          </div>
+          <div class="col col-md-2">
+            <img src="assets/img/logo-partner3.png" class="img-fluid my-4" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-gradient-secondary">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="text-center text-md-start py-5">
+              <h6 class="display-6 text-white fw-bold mb-4">Download Aplikasi Signteraktif Sekarang !</h6>
+            </div>
+            <div class="text-center text-md-start pb-5">
+              <a href="#"><img src="assets/img/ic-playstore.png" height="50" alt=""></a>
+              <a href="#"><img src="assets/img/ic-appstore.png" height="50" alt=""></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center text-md-end">
+              <img src="assets/img/illustration3.png" class="img-fluid" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container-fluid bg-light">
+    <div class="container">
+      <div class="row py-4">
+        <div class="my-2">
+          <img src="assets/img/logo.svg" height="60" alt="">
+        </div>
+        <div class="col-md-6">
+          <p class="h5 mb-3">Customer Center </p>
+          <div class="d-flex mb-4">
+            <div class="flex-shrink-0">
+              <span><i class="h2 bi bi-geo-alt"></i></span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <span>
+                Bintaro mulia, Jl. RC. Veteran Raya No.1/3, RT.10/RW.10, Bintaro, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12330
+              </span>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="flex-shrink-0">
+              <span><i class="h2 bi bi-telephone"></i></span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <span>080989999999</span>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="flex-shrink-0">
+              <span><i class="h2 bi bi-envelope"></i></span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <span>info@signteraktif.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-3 col-6 offset-md-6">
+              <p class="h5 mb-3">Help</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="#">Contact Us</a></li>
+                <li class="mb-2"><a href="#">How To Join</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-6">
+              <p class="h5 mb-3">About</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="#">About Us</a></li>
+                <li class="mb-2"><a href="#">Our Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 offset-md-6">
+              <p class="h5 mb-3">Follow Us</p>
+              <ul class="list-unstyled list-inline mb-3">
+                <li class="list-inline-item h1"><a href="#"><i class="bi bi-facebook"></i></a></li>
+                <li class="list-inline-item h1"><a href="#"><i class="bi bi-twitter"></i></a></li>
+                <li class="list-inline-item h1"><a href="#"><i class="bi bi-instagram"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 offset-md-6">
+              <span class="font-weight-bold">Copyright 2021 © PT Signteraktif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- Modal Person -->
+  <div class="modal fade" id="modalPerson" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Profil JBI</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="person-card mb-4">
+                  <div class="position-relative img-hover-zoom ">
+                      <img src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="...">
+                      <div class="overlay"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <h2 class="display-6 mb-3">Mandala Lobas</h2>
+                <p>I have experience in the world of communication science, I have also filled several events as a sign language interpreter, this is only a temporary example, if it feels strange, please forgive me</p>
+                <h3>Languages spoken</h3>
+                <div class="py-2">
+                  <span class="badge alert-secondary p-2">Bahasa Isyarat Indonesia (BISINDO)</span>
+                </div>
+                <h3>Organizational Affiliation</h3>
+                <div class="py-2">
+                  <span class="badge alert-secondary p-2">PLJ Daerah Istimewa Yogyakarta</span>
+                </div>
+
+                <div class="d-flex justify-content-between my-4">
+                  <a href="#" class="btn btn-outline-primary w-50 me-3"><i class="bi bi-chat-dots-fill mx-5 mx-md-1" aria-hidden="true"></i>Contact</a>
+                  <a href="booking.html" class="btn btn-primary w-50 ms-3">Make appointment</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Person -->
+
+  <!-- Modal Signin -->
+  <div class="modal fade" id="modalSignin" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="p-4">
+                  <div class="my-4">
+                    <h2 class=""> Welcome to </h2>
+                    <img src="assets/img/logo.svg" class="mb-3" height="40" alt="">
+                  </div>
+                  <form>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text bg-transparent"><i class="bi bi-envelope"></i></span>
+                      <input type="email" class="form-control border-start-0" id="InputEmail" placeholder="Email">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text bg-transparent"><i class="bi bi-lock"></i></span>
+                      <input type="password" class="form-control border-start-0" id="InputPassword1" placeholder="Password">
+                    </div>
+                    <div class="mb-3 text-end">
+                      <label class="form-label"><a href="#">Forgot Password ?</a></label>
+                    </div>
+                    <a href="index after login.html" class="btn btn-primary w-100">Sign In</a>
+                  </form>
+
+                  <div class="text-center my-3"><span>Or sign in with</span></div>
+
+                  <button type="submit" class="btn btn-light w-100"><i class="bi bi-google text-success me-3"></i>Google</button>
+
+                  <div class="text-center my-3"><span>Don't have an account?</span><a type="button" data-bs-toggle="modal" data-bs-target="#modalSignup" class="text-secondary ms-2">Sign Up</a></div>
+                </div>
+              </div>
+              <div class="col-md-6 bg-gradient-secondary">
+                <div class="d-flex align-items-center h-100 p-4">
+                  <figure class="text-center">
+                    <blockquote class="blockquote text-white">
+                      <p class="small">“ Human eyes are the sign language of the brain. 
+                        If you watch them carefully, you can see 
+                        the truth played out, raw and unguarded. “</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer text-white">
+                      Tarryn Fisher
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Signin -->
+
+  <!-- Modal SignUp -->
+  <div class="modal fade" id="modalSignup" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="p-4">
+                  <div class="my-4">
+                    <h2 class=""> Sign Up to </h2>
+                    <img src="assets/img/logo.svg" class="mb-3" height="40" alt="">
+                  </div>
+                  <form>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text bg-transparent"><i class="bi bi-person"></i></span>
+                      <input type="text" class="form-control border-start-0" id="InputName" placeholder="Full Name">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text bg-transparent"><i class="bi bi-envelope"></i></span>
+                      <input type="email" class="form-control border-start-0" id="InputEmail" placeholder="Email">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text bg-transparent"><i class="bi bi-phone"></i></span>
+                      <input type="number" class="form-control border-start-0" id="InputName" placeholder="Phone Number">
+                    </div>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text bg-transparent"><i class="bi bi-lock"></i></span>
+                      <input type="password" class="form-control border-start-0" id="InputPassword1" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+                  </form>
+
+                  <div class="text-center my-3"><span>Or Sign Up with</span></div>
+
+                  <button type="submit" class="btn btn-light w-100"><i class="bi bi-google text-success me-3"></i>Google</button>
+
+                  <div class="text-center my-3"><span>Have an account?</span><a type="button" data-bs-toggle="modal" data-bs-target="#modalSignin" class="text-secondary ms-2">Sign In</a></div>
+                </div>
+              </div>
+              <div class="col-md-6 bg-gradient-secondary">
+                <div class="d-flex align-items-center h-100 p-4">
+                  <figure class="text-center">
+                    <blockquote class="blockquote text-white">
+                      <p class="small">“ Human eyes are the sign language of the brain. 
+                        If you watch them carefully, you can see 
+                        the truth played out, raw and unguarded. “</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer text-white">
+                      Tarryn Fisher
+                    </figcaption>
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Modal Sign Up -->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Main -->
+  <script type="text/javascript" src="assets/js/main.js"></script>
+  <!-- Init -->
+  <script type="text/javascript">
+  </script>
+</body>
+</html>

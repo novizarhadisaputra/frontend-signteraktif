@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signteraktif</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap icon CSS -->
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap DateTimePicker -->
+  <link href="assets/vendor/bootstrap-datetimepicker/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet">
+  <!-- Main css -->
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Mobile Menu -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="MobileMenu" aria-labelledby="MobileMenuLabel">
+    <div class="offcanvas-header">
+      <h5></h5>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/img/logo.svg" alt="">
+      </a>
+      <nav class="nav flex-column p-4 side-menu">
+        <ul class="list-unstyled mb-0 py-3 pt-md-1">
+          <li class="mb-3">
+            <div>
+              <img class="avatar-md rounded-circle mb-2" src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="...">
+              <p>
+                Welcome, <span class="fw-bold">Rikardo</span>
+                <a href="">
+                  <i class="bi bi-bell h3" aria-hidden="true">
+                    <span data-notif-items="4"></span>
+                  </i>
+                </a>
+              </p> 
+            </div>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="search.html">Find Interpreter</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">About Us</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">Service</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">How To Use</a>
+          </li>
+          <li class="mb-3">
+            <a class="p-2" href="#">Contact Us</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- End Mobile Menu -->
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img src="assets/img/logo.svg" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" href="#MobileMenu" role="button" aria-controls="offcanvasExample">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="search.html">Find Interpreter</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">How To Use</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact Us</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle fw-light" href="#" id="menuProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Welcome, <span class="fw-bold">Rikardo</span>
+                <img class="avatar-sm rounded-circle" src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="...">
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end border-0 p-4 h5 shadow" aria-labelledby="menuProfile">
+                <li>
+                  <div class="text-center">
+                    <img class="avatar-md rounded-circle" src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="...">
+                    <div class="my-2">Rikardo Salampesi</div>
+                    <small class="fw-light">rikardosalampesi@gmail.com</small>
+                  </div>
+                  <a href="profile.html" class="btn btn btn-sm btn-primary w-100 my-2">Set Profile</a>
+                </li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="event.html">Upcoming Event</a></li>
+                <li><a class="dropdown-item" href="event.html">List order</a></li>
+                <li><a class="dropdown-item text-center btn btn-sm btn-outline-danger mt-3" href="index.html">Logout</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown ms-2">
+              <a class="nav-link" href="#" id="menuNotif" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-bell h3" aria-hidden="true">
+                  <span data-notif-items="4"></span>
+                </i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end border-0 shadow menu-notif" aria-labelledby="menuNotif">
+                <p class="h2 m-3">Notification</p>
+                <div class="list-group list-group-flush border-bottom">
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-shrink-0">
+                        <div class="avatar-sm rounded-circle bg-warning"></div>
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h4 class="mb-1">Reminder</h4>
+                          <small>1 minutes ago</small>
+                        </div>
+                        <p class="small mb-1">1 hour until your event with JBI Alexandra starts</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-shrink-0">
+                        <div class="avatar-sm rounded-circle bg-info"></div>
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h4 class="mb-1">Order JBI</h4>
+                          <small>3 minutes ago</small>
+                        </div>
+                        <p class="small mb-1">You managed to make an appointment with a JBI</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-shrink-0">
+                        <div class="avatar-sm rounded-circle bg-danger"></div>
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h4 class="mb-1">Appointment Canceled</h4>
+                          <small>3 days ago</small>
+                        </div>
+                        <p class="small mb-1">Your appointment has been canceled by Putra Siregar</p>
+                      </div>
+                    </div>
+                  </a>
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex align-items-center">
+                      <div class="flex-shrink-0">
+                        <div class="avatar-sm rounded-circle bg-success"></div>
+                      </div>
+                      <div class="flex-grow-1 ms-3">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h4 class="mb-1">Finished</h4>
+                          <small>1 weeks ago</small>
+                        </div>
+                        <p class="small mb-1">Your event with JBI Mahmudin has been carried out and is finished</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <a class="dropdown-item text-center text-primary mt-3" href="notif.html">See All</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="my-5">
+      <div class="container">
+        <a href="search.html" class="font-light-blue mb-4 d-block"><i class="bi bi-arrow-left mr-1"></i> Back to Interpreter list</a>
+        <h1 class="mb-4">Make appointment</h1>
+        <form class="row">
+          <div class="col-md-3">
+            <label class="form-label">Interpreter</label>
+            <div class="person-card mb-4">
+              <div class="position-relative img-hover-zoom ">
+                <a class="person-contact" href="#">
+                  <span class="badge badge rounded-pill bg-light text-dark h5"><i class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i> Contact</span>
+                </a>
+                <img src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80" alt="...">
+                <div class="overlay"></div>
+              </div>
+              <div class="person-detail">
+                <h2 class="text-white person-title">Mandala Lobas</h2>
+                <div class="mb-2">
+                  <span class="small text-white">
+                    <i class="bi bi-geo-alt mx-1" aria-hidden="true"></i> Imogiri, Jogjakarta
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Select Date</label>
+            <div class="card  mb-3">
+              <div class="card-body">
+                <div id="selectDate"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Select Time</label>
+            <div class="accordion mb-3" id="accordionTime">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading1">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                    19 October 2021
+                  </button>
+                </h2>
+                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1" data-bs-parent="#accordionTime">
+                  <div class="accordion-body">
+                    <div class="mb-3">
+                      <label for="selectStartTime" class="form-label">Start Time</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-transparent text-secondary"><i class="bi bi-clock"></i></span>
+                        <input type='text' class="form-control border-start-0 datetimepicker-input" id='selectStartTime' data-toggle="datetimepicker" data-target="#selectStartTime" />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectEndTime" class="form-label">End Time</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-transparent text-danger"><i class="bi bi-clock"></i></span>
+                        <input type='text' class="form-control border-start-0 datetimepicker-input" id='selectEndTime' data-toggle="datetimepicker" data-target="#selectEndTime" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="heading2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    20 October 2021
+                  </button>
+                </h2>
+                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2" data-bs-parent="#accordionTime">
+                  <div class="accordion-body">
+                    <div class="mb-3">
+                      <label for="selectStartTime" class="form-label">Start Time</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-transparent text-secondary"><i class="bi bi-clock"></i></span>
+                        <input type='text' class="form-control border-start-0 datetimepicker-input" id='selectStartTime' data-toggle="datetimepicker" data-target="#selectStartTime" />
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="selectEndTime" class="form-label">End Time</label>
+                      <div class="input-group">
+                        <span class="input-group-text bg-transparent text-danger"><i class="bi bi-clock"></i></span>
+                        <input type='text' class="form-control border-start-0 datetimepicker-input" id='selectEndTime' data-toggle="datetimepicker" data-target="#selectEndTime" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="mb-3">
+              <label for="exampleFormControlTextarea1" class="form-label">Add message</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="13"></textarea>
+            </div>
+          </div>
+          <div class="col-md-12 text-end ">
+            <button type="submit" class="btn btn-primary" >Set Appointment</button >
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container-fluid bg-light">
+    <div class="container">
+      <div class="row py-4">
+        <div class="my-2">
+          <img src="assets/img/logo.svg" height="60" alt="">
+        </div>
+        <div class="col-md-6">
+          <p class="h5 mb-3">Customer Center </p>
+          <div class="d-flex mb-4">
+            <div class="flex-shrink-0">
+              <span><i class="h2 bi bi-geo-alt"></i></span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <span>
+                Bintaro mulia, Jl. RC. Veteran Raya No.1/3, RT.10/RW.10, Bintaro, Kec. Pesanggrahan, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12330
+              </span>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="flex-shrink-0">
+              <span><i class="h2 bi bi-telephone"></i></span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <span>080989999999</span>
+            </div>
+          </div>
+          <div class="d-flex mb-4">
+            <div class="flex-shrink-0">
+              <span><i class="h2 bi bi-envelope"></i></span>
+            </div>
+            <div class="flex-grow-1 ms-3">
+              <span>info@signteraktif.com</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-3 col-6 offset-md-6">
+              <p class="h5 mb-3">Help</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="#">Contact Us</a></li>
+                <li class="mb-2"><a href="#">How To Join</a></li>
+              </ul>
+            </div>
+            <div class="col-md-3 col-6">
+              <p class="h5 mb-3">About</p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><a href="#">About Us</a></li>
+                <li class="mb-2"><a href="#">Our Service</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 offset-md-6">
+              <p class="h5 mb-3">Follow Us</p>
+              <ul class="list-unstyled list-inline mb-3">
+                <li class="list-inline-item h1"><a href="#"><i class="bi bi-facebook"></i></a></li>
+                <li class="list-inline-item h1"><a href="#"><i class="bi bi-twitter"></i></a></li>
+                <li class="list-inline-item h1"><a href="#"><i class="bi bi-instagram"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 offset-md-6">
+              <span class="font-weight-bold">Copyright 2021 © PT Signteraktif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap DateTimePicker -->
+  <script type="text/javascript" src="assets/vendor/bootstrap-datetimepicker/js/moment.js"></script>
+  <script type="text/javascript" src="assets/vendor/bootstrap-datetimepicker/js/tempusdominus-bootstrap-4.min.js"></script>
+  <!-- Main -->
+  <script type="text/javascript" src="assets/js/main.js"></script>
+  <!-- Init -->
+  <script type="text/javascript">
+    $('#selectDate').datetimepicker({
+      inline: true,
+      format: 'L',
+      useCurrent: false,
+      allowMultidate: true,
+      enabledDates: [
+      "10/18/2021",
+      "10/19/2021",
+      "10/20/2021",
+      "10/21/2021",
+      ],
+      multidateSeparator: ',',
+      icons: {
+          time: "bi bi-clock text-secondary",
+          date: "bi bi-calendar text-secondary",
+          up: "bi bi-chevron-up text-secondary",
+          down: "bi bi-chevron-down text-secondary",
+          previous: 'bi bi-chevron-left text-secondary',
+          next: 'bi bi-chevron-right text-secondary',
+          today: 'bi bi-screenshot text-secondary',
+          clear: 'bi bi-trash text-secondary',
+          close: 'bi bi-remove text-secondary'
+      }
+    });
+    $('#selectStartTime').datetimepicker({
+      format: 'LT',
+      icons: {
+          up: "bi bi-chevron-up text-secondary",
+          down: "bi bi-chevron-down text-secondary",
+      }
+    });
+    $('#selectEndTime').datetimepicker({
+      format: 'LT',
+      icons: {
+          up: "bi bi-chevron-up text-secondary",
+          down: "bi bi-chevron-down text-secondary",
+      }
+    });
+  </script>
+</body>
+</html>
