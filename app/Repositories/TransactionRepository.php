@@ -2,13 +2,15 @@
 
 namespace App\Repositories;
 
-use App\Models\Schedule;
+use App\Mail\OrderMail;
 use Exception;
+use App\Models\Schedule;
 use App\Models\Transaction;
+use Illuminate\Support\Str;
 use App\Models\TransactionStatus;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TransactionRepository
@@ -19,15 +21,17 @@ class TransactionRepository
     protected $transactionStatus;
     protected $firebase;
     protected $partners;
+    protected $user;
 
     public function __construct(
         Transaction $transaction,
         TransactionStatus $transactionStatus,
         Schedule $schedule
-    ) {
+        ) {
+        $this->schedule = $schedule;
         $this->transaction = $transaction;
         $this->transactionStatus = $transactionStatus;
-        $this->schedule = $schedule;
+        // $this->user = app()->make('repo.users');
         $this->firebase = app()->make('repo.api.firebase');
         $this->partners = app()->make('repo.partners');
         $this->console = new ConsoleOutput();
@@ -45,11 +49,9 @@ class TransactionRepository
 
     public function show($id)
     {
-        $title = 'Transactions';
-        $transactionsPage = 'active';
         $transaction = $this->transaction->find($id);
-        $transactionStatus = $this->transactionStatus->all();
-        return view('pages.transactions.show', compact('transactionsPage', 'transaction', 'transactionStatus', 'title'));
+        $partner = $this->partners->find($transaction->details[0]->schedule->user->id);
+        return view('transaction.detail', compact('transaction', 'partner'));
     }
 
     public function store($request)
@@ -75,6 +77,7 @@ class TransactionRepository
                     'is_available' => 0,
                 ]);
             }
+            Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
             DB::commit();
             return redirect()->route('user.event.booking', ['id' => auth()->user()->id])->with('success', 'Order Success');
         } catch (\Exception $e) {
@@ -86,16 +89,20 @@ class TransactionRepository
     public function edit($id)
     {
         $title = 'Transactions';
-        $transactionsPage = 'active';
         $transaction = $this->transaction->find($id);
-        $transactionStatus = $this->transactionStatus->all();
-        return view('pages.transactions.edit', compact('transactionsPage', 'transaction', 'transactionStatus', 'title'));
+        $partner = $this->partners->find($transaction->details[0]->schedule->user->id);
+        return view('transaction.edit', compact('transaction', 'partner'));
     }
 
     public function update($request, $id)
     {
         try {
             DB::beginTransaction();
+            $request->merge([
+                'user_id' => auth()->user()->id,
+                'transaction_status_id' => 1,
+                'details' => json_decode($request->details)
+            ]);
             $transaction = $this->transaction->find($id);
 
             if (!$transaction) abort(404);
@@ -118,7 +125,22 @@ class TransactionRepository
                 'payment_method_id' => $request->payment_method_id ?? $transaction->payment_method_id,
                 'notes' => $request->notes ?? $transaction->notes
             ];
+            $transaction->details()->delete();
+            foreach ($request->details as $detail) {
+                $data = [
+                    'transaction_id' => $transaction->id,
+                    'schedule_id' => $detail->schedule_id,
+                    'total_price' => $detail->total_price,
+                    'total_paid' => $detail->total_paid,
+                    'total_paid' => $detail->total_paid
+                ];
+                $transaction->details()->create($data);
+                $this->schedule->where(['id' => $detail->schedule_id])->update([
+                    'is_available' => 0,
+                ]);
+            }
             // $transaction->detail()->update();
+            Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
             $transaction->update($data);
             DB::commit();
             return redirect()->back()->with('success', 'Updating success');

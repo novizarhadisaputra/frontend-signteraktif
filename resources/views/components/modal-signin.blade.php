@@ -25,7 +25,7 @@
                                             placeholder="Password" required>
                                     </div>
                                     <div class="mb-3 text-end">
-                                        <label class="form-label"><a href="#">Forgot Password ?</a></label>
+                                        <label class="form-label"><a href="#" type="button" data-bs-toggle="modal" data-bs-target="#modalReset" class="text-primary">Forgot Password ?</a></label>
                                     </div>
                                     <button type="submit" class="btn btn-primary w-100">Sign In</button>
                                 </form>

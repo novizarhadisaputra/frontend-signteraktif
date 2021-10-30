@@ -762,7 +762,8 @@ a.text-danger:focus, a.text-danger:hover{
   right: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient( 0deg,rgb(0 0 0 / 60%),rgb(0 0 0 / 20%));
+  background: linear-gradient( 0deg,rgb(0 0 0 / 26%),rgb(0 0 0 / 0%));
+  z-index: 2;
 }
 
 /* End Card for person */

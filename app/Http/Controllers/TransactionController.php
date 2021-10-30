@@ -59,7 +59,7 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($roleName, $id)
+    public function show($id)
     {
         try {
             $response = $this->transaction->show($id);
@@ -75,7 +75,7 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($roleName, $id)
+    public function edit($id)
     {
         try {
             $response = $this->transaction->edit($id);
@@ -92,7 +92,7 @@ class TransactionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $roleName, $id)
+    public function update(Request $request, $id)
     {
         try {
             $response = $this->transaction->update($request, $id);
@@ -113,7 +113,7 @@ class TransactionController extends Controller
         //
     }
 
-    public function history(Request $request, $roleName)
+    public function history(Request $request)
     {
         try {
             $response = $this->transaction->history($request);

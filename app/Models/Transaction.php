@@ -10,6 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
+        'transaction_code',
         'user_id',
         'total_price',
         'transaction_status_id',
@@ -38,6 +39,17 @@ class Transaction extends Model
     public function status()
     {
         return $this->hasOne(TransactionStatus::class, 'id', 'transaction_status_id');
+    }
+
+
+    /**
+     * Get the payment_method associated with the Transaction
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function payment_method()
+    {
+        return $this->hasOne(PaymentMethod::class, 'id', 'payment_method_id');
     }
 
     /**

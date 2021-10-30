@@ -177,7 +177,7 @@ class PartnerRepository
             $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
             $schedules = $schedules->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate);
         }
-        $schedules = $schedules->paginate($request->per_page)->getCollection();
+        $schedules = $schedules->where(['is_available' => 1])->paginate($request->per_page)->getCollection();
         return $schedules;
     }
 

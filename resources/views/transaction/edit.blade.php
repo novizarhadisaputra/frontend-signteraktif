@@ -6,8 +6,10 @@
                     class="bi bi-arrow-left mr-1"></i> Back to
                 Interpreter list</a>
             <h1 class="mb-4">Make appointment</h1>
-            <form class="row" action="{{ route('transaction.store') }}" method="POST">
+            <form class="row" action="{{ route('transaction.update', ['transaction' => $transaction->id]) }}"
+                method="POST">
                 @csrf
+                @method('PUT')
                 <div class="col-md-3">
                     <label class="form-label">Interpreter</label>
                     <div class="person-card mb-4">
@@ -70,24 +72,27 @@
                 <div style="display: none">
                     <div class="mb-3">
                         <label for="totalPrice" class="form-label">Total Price</label>
-                        <input class="form-control" name="total_price" id="totalPrice" value="0">
+                        <input class="form-control" name="total_price" id="totalPrice"
+                            value="{{ $transaction->total_price }}">
                     </div>
                 </div>
                 <div style="display: none">
                     <div class="mb-3">
-                        <label for="totalPaid" class="form-label">Total Price</label>
-                        <input class="form-control" name="total_paid" id="totalPaid" value="0">
+                        <label for="totalPaid" class="form-label">Total Paid</label>
+                        <input class="form-control" name="total_paid" id="totalPaid"
+                            value="{{ $transaction->total_paid }}">
                     </div>
                 </div>
                 <div style="display: none">
                     <div class="mb-3">
                         <label for="paymentMethod" class="form-label">Payment Method</label>
-                        <input class="form-control" name="payment_method_id" id="paymentMethod" value="3">
+                        <input class="form-control" name="payment_method_id" id="paymentMethod"
+                            value="{{ $transaction->payment_method->name }}">
                     </div>
                 </div>
                 <div style="display: none">
                     <div class="mb-3">
-                        <label for="paymentMethod" class="form-label">Details</label>
+                        <label for="details" class="form-label">Details</label>
                         <input class="form-control" name="details" id="details" value="">
                     </div>
                 </div>
@@ -110,7 +115,8 @@
                 <div class="col-md-3">
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Add message</label>
-                        <textarea class="form-control" name="notes" id="exampleFormControlTextarea1" rows="13"></textarea>
+                        <textarea class="form-control" name="notes" id="exampleFormControlTextarea1"
+                            rows="13">{{ $transaction->notes }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-12 text-end ">
@@ -135,7 +141,8 @@
                     return moment(new Date(date))
                 })
                 $('#selectDate').datetimepicker({
-                    defaultDate: moment(new Date("{{ date('m/d/Y', strtotime(request()->input('date'))) }}")),
+                    defaultDate: moment(new Date(
+                        "{{ date('m/d/Y', strtotime(request()->input('date'))) }}")),
                     inline: true,
                     format: 'L',
                     useCurrent: false,
@@ -157,7 +164,7 @@
                 $("#selectDate").on("change.datetimepicker", function(e) {
                     let date = moment(e.date._d).format('YYYY-MM-DD');
                     window.location =
-                        `{{ route('transaction.form.order', ['partnerId' => $partner->id]) }}?date=${date}`;
+                        `{{ route('transaction.edit', ['transaction' => $transaction->id]) }}?date=${date}`;
                 });
 
                 $("#selectTime").change(function() {
@@ -185,9 +192,10 @@
 
         function generateOptionTimes(times) {
             let html = `<option value="">Choose Time</option>`;
+            let myscheduleId = `{{ $transaction->details[0]->schedule->id }}`;
             times.forEach(element => {
                 html =
-                    `${html}<option value="${element.id}">${moment(element.date).format('DD MMM YYYY')} ${element.time_start} - ${element.time_end}</option>`;
+                    `${html}<option value="${element.id}" ${element.id == myscheduleId ? 'selected' : ''}>${moment(element.date).format('DD MMM YYYY')} ${element.time_start} - ${element.time_end}</option>`;
             });
             $('#selectTime').html(html);
         }

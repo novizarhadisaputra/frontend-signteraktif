@@ -12,8 +12,8 @@
                     </div>
                     <div class="flex-grow-1 ms-3">
                         <span>
-                            Bintaro mulia, Jl. RC. Veteran Raya No.1/3, RT.10/RW.10, Bintaro, Kec. Pesanggrahan,
-                            Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12330
+                            Sigab Indonesia <br>
+                            Jl. Kopral Samiyo I no. 37 Sribit Lor, Sendangtirto, Berbah, Sleman 55573
                         </span>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                         <span><i class="h2 bi bi-telephone"></i></span>
                     </div>
                     <div class="flex-grow-1 ms-3">
-                        <span>080989999999</span>
+                        <span>+62 812-2635-9153</span>
                     </div>
                 </div>
                 <div class="d-flex mb-4">
@@ -30,7 +30,7 @@
                         <span><i class="h2 bi bi-envelope"></i></span>
                     </div>
                     <div class="flex-grow-1 ms-3">
-                        <span>info@signteraktif.com</span>
+                        <span>info@signteraktif.id</span>
                     </div>
                 </div>
             </div>
@@ -39,15 +39,15 @@
                     <div class="col-md-3 col-6 offset-md-6">
                         <p class="h5 mb-3">Help</p>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#">Contact Us</a></li>
-                            <li class="mb-2"><a href="#">How To Join</a></li>
+                            <li class="mb-2"><a href="{{ route('contact-us') }}">Contact Us</a></li>
+                            <li class="mb-2"><a href="{{ route('how-to-use') }}">How To Use</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-6">
                         <p class="h5 mb-3">About</p>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="#">About Us</a></li>
-                            <li class="mb-2"><a href="#">Our Service</a></li>
+                            <li class="mb-2"><a href="{{ route('about-us') }}">About Us</a></li>
+                            <li class="mb-2"><a href="{{ route('service') }}">Our Service</a></li>
                         </ul>
                     </div>
                 </div>

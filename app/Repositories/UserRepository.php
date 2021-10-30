@@ -4,9 +4,10 @@ namespace App\Repositories;
 
 use Exception;
 use App\Models\User;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class UserRepository
@@ -66,13 +67,12 @@ class UserRepository
             }
 
             $user->name = $request->name ?? $user->name;
-            $user->password = $request->password ?? $user->password_user;
+            $user->password = Hash::make($request->password ?? $user->password_user);
             $user->password_user = $request->password ?? $user->password_user;
             $user->email = $request->email ?? $user->email;
-            $user->is_active = $request->is_active ? 1 : 0;
+            $user->phone = $request->phone ?? $user->phone;
 
             $detail['title'] = $request->title ?? $user->detail->title;
-            $detail['phone'] = $request->phone ?? $user->detail->phone;
             $detail['province'] = $request->province ?? $user->detail->province;
             $detail['city'] = $request->city ?? $user->detail->city;
             $detail['address'] = $request->address ?? $user->detail->address;
@@ -109,8 +109,9 @@ class UserRepository
         $nav = 'upcoming';
         $upcomings = $this->transactions->upcomingEvent($request);
         $transactions = $this->transactions->listOrder($request);
+        $user = $this->user->find(auth()->user()->id);
         $this->console->writeln(json_encode($upcomings));
-        return view('user.event', compact('upcomings', 'transactions', 'nav'));
+        return view('user.event', compact('user', 'upcomings', 'transactions', 'nav'));
     }
 
     public function listOrder($request)
@@ -118,13 +119,15 @@ class UserRepository
         $nav = 'booking';
         $upcomings = $this->transactions->upcomingEvent($request);
         $transactions = $this->transactions->listOrder($request);
+        $user = $this->user->find(auth()->user()->id);
         $this->console->writeln(json_encode($transactions));
-        return view('user.event', compact('upcomings', 'transactions', 'nav'));
+        return view('user.event', compact('user', 'upcomings', 'transactions', 'nav'));
     }
 
     public function listNotification($request)
     {
+        $user = $this->user->find(auth()->user()->id);
         $notifications = $this->notifications->listNotification($request);
-        return view('user.notification', compact('notifications'));
+        return view('user.notification', compact('user', 'notifications'));
     }
 }

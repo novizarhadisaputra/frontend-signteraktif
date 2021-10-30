@@ -75,7 +75,7 @@
                             <a class="nav-link" href="#" id="menuNotif" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
                                 <i class="bi bi-bell h3" aria-hidden="true">
-                                    <span data-notif-items="4"></span>
+                                    {{-- <span data-notif-items="4"></span> --}}
                                 </i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end border-0 shadow menu-notif"

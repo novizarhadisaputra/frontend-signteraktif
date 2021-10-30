@@ -44,12 +44,6 @@
                                                 height="60" style="margin-bottom:10px">
                                         </td>
                                     </tr>
-                                    <tr style="margin:0;padding:0">
-                                        <td>
-                                            <img src="https://cloud-ex42.usaupload.com/file/5aMy/illustration5.png"
-                                                alt="" width="100%" style="margin-bottom:10px">
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                             <!--Header-->
@@ -60,31 +54,126 @@
                                     <tbody>
                                         <tr>
                                             <td style="padding:20px">
-                                                <p style="font-size: 16px; font-weight: bold;"> Hi {{ $data->name }}
-                                                </p>
-                                                <p> Anda mengajukan permintaan untuk mengubah password ! </p>
-                                                <p> Untuk dapat mengubah password silahkan klik tautan di bawah ini.
-                                                </p>
+                                                <table style="width: 100%; background: #e1f6ef; border-radius: 10px;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left"
+                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
+                                                                <table cellpadding="0" cellspacing="0" width="100%"
+                                                                    border="0"
+                                                                    style="color:#333333;font-family:Inter,Arial;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none">
+                                                                    <tbody>
+                                                                        <tr style="border-bottom:1px solid #ecedee">
+                                                                            <td
+                                                                                style="text-align:left;padding:8px 0; color: #fa9200;">
+                                                                                No. Invoice</td>
+                                                                            <td
+                                                                                style="text-align:right;padding:8px 0 8px 8px;  color: #fa9200;">
+                                                                                {{ $transaction->transaction_code }}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr style="border-bottom:1px solid #ecedee">
+                                                                            <td style="text-align:left;padding:8px 0">
+                                                                                Tanggal Pemesanan</td>
+                                                                            <td
+                                                                                style="text-align:right;padding:8px 0 8px 8px">
+                                                                                {{ date('d F Y', strtotime($transaction->created_at)) }}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td style="text-align: center; padding:20px;">
-                                                <a href="{{ route('reset-password.index') . '?security_code=' . $data->security_code }}"
-                                                    style="display:inline-block;background:#fa9200;color:white;font-family:Inter,Arial;font-size:16px;font-weight:600;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;border-radius:4px"
-                                                    target="_blank">
-                                                    Reset Password
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding:20px">
-                                                <p> Demi keamanan akun Anda, segera lakukan penggantian password. </p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding:20px">
-                                                <p>Salam,</p>
-                                                <p style="font-size: 16px; font-weight: bold;"> Tim Signteraktif</p>
+                                            <td>
+                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation"
+                                                    style="vertical-align:top" width="100%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td align="left"
+                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
+                                                                <div
+                                                                    style="font-family:Inter,Arial;font-size:16px;line-height:1.5;text-align:left;color:#333333">
+                                                                    Rincian Pesanan</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="left"
+                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
+                                                                <table cellpadding="0" cellspacing="0" width="100%"
+                                                                    border="0"
+                                                                    style="color:#333333;font-family:Inter,Arial;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none">
+                                                                    <tbody>
+                                                                        <tr style="border-bottom:1px solid #ecedee">
+                                                                            <th style="text-align:left;padding:8px 0">
+                                                                                Tanggal</th>
+                                                                            <th style="text-align:left;padding:8px 0">
+                                                                                Nama Interpreter</th>
+                                                                            <th style="text-align:left;padding:8px 0">
+                                                                                Lokasi</th>
+                                                                            <th
+                                                                                style="text-align:right;padding:8px 0 8px 8px">
+                                                                                Harga</th>
+                                                                        </tr>
+                                                                        <tr style="border-bottom:1px solid #ecedee">
+                                                                            <td style="text-align:left;padding:8px 0">
+                                                                                {{ date('d F Y', strtotime($transaction->details[0]->schedule->date)) }}
+                                                                                <br>{{ $transaction->details[0]->schedule->time_start }}
+                                                                                -
+                                                                                {{ $transaction->details[0]->schedule->time_end }}
+                                                                                WIB
+                                                                            </td>
+                                                                            <td style="text-align:left;padding:8px 0">
+                                                                                {{ $transaction->details[0]->schedule->user->name }}
+                                                                            </td>
+                                                                            <td style="text-align:left;padding:8px 0">
+                                                                                {{ $transaction->details[0]->schedule->user->detail->province }}</td>
+                                                                            <td
+                                                                                style="text-align:right;padding:8px 0 8px 8px">
+                                                                                Rp&nbsp;{{ $transaction->total_paid ?? 0 }}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td align="right"
+                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
+                                                                <table cellpadding="0" cellspacing="0" width="100%"
+                                                                    border="0"
+                                                                    style="color:#333333;font-family:Inter,Arial;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <th style="text-align:left;padding:8px 0">
+                                                                                Total Harga</th>
+                                                                            <td
+                                                                                style="text-align:right;padding:8px 0 8px 8px">
+                                                                                Rp&nbsp;{{ $transaction->total_paid ?? 0 }}</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th style="text-align:left;padding:8px 0">
+                                                                                Diskon</th>
+                                                                            <td
+                                                                                style="text-align:right;padding:8px 0 8px 8px">
+                                                                                Rp&nbsp;0</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th style="text-align:left;padding:8px 0">
+                                                                                Total Pembayaran</th>
+                                                                            <td
+                                                                                style="text-align:right;padding:8px 0 8px 8px;color:#ce231c">
+                                                                                Rp&nbsp;{{ $transaction->total_paid ?? 0 }}</td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </td>
                                         </tr>
                                     </tbody>

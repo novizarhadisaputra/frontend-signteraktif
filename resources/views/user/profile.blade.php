@@ -11,23 +11,24 @@
                                     <div class="">
                                         <div class="p-2 text-center">
                                             <img class="avatar-md rounded-circle mb-2"
-                                                src="{{ auth()->user()->image->url ?? asset('assets/img/default.png') }}"
+                                                src="{{ $user->image->url ?? asset('assets/img/default.png') }}"
                                                 alt="...">
                                             <p class="mb-0">
-                                                <span class="fw-bold">{{ auth()->user()->name }}</span>
+                                                <span class="fw-bold">{{ $user->name }}</span>
                                             </p>
-                                            <small class="fw-light">{{ auth()->user()->email }}</small>
+                                            <small class="fw-light">{{ $user->email }}</small>
                                         </div>
                                         <hr>
                                         <nav class="nav flex-md-column mb-3">
                                             <a class="nav-link active" aria-current="page"
-                                                href="{{ route('user.profile', ['id' => auth()->user()->id]) }}"><i
+                                                href="{{ route('user.profile', ['id' => $user->id]) }}"><i
                                                     class="bi bi-person me-2" aria-hidden="true"></i>Profile</a>
                                             <a class="nav-link"
-                                                href="{{ route('user.notification', ['id' => auth()->user()->id]) }}"><i
+                                                href="{{ route('user.notification', ['id' => $user->id]) }}"><i
                                                     class="bi bi-bell me-2" aria-hidden="true"></i>Notification</a>
-                                            <a class="nav-link" href="{{ route('user.event.upcoming', ['id' => auth()->user()->id]) }}"><i class="bi bi-calendar-range me-2"
-                                                    aria-hidden="true"></i>Event</a>
+                                            <a class="nav-link"
+                                                href="{{ route('user.event.upcoming', ['id' => $user->id]) }}"><i
+                                                    class="bi bi-calendar-range me-2" aria-hidden="true"></i>Event</a>
                                         </nav>
                                     </div>
                                 </div>
@@ -61,7 +62,7 @@
                                                         <label class="form-label">Photo Profile</label>
                                                         <div class="avatar-lg mx-auto position-relative">
                                                             <img class="avatar-lg rounded-circle mb-2"
-                                                                src="https://images.unsplash.com/photo-1582599782475-aaec4fbd1b02?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80"
+                                                                src="{{ $user->image->url ?? asset('assets/img/default.png') }}"
                                                                 alt="...">
                                                             <a class="btn-photo" type="button" data-bs-toggle="modal"
                                                                 data-bs-target="#modalUpload"><i class="bi bi-camera-fill"
@@ -70,7 +71,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <form>
+                                                    <form
+                                                        action="{{ route('user.update', ['user' => $user->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
                                                         <div class="mb-3">
                                                             <label for="InputName" class="form-label">Name</label>
                                                             <div class="input-group">
@@ -78,7 +83,7 @@
                                                                     class="input-group-text bg-transparent text-secondary"><i
                                                                         class="bi bi-person"></i></span>
                                                                 <input type="text" class="form-control border-start-0"
-                                                                    id="InputName" placeholder="Full Name">
+                                                                    id="name" name="name" value="{{ $user->name }}" placeholder="Full Name">
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
@@ -89,7 +94,7 @@
                                                                     class="input-group-text bg-transparent text-secondary"><i
                                                                         class="bi bi-envelope"></i></span>
                                                                 <input type="email" class="form-control border-start-0"
-                                                                    id="InputEmail" placeholder="Email">
+                                                                    id="InputEmail" name="email" value="{{ $user->email }}" placeholder="Email">
                                                             </div>
                                                         </div>
                                                         <div class="mb-3">
@@ -100,7 +105,7 @@
                                                                     class="input-group-text bg-transparent text-secondary"><i
                                                                         class="bi bi-phone"></i></span>
                                                                 <input type="number" class="form-control border-start-0"
-                                                                    id="InputPhone" placeholder="Phone Number">
+                                                                    id="InputPhone" name="phone" value="{{ $user->phone }}" placeholder="Phone Number">
                                                             </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-secondary float-end">Save
@@ -111,14 +116,18 @@
                                         </div>
                                         <div class="tab-pane fade" id="pills-password" role="tabpanel"
                                             aria-labelledby="pills-password-tab">
-                                            <form class="row g-3 p-3">
+                                            <form class="row g-3 p-3"
+                                                action="{{ route('user.change.password', ['id' => $user->id]) }}"
+                                                method="POST">
+                                                @csrf
                                                 <div class="col-md-4">
                                                     <label for="InputPhone" class="form-label">Current Password</label>
                                                     <div class="input-group mb-3">
                                                         <span class="input-group-text bg-transparent text-secondary"><i
                                                                 class="bi bi-key"></i></span>
                                                         <input type="password" class="form-control border-start-0"
-                                                            id="InputPassword1" placeholder="Current Password">
+                                                            id="current_password" name="current_password"
+                                                            placeholder="Current Password">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -127,7 +136,7 @@
                                                         <span class="input-group-text bg-transparent text-secondary"><i
                                                                 class="bi bi-key"></i></span>
                                                         <input type="password" class="form-control border-start-0"
-                                                            id="InputPassword3" placeholder="New Password">
+                                                            id="password" name="password" placeholder="New Password">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
@@ -137,7 +146,8 @@
                                                         <span class="input-group-text bg-transparent text-secondary"><i
                                                                 class="bi bi-key"></i></span>
                                                         <input type="password" class="form-control border-start-0"
-                                                            id="InputPassword3" placeholder="Confirm Password">
+                                                            id="password_confirmation" name="password_confirmation"
+                                                            placeholder="Confirm Password">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 offset-md-8">

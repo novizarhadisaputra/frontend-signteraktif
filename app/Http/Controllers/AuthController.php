@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Login;
 use App\Http\Requests\Registration;
+use App\Http\Requests\UpdatePassword;
 use Illuminate\Http\Request;
 
 class AuthController extends Controller
@@ -37,7 +38,7 @@ class AuthController extends Controller
             $response = $this->authRepo->login($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -48,7 +49,7 @@ class AuthController extends Controller
             $response = $this->authRepo->registration($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -76,7 +77,7 @@ class AuthController extends Controller
             $response = $this->authRepo->logout($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -86,17 +87,43 @@ class AuthController extends Controller
             $response = $this->authRepo->verifying($email);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
-    public function resetPassword(Request $request, $email)
+    public function resetPassword(Request $request)
     {
         try {
-            $response = $this->authRepo->resetPassword($email);
+            $response = $this->authRepo->resetPassword($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
+        }
+    }
+
+    public function showResetPassword(Request $request)
+    {
+        $response = $this->authRepo->showResetPassword($request);
+        return $response;
+    }
+
+    public function updatePassword(UpdatePassword $request)
+    {
+        try {
+            $response = $this->authRepo->updatePassword($request);
+            return $response;
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
+        }
+    }
+
+    public function changePassword(UpdatePassword $request)
+    {
+        try {
+            $response = $this->authRepo->changePassword($request);
+            return $response;
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }

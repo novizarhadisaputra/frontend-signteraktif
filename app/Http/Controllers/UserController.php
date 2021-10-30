@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Registration;
+use App\Http\Requests\UpdateProfile;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
@@ -96,7 +97,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Registration $request, $id)
+    public function update(UpdateProfile $request, $id)
     {
         try {
             $response = $this->userRepo->update($request, $id);

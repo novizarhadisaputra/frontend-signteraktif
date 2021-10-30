@@ -2,12 +2,13 @@
 
 namespace App\Repositories;
 
-use App\Mail\ForgotPasswordMail;
-use App\Mail\RegistrationMail;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Mail\RegistrationMail;
+use App\Mail\ForgotPasswordMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,7 +26,7 @@ class AuthRepository
         if (!auth()->attempt(['email' => $request->email, 'password' => $request->password, 'is_active' => 1, 'role_id' => 4])) {
             return redirect()->back()->with('error', 'Email and password not valid')->withInput();
         }
-        $this->user->where(['id' => auth('api')->user()->id])->update(['is_online' => 1]);
+        $this->user->where(['id' => auth()->user()->id])->update(['is_online' => 1]);
         return redirect()->back()->with('success', 'Login success')->withInput();
     }
 
@@ -59,20 +60,81 @@ class AuthRepository
 
     public function verifying($email)
     {
-        if (!$user = $this->user->where(['email' => $email])->first()) {
-            abort(404);
-        }
-        if ($user->role->id == 3) {
-            $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s')]);
-        } else {
-            $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s'), 'is_active' => 1]);
-        }
-        return view('pages.auth.verify-registration', compact('email'));
+        // if (!$user = $this->user->where(['email' => $email])->first()) {
+        //     abort(404);
+        // }
+        // if ($user->role->id == 3) {
+        //     $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s')]);
+        // } else {
+        //     $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s'), 'is_active' => 1]);
+        // }
+        // return view('pages.auth.verify-registration', compact('email'));
     }
 
-    public function resetPassword($email)
+    public function resetPassword($request)
     {
-        Mail::to($email)->send(new ForgotPasswordMail($email));
+        $this->user->where(['email' => $request->email])->update(['security_code' => Str::random(8)]);
+        $user = $this->user->where(['email' => $request->email])->first();
+        Mail::to($request->email)->send(new ForgotPasswordMail($user));
         return redirect()->back()->with('success', 'Request sent');
+    }
+
+    public function showResetPassword($request)
+    {
+        if (!$user = $this->user->where(['security_code' => $request->security_code])->first()) {
+            abort(404);
+        }
+        return view('auth.reset-password', compact('user'));
+    }
+
+    public function checkSecurityCode($request)
+    {
+        if (!$user = $this->user->where(['security_code' => $request->security_code])->first()) {
+            return abort(404);
+        }
+    }
+
+    public function updatePassword($request)
+    {
+        try {
+            DB::beginTransaction();
+            if (!$user = $this->user->where(['security_code' => $request->security_code])->first()) {
+                abort(404);
+            }
+            $this->user->where(['email' => $user->email])
+                ->update([
+                    'password' => Hash::make($request->password),
+                    'password_user' => $request->password,
+                    'security_code' => null
+                ]);
+            $user = $this->user->where(['email' => $user->email])->first();
+            DB::commit();
+            return redirect()->route('root')->with('success', 'Update Password success!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->route('root')->with('error', 'Update Password failed! Because ' . $e->getMessage());
+        }
+    }
+
+    public function changePassword($request)
+    {
+        try {
+            DB::beginTransaction();
+            if (auth()->user()->password_user != $request->current_password) {
+                return redirect()->back()->with('error', 'Password invalid');
+            }
+            $this->user->where(['email' => auth()->user()->email])
+                ->update([
+                    'password' => Hash::make($request->password),
+                    'password_user' => $request->password,
+                    'security_code' => null
+                ]);
+            DB::commit();
+            auth()->logout();
+            return redirect()->route('root')->with('success', 'Update Password success!');
+        } catch (\Exception $e) {
+            DB::rollback();
+            return redirect()->back()->with('error', 'Update Password failed! Because ' . $e->getMessage());
+        }
     }
 }

@@ -47,9 +47,9 @@ Route::prefix('partner')->name('partner.')->group(function () {
 });
 
 Route::prefix('reset-password')->name('reset-password.')->group(function () {
-    Route::get('{email}', [AuthController::class, 'resetPassword'])->name('index');
-    Route::post('{email}/confirmation', [AuthController::class, 'resetPasswordConfirmation'])->name('confirmation');
-    Route::get('{email}/feedback', [AuthController::class, 'resetPasswordFeedback'])->name('feedback');
+    Route::post('/', [AuthController::class, 'resetPassword'])->name('store');
+    Route::get('/', [AuthController::class, 'showResetPassword'])->name('index');
+    Route::post('/update', [AuthController::class, 'updatePassword'])->name('update');
 });
 
 // Google URL
@@ -70,6 +70,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{id}/notification', [UserController::class, 'listNotification'])->name('notification');
         Route::get('/{id}/event/upcoming-event', [UserController::class, 'upcomingEvent'])->name('event.upcoming');
         Route::get('/{id}/event/list-booking', [UserController::class, 'listOrder'])->name('event.booking');
+
+        Route::post('{id}/update-password', [AuthController::class, 'changePassword'])->name('change.password');
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

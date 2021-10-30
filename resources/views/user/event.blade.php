@@ -255,9 +255,9 @@
                                                                 <a class="btn btn-sm btn-outline-danger" type="button"
                                                                     data-bs-toggle="modal"
                                                                     data-bs-target="#modalCancel">Cancel</a>
-                                                                <a href="reshedule.html"
+                                                                <a href="{{ route('transaction.edit', ['transaction' => $transaction->id]) . '?date=' . $transaction->details[0]->schedule->date }}"
                                                                     class="btn btn-sm btn-outline-secondary">Reschedule</a>
-                                                                <a href="detail.html"
+                                                                <a href="{{ route('transaction.show', ['transaction' => $transaction->id]) . '?date=' . $transaction->details[0]->schedule->date }}"
                                                                     class="btn btn-sm btn-primary">Detail</a>
                                                             </div>
                                                         </div>
