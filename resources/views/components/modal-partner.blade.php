@@ -33,7 +33,8 @@
                             </div>
 
                             <div class="d-flex justify-content-between my-4">
-                                <a href="#" class="btn btn-outline-primary w-50 me-3"><i
+                                <a href="https://api.whatsapp.com/send?phone={{ $partner->detail->phone }}"
+                                    class="btn btn-outline-primary w-50 me-3"><i
                                         class="bi bi-chat-dots-fill mx-5 mx-md-1" aria-hidden="true"></i>Contact</a>
                                 <a href="{{ route('transaction.form.order', ['partnerId' => $partner->id]) }}?date={{ request()->input('date') }}"
                                     class="btn btn-primary w-50 ms-3">Make appointment</a>
