@@ -2,6 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\API\GoogleController;
+use App\Http\Controllers\API\PartnerController;
+use App\Http\Controllers\API\FirebaseController;
+use App\Http\Controllers\API\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +20,34 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['apiLog'])->group(function () {
+    Route::middleware(['auth:api'])->group(function () {
+        Route::resource('user', UserController::class);
+        Route::prefix('auth')->group(function () {
+            Route::get('me', [AuthController::class, 'me']);
+            Route::post('logout', [AuthController::class, 'logout']);
+        });
+        Route::resource('partner', PartnerController::class);
+        Route::prefix('partner')->group(function () {
+            Route::get('/list/active', [PartnerController::class, 'listActive']);
+            Route::get('/{partner}/schedules', [PartnerController::class, 'schedules']);
+        });
+        Route::resource('transaction', TransactionController::class);
+        Route::prefix('transaction')->group(function () {
+            Route::get('/user/history', [TransactionController::class, 'history']);
+        });
+        Route::resource('firebase', FirebaseController::class);
+    });
+    Route::prefix('auth')->group(function () {
+        Route::post('login', [AuthController::class, 'login']);
+        Route::post('login/customer', [AuthController::class, 'loginCustomer']);
+        Route::post('login/third-party', [AuthController::class, 'loginThirdParty']);
+        Route::post('registration', [AuthController::class, 'registration']);
+        Route::post('reset-password', [AuthController::class, 'requestResetPassword']);
+        Route::post('check-security-code', [AuthController::class, 'checkSecurityCode']);
+        Route::put('update-password', [AuthController::class, 'updatePassword']);
+    });
+    Route::prefix('firebase')->name('firebase.')->group(function () {
+        Route::post('store-token', [FirebaseController::class, 'storeToken'])->name('store.token');
+    });
 });

@@ -27,7 +27,7 @@ class TransactionRepository
         Transaction $transaction,
         TransactionStatus $transactionStatus,
         Schedule $schedule
-        ) {
+    ) {
         $this->schedule = $schedule;
         $this->transaction = $transaction;
         $this->transactionStatus = $transactionStatus;
@@ -61,7 +61,8 @@ class TransactionRepository
             $request->merge([
                 'user_id' => auth()->user()->id,
                 'transaction_status_id' => 1,
-                'details' => json_decode($request->details)
+                'details' => json_decode($request->details),
+                'transaction_code' => 'TRANS/' . str_pad(getTransactionId(), 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y')
             ]);
             $transaction = $this->transaction->create($request->input());
             foreach ($request->details as $detail) {

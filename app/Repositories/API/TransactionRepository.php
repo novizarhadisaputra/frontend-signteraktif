@@ -45,7 +45,11 @@ class TransactionRepository
     {
         try {
             DB::beginTransaction();
-            $request->merge(['user_id' => auth('api')->user()->id]);
+            $request->merge([
+                'user_id' => auth('api')->user()->id,
+                'transaction_status_id' => 1,
+                'transaction_code' => 'TRANS/' . str_pad(getTransactionId(), 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y')
+            ]);
             $transaction = $this->transaction->create($request->input());
             foreach ($request->details as $detail) {
                 $data = [
@@ -57,7 +61,6 @@ class TransactionRepository
                 ];
                 $transaction->details()->create($data);
                 $this->schedule->where(['id' => $detail['schedule_id']])->update([
-                    'is_available' => 1,
                     'is_booked' => 1,
                 ]);
             }
