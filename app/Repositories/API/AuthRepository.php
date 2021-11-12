@@ -2,10 +2,11 @@
 
 namespace App\Repositories\API;
 
-use App\Mail\ResetPasswordMail;
 use Exception;
 use App\Models\User;
 use Illuminate\Support\Str;
+use App\Mail\RegistrationMail;
+use App\Mail\ResetPasswordMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -70,6 +71,7 @@ class AuthRepository
                 $user->image()->create(['url' => '/photo/' . $fileName . '.png']);
             }
             $user->detail()->create($request->input());
+            Mail::to($request->email)->send(new RegistrationMail($user));
             DB::commit();
             return response()->json(['message' => 'Login success', 'data' => compact('user')], 200);
         } catch (\Exception $e) {

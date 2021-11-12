@@ -40,8 +40,14 @@
                                 <tbody>
                                     <tr style="margin:0;padding:0">
                                         <td style="text-align: center;">
-                                            <img src="https://cloud-ex42.usaupload.com/file/5aMz/logo.svg" alt=""
-                                                height="60" style="margin-bottom:10px">
+                                            <img src="{{ asset('assets/img/logo.svg') }}" alt="" height="60"
+                                                style="margin-bottom:10px">
+                                        </td>
+                                    </tr>
+                                    <tr style="margin:0;padding:0">
+                                        <td>
+                                            <img src="{{ asset('assets/img/illustration5.png') }}" alt="" width="100%"
+                                                style="margin-bottom:10px">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -54,130 +60,29 @@
                                     <tbody>
                                         <tr>
                                             <td style="padding:20px">
-                                                <table style="width: 100%; background: #e1f6ef; border-radius: 10px;">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="left"
-                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
-                                                                <table cellpadding="0" cellspacing="0" width="100%"
-                                                                    border="0"
-                                                                    style="color:#333333;font-family:Inter,Arial;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none">
-                                                                    <tbody>
-                                                                        <tr style="border-bottom:1px solid #ecedee">
-                                                                            <td
-                                                                                style="text-align:left;padding:8px 0; color: #fa9200;">
-                                                                                No. Invoice</td>
-                                                                            <td
-                                                                                style="text-align:right;padding:8px 0 8px 8px;  color: #fa9200;">
-                                                                                {{ $transaction->transaction_code }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr style="border-bottom:1px solid #ecedee">
-                                                                            <td style="text-align:left;padding:8px 0">
-                                                                                Tanggal Pemesanan</td>
-                                                                            <td
-                                                                                style="text-align:right;padding:8px 0 8px 8px">
-                                                                                {{ date('d F Y', strtotime($transaction->created_at)) }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <p style="font-size: 16px; font-weight: bold;"> Hi {{ $user->name }}
+                                                </p>
+                                                <p> Terima kasih sudah bergabung di Signteraktif ! </p>
+                                                <p> Anda mendaftarkan akun ke Signteraktif menggunakan email <span
+                                                        style="font-weight:bold; color: #fa9200;">
+                                                        badik186@gmail.com</span> </p>
+                                                <p> Untuk mulai menggunakan Signteraktif, Silahkan untuk mengaktifkan
+                                                    akun anda dengan cara klik tombol aktifasi dibawah ini. </p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <table border="0" cellpadding="0" cellspacing="0" role="presentation"
-                                                    style="vertical-align:top" width="100%">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td align="left"
-                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
-                                                                <div
-                                                                    style="font-family:Inter,Arial;font-size:16px;line-height:1.5;text-align:left;color:#333333">
-                                                                    Rincian Pesanan</div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="left"
-                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
-                                                                <table cellpadding="0" cellspacing="0" width="100%"
-                                                                    border="0"
-                                                                    style="color:#333333;font-family:Inter,Arial;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none">
-                                                                    <tbody>
-                                                                        <tr style="border-bottom:1px solid #ecedee">
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Tanggal</th>
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Nama Interpreter</th>
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Lokasi</th>
-                                                                            <th
-                                                                                style="text-align:right;padding:8px 0 8px 8px">
-                                                                                Status</th>
-                                                                        </tr>
-                                                                        <tr style="border-bottom:1px solid #ecedee">
-                                                                            <td style="text-align:left;padding:8px 0">
-                                                                                {{ date('d F Y', strtotime($transaction->details[0]->schedule->date)) }}
-                                                                                <br>{{ $transaction->details[0]->schedule->time_start }}
-                                                                                -
-                                                                                {{ $transaction->details[0]->schedule->time_end }}
-                                                                                WIB
-                                                                            </td>
-                                                                            <td style="text-align:left;padding:8px 0">
-                                                                                {{ $transaction->details[0]->schedule->user->name }}
-                                                                            </td>
-                                                                            <td style="text-align:left;padding:8px 0">
-                                                                                {{ $transaction->details[0]->schedule->user->detail->province }}
-                                                                            </td>
-                                                                            <td
-                                                                                style="text-align:right;padding:8px 0 8px 8px">
-                                                                                Rp&nbsp;{{ $transaction->status->name }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr>
-                                                        {{-- <tr>
-                                                            <td align="right"
-                                                                style="font-size:0px;padding:10px 25px;word-break:break-word">
-                                                                <table cellpadding="0" cellspacing="0" width="100%"
-                                                                    border="0"
-                                                                    style="color:#333333;font-family:Inter,Arial;font-size:16px;line-height:22px;table-layout:auto;width:100%;border:none">
-                                                                    <tbody>
-                                                                        <tr>
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Total Harga</th>
-                                                                            <td
-                                                                                style="text-align:right;padding:8px 0 8px 8px">
-                                                                                Rp&nbsp;{{ $transaction->total_paid ?? 0 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Diskon</th>
-                                                                            <td
-                                                                                style="text-align:right;padding:8px 0 8px 8px">
-                                                                                Rp&nbsp;0</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Total Pembayaran</th>
-                                                                            <td
-                                                                                style="text-align:right;padding:8px 0 8px 8px;color:#ce231c">
-                                                                                Rp&nbsp;{{ $transaction->total_paid ?? 0 }}
-                                                                            </td>
-                                                                        </tr>
-                                                                    </tbody>
-                                                                </table>
-                                                            </td>
-                                                        </tr> --}}
-                                                    </tbody>
-                                                </table>
+                                            <td style="text-align: center; padding:20px;">
+                                                <a href="{{ route('verifying.index', ['email' => $user->email]) }}"
+                                                    style="display:inline-block;background:#fa9200;color:white;font-family:Inter,Arial;font-size:16px;font-weight:600;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;border-radius:4px"
+                                                    target="_blank">
+                                                    Verifikasi Email
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding:20px">
+                                                <p>Salam,</p>
+                                                <p style="font-size: 16px; font-weight: bold;"> Tim Signteraktif</p>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -215,12 +120,12 @@
                                                                             style="text-align: left; padding: 15px; color: #FFFFFF;">
                                                                             <a href=""
                                                                                 style="color: #FFFFFF; text-decoration: none; padding: 0 3px;">
-                                                                                <img src="https://cloud-ex42.usaupload.com/file/5aMx/appstore.jpg"
+                                                                                <img src="{{ asset('assets/img/ic-appstore.png') }}"
                                                                                     alt="">
                                                                             </a>
                                                                             <a href=""
                                                                                 style="color: #FFFFFF; text-decoration: none; padding: 0 3px;">
-                                                                                <img src="https://cloud-ex42.usaupload.com/file/5aMw/playstore.jpg"
+                                                                                <img src="{{ asset('assets/img/ic-playstore.png') }}"
                                                                                     alt="">
                                                                             </a>
                                                                         </td>
