@@ -52,13 +52,16 @@
                 <div class="col-md-10 col-7">
                     <ul class="nav nav-pills">
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->input('sex') ? request()->input('sex') == 'All'  ? 'active' : '' : 'active' }}" aria-current="page" href="{{ $allSex }}">All</a>
+                            <a class="nav-link {{ request()->input('sex') ? (request()->input('sex') == 'All' ? 'active' : '') : 'active' }}"
+                                aria-current="page" href="{{ $allSex }}">All</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->input('sex') == 'Man' ? 'active' : '' }}" href="{{ $male }}">Male</a>
+                            <a class="nav-link {{ request()->input('sex') == 'Man' ? 'active' : '' }}"
+                                href="{{ $male }}">Male</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ request()->input('sex') == 'Woman' ? 'active' : '' }}" href="{{ $female }}">Female</a>
+                            <a class="nav-link {{ request()->input('sex') == 'Woman' ? 'active' : '' }}"
+                                href="{{ $female }}">Female</a>
                         </li>
                     </ul>
                 </div>
@@ -79,9 +82,10 @@
                         <div class="person-card mb-4">
                             <div class="position-relative img-hover-zoom ">
                                 <a class="person-contact" href="#">
-                                    <span class="badge badge rounded-pill bg-light text-dark h5"><i
+                                    <a href="https://api.whatsapp.com/send?phone={{ $partner->detail->phone }}"
+                                        class="badge badge rounded-pill bg-light text-dark h5"><i
                                             class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i>
-                                        Contact</span>
+                                        Contact</a>
                                 </a>
                                 <a type="button" data-bs-toggle="modal" data-bs-target="#modalPerson{{ $partner->id }}">
                                     <img src="{{ $partner->image->url ?? asset('assets/img/default.png') }}" alt="...">

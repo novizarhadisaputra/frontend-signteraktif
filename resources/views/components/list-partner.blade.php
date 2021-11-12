@@ -11,9 +11,10 @@
                     <div class="person-card mb-4">
                         <div class="position-relative img-hover-zoom ">
                             <a class="person-contact" href="#">
-                                <span class="badge badge rounded-pill bg-light text-dark h5"><i
+                                <a href="https://api.whatsapp.com/send?phone={{ $partner->detail->phone }}"
+                                    class="badge badge rounded-pill bg-light text-dark h5"><i
                                         class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i>
-                                    Contact</span>
+                                    Contact</a>
                             </a>
                             <a type="button" data-bs-toggle="modal" data-bs-target="#modalPerson{{ $partner->id }}">
                                 <img src="{{ $partner->image->url ?? asset('assets/img/default.png') }}" alt="...">
