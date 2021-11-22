@@ -73,7 +73,7 @@ class AuthRepository
             $user->detail()->create($request->input());
             Mail::to($request->email)->send(new RegistrationMail($user));
             DB::commit();
-            return response()->json(['message' => 'Login success', 'data' => compact('user')], 200);
+            return response()->json(['message' => 'Registrasion success', 'data' => compact('user')], 200);
         } catch (\Exception $e) {
             DB::rollback();
             throw $e;
