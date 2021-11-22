@@ -60,15 +60,15 @@ class AuthRepository
 
     public function verifying($email)
     {
-        // if (!$user = $this->user->where(['email' => $email])->first()) {
-        //     abort(404);
-        // }
-        // if ($user->role->id == 3) {
-        //     $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s')]);
-        // } else {
-        //     $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s'), 'is_active' => 1]);
-        // }
-        // return view('pages.auth.verify-registration', compact('email'));
+        if (!$user = $this->user->where(['email' => $email])->first()) {
+            abort(404);
+        }
+        if ($user->role->id == 3) {
+            $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s')]);
+        } else {
+            $verified = $this->user->where(['email' => $email])->update(['email_verified_at' => date('Y-m-d H:i:s'), 'is_active' => 1]);
+        }
+        return redirect()->route('root')->with('success', 'Verify Success');
     }
 
     public function resetPassword($request)
