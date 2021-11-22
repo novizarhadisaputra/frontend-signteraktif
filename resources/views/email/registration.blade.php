@@ -101,7 +101,7 @@
                                                     <tr>
                                                         <td height="15"></td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td>
                                                             <table style="width: 100%;">
                                                                 <tbody>
@@ -169,7 +169,7 @@
                                                                 </tbody>
                                                             </table>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                     <tr>
                                                         <td
                                                             style="text-align: center; padding: 15px; color: #FFFFFF; border-top: 1px solid #FFFFFF;">
