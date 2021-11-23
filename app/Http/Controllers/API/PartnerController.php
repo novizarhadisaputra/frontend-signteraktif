@@ -26,7 +26,7 @@ class PartnerController extends Controller
             $response = $this->partner->index($request);
             return $response;
         } catch (\Exception $e) {
-            throw $e;
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -51,7 +51,7 @@ class PartnerController extends Controller
             $response = $this->partner->store($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -90,7 +90,7 @@ class PartnerController extends Controller
             $response = $this->partner->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -111,7 +111,7 @@ class PartnerController extends Controller
             $response = $this->partner->schedules($request, $schedules);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -121,7 +121,7 @@ class PartnerController extends Controller
             $response = $this->partner->listActive($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 }

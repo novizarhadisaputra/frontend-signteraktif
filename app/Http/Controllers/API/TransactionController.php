@@ -26,7 +26,7 @@ class TransactionController extends Controller
             $response = $this->transaction->index($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -51,7 +51,7 @@ class TransactionController extends Controller
             $response = $this->transaction->store($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -67,7 +67,7 @@ class TransactionController extends Controller
             $response = $this->transaction->show($id);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -95,7 +95,7 @@ class TransactionController extends Controller
             $response = $this->transaction->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -116,7 +116,7 @@ class TransactionController extends Controller
             $response = $this->transaction->history($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 }

@@ -24,8 +24,8 @@ class UserController extends Controller
         try {
             $response = $this->userRepo->index();
             return $response;
-        } catch (\Exception $th) {
-            throw $th;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -62,7 +62,7 @@ class UserController extends Controller
             $response = $this->userRepo->show($id);
             return $response;
         } catch (\Exception $e) {
-            throw $e;
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -90,7 +90,7 @@ class UserController extends Controller
             $response = $this->userRepo->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            throw $e;
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 

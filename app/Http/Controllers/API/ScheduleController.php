@@ -93,8 +93,8 @@ class ScheduleController extends Controller
         try {
             $response = $this->schedule->lisActive();
             return $response;
-        } catch (\Exception $th) {
-            throw $th;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 }
