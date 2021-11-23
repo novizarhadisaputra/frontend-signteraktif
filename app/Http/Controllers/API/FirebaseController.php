@@ -51,7 +51,7 @@ class FirebaseController extends Controller
             $response = $this->firebase->storeToken($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 

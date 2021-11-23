@@ -25,7 +25,7 @@ class AuthController extends Controller
             $response = $this->auth->login($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -34,7 +34,7 @@ class AuthController extends Controller
             $response = $this->auth->loginCustomer($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -43,7 +43,7 @@ class AuthController extends Controller
             $response = $this->auth->loginThirdParty($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -52,7 +52,7 @@ class AuthController extends Controller
             $response = $this->auth->me();
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -61,7 +61,7 @@ class AuthController extends Controller
             $response = $this->auth->registration($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -70,7 +70,7 @@ class AuthController extends Controller
             $response = $this->auth->logout();
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -80,7 +80,7 @@ class AuthController extends Controller
             $response = $this->auth->requestResetPassword($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -90,7 +90,7 @@ class AuthController extends Controller
             $response = $this->auth->checkSecurityCode($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 
@@ -100,7 +100,7 @@ class AuthController extends Controller
             $response = $this->auth->updatePassword($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], $e->getCode() ?? 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 }
