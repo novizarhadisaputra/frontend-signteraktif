@@ -34,7 +34,7 @@
                         <div
                             style="display:block;border-collapse:collapse;margin:0 auto;border:1px solid #e7e7e7;background:#f4f4f4">
                             <!--Header-->
-                            <table
+                            {{-- <table
                                 style="max-width:100%;border-spacing:0;width:100%;background-color:#ffffff;margin:0;padding:20px"
                                 bgcolor="transparent">
                                 <tbody>
@@ -51,7 +51,7 @@
                                         </td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table> --}}
                             <!--Header-->
                             <!--Indo-->
                             <div style="padding:15px">
@@ -103,7 +103,7 @@
                                                     <tr>
                                                         <td height="15"></td>
                                                     </tr>
-                                                    <tr>
+                                                    {{-- <tr>
                                                         <td>
                                                             <table style="width: 100%;">
                                                                 <tbody>
@@ -171,7 +171,7 @@
                                                                 </tbody>
                                                             </table>
                                                         </td>
-                                                    </tr>
+                                                    </tr> --}}
                                                     <tr>
                                                         <td
                                                             style="text-align: center; padding: 15px; color: #FFFFFF; border-top: 1px solid #FFFFFF;">
