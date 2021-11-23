@@ -35,7 +35,7 @@ class ApiLog
             'request_headers' => json_encode($request->header()),
             'request_method' => $request->method(),
             'request_body' => json_encode($request->input()),
-            'status' => $response->status(),
+            'status' => $response->status() ?? 500,
             'response' => (int) $response->status() < 500 ? $response->content() : str_replace(' ', '', $response->content()),
         ]);
     }
