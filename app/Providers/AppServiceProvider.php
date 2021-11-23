@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Middleware\ApiLog;
 use App\Repositories\AuthRepository;
 use App\Repositories\HomeRepository;
 use App\Repositories\RoleRepository;
@@ -53,6 +54,8 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind('repo.api.transactions', ApiTransactionRepository::class);
         $this->app->bind('repo.api.user', ApiUserRepository::class);
         $this->app->bind('repo.api.schedule', APIScheduleRepository::class);
+
+        $this->app->singleton(ApiLog::class);
     }
 
     /**
