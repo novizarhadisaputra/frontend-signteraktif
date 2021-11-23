@@ -60,7 +60,7 @@
                                     <tbody>
                                         <tr>
                                             <td style="padding:20px">
-                                                <p style="font-size: 16px; font-weight: bold;"> Hi {{ $data->name }}
+                                                <p style="font-size: 16px; font-weight: bold;"> Hi {{ $user->name }}
                                                 </p>
                                                 <p> Anda mengajukan permintaan untuk mengubah password ! </p>
                                                 <p> Untuk dapat mengubah password silahkan klik tautan di bawah ini.
@@ -69,7 +69,7 @@
                                         </tr>
                                         <tr>
                                             <td style="text-align: center; padding:20px;">
-                                                <a href="{{ route('reset-password.index') . '?security_code=' . $data->security_code }}"
+                                                <a href="{{ route('reset-password.index') . '?security_code=' . $user->security_code }}"
                                                     style="display:inline-block;background:#fa9200;color:white;font-family:Inter,Arial;font-size:16px;font-weight:600;line-height:120%;margin:0;text-decoration:none;text-transform:none;padding:10px 25px;border-radius:4px"
                                                     target="_blank">
                                                     Reset Password
