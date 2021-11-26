@@ -77,6 +77,8 @@ class TransactionRepository
                 $this->schedule->where(['id' => $detail->schedule_id])->update([
                     'is_available' => 0,
                 ]);
+                $partner = $this->schedule->find($detail->schedule_id);
+                Mail::to($partner->email)->send(new OrderMail($transaction));
             }
             Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
             DB::commit();
