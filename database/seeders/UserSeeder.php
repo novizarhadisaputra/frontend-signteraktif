@@ -36,9 +36,9 @@ class UserSeeder extends Seeder
 
         $admin = User::create([
             'name' => 'Admin Signteraktif',
-            'email' => 'suppoer@signteraktif.net',
-            'password' => 'Nn122012!!',
-            'password_user' => 'Nn122012!!',
+            'email' => 'support@signteraktif.net',
+            'password' => 'tul1pqaz',
+            'password_user' => 'tul1pqaz',
             'role_id' => 2,
             'is_active' => 1,
 
