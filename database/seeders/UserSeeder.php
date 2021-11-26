@@ -20,7 +20,8 @@ class UserSeeder extends Seeder
             'password' => 'Nn122012!!',
             'password_user' => 'Nn122012!!',
             'role_id' => 1,
-            'is_active' => 1
+            'is_active' => 1,
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         $superadmin->detail()->create([
@@ -39,7 +40,8 @@ class UserSeeder extends Seeder
             'password' => 'Nn122012!!',
             'password_user' => 'Nn122012!!',
             'role_id' => 2,
-            'is_active' => 1
+            'is_active' => 1,
+
         ]);
 
         $admin->detail()->create([
