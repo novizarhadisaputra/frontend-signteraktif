@@ -12,14 +12,16 @@ class OrderMail extends Mailable
     use Queueable, SerializesModels;
 
     protected $transaction;
+    protected $sub;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($transaction)
+    public function __construct($transaction, $sub = 'Invoice Mail')
     {
         $this->transaction = $transaction;
+        $this->sub = $sub;
     }
 
     /**
@@ -30,6 +32,6 @@ class OrderMail extends Mailable
     public function build()
     {
         $transaction = $this->transaction;
-        return $this->view('email.invoice', compact('transaction'));
+        return $this->subject($this->sub)->view('email.invoice', compact('transaction'));
     }
 }

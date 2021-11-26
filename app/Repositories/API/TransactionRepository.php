@@ -2,12 +2,14 @@
 
 namespace App\Repositories\API;
 
-use App\Models\Schedule;
 use Exception;
+use App\Mail\OrderMail;
+use App\Models\Schedule;
 use App\Models\Transaction;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Storage;
 
 class TransactionRepository
 {
@@ -54,16 +56,19 @@ class TransactionRepository
             foreach ($request->details as $detail) {
                 $data = [
                     'transaction_id' => $transaction->id,
-                    'schedule_id' => $detail['schedule_id'],
-                    'total_price' => $detail['total_price'],
-                    'total_paid' => $detail['total_paid'],
-                    'total_paid' => $detail['total_paid']
+                    'schedule_id' => $detail->schedule_id,
+                    'total_price' => $detail->total_price,
+                    'total_paid' => $detail->total_paid,
+                    'total_paid' => $detail->total_paid
                 ];
                 $transaction->details()->create($data);
-                $this->schedule->where(['id' => $detail['schedule_id']])->update([
-                    'is_booked' => 1,
+                $this->schedule->where(['id' => $detail->schedule_id])->update([
+                    'is_available' => 0,
                 ]);
+                $partner = $this->schedule->find($detail->schedule_id);
+                Mail::to($partner->email)->send(new OrderMail($transaction, 'Order Mail'));
             }
+            Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
             DB::commit();
             return response()->json(['message' => 'Transaction created', 'data' => compact('transaction')], 201);
         } catch (\Exception $e) {
