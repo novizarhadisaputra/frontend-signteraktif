@@ -65,7 +65,7 @@
                                                 <p> Terima kasih sudah bergabung di Signteraktif ! </p>
                                                 <p> Anda mendaftarkan akun ke Signteraktif menggunakan email <span
                                                         style="font-weight:bold; color: #fa9200;">
-                                                        badik186@gmail.com</span> </p>
+                                                        {{ $user->email }}</span> </p>
                                                 <p> Untuk mulai menggunakan Signteraktif, Silahkan untuk mengaktifkan
                                                     akun anda dengan cara klik tombol aktifasi dibawah ini. </p>
                                             </td>
