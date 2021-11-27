@@ -264,7 +264,7 @@
                                                     <tr>
                                                         <td
                                                             style="text-align: center; padding: 15px; color: #FFFFFF; border-top: 1px solid #FFFFFF;">
-                                                            <span>Copyright 2021 © PT Signteraktif</span>
+                                                            <span>Copyright 2021 © Signteraktif</span>
                                                         </td>
                                                     </tr>
                                                 </tbody>
