@@ -23,6 +23,7 @@ class PartnerRepository
     }
     public function index($request)
     {
+        $partner = 'active';
         $request->per_page = $request->per_page ?? 4;
         $request->province = $request->province ?? 'All';
         $user = $this->user->whereHas('detail', function (Builder $query) use ($request) {
@@ -81,7 +82,7 @@ class PartnerRepository
             $query->where('end_date', '<', $endDate)->orderBy('start_date');
         }])->where(['role_id' => self::partnerRole])->where(['is_active' => 1])->paginate($request->per_page)->getCollection();
 
-        return view('partner.index', compact('partners'));
+        return view('partner.index', compact('partners', 'partner'));
     }
 
     public function listActive($request)

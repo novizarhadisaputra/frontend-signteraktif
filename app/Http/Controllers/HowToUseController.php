@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class HowToUseController extends Controller
 {
     public function index() {
-        return view('how-to-use');
+        $how = 'active';
+        return view('how-to-use', compact('how'));
     }
 }

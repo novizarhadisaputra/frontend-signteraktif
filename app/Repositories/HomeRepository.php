@@ -23,6 +23,7 @@ class HomeRepository
 
     public function index($request)
     {
+        $home = 'active';
         $request->per_page = $request->per_page ?? 4;
         $request->province = $request->province ?? 'All';
         $user = $this->user->whereHas('detail', function (Builder $query) use ($request) {
@@ -81,6 +82,6 @@ class HomeRepository
             $query->where('end_date', '<', $endDate)->orderBy('start_date');
         }])->where(['role_id' => self::partnerRole])->where(['is_active' => 1])->paginate($request->per_page)->getCollection();
 
-        return view('welcome', compact('partners'));
+        return view('welcome', compact('partners', 'home'));
     }
 }

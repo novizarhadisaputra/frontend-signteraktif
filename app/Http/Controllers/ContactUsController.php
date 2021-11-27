@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class ContactUsController extends Controller
 {
     public function index() {
-        return view('contact-us');
+        $contact = 'active';
+        return view('contact-us', compact('contact'));
     }
 }

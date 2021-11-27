@@ -11,22 +11,23 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('root') }}">Home</a>
+                        <a class="nav-link {{ isset($home) ? $home : '' }}" aria-current="page"
+                            href="{{ route('root') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('partner.index') }}">Find Interpreter</a>
+                        <a class="nav-link {{ isset($partner) ? $partner : '' }}" href="{{ route('partner.index') }}">Find Interpreter</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about-us') }}">About Us</a>
+                        <a class="nav-link {{ isset($about) ? $about : '' }}" href="{{ route('about-us') }}">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('service') }}">Service</a>
+                        <a class="nav-link {{ isset($service) ? $service : '' }}" href="{{ route('service') }}">Service</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('how-to-use') }}">How To Use</a>
+                        <a class="nav-link {{ isset($how) ? $how : '' }}" href="{{ route('how-to-use') }}">How To Use</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link {{ isset($contact) ? $contact : '' }}" href="{{ route('contact-us') }}">Contact Us</a>
                     </li>
                 </ul>
                 @if (auth()->user())
