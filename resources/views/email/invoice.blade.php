@@ -40,8 +40,8 @@
                                 <tbody>
                                     <tr style="margin:0;padding:0">
                                         <td style="text-align: center;">
-                                            <img src="https://cloud-ex42.usaupload.com/file/5aMz/logo.svg" alt=""
-                                                height="60" style="margin-bottom:10px">
+                                            <img src="{{ asset('assets/img/logo.svg') }}" alt="" height="60"
+                                                style="margin-bottom:10px">
                                         </td>
                                     </tr>
                                 </tbody>
@@ -113,8 +113,6 @@
                                                                                 Tanggal</th>
                                                                             <th style="text-align:left;padding:8px 0">
                                                                                 Nama Interpreter</th>
-                                                                            <th style="text-align:left;padding:8px 0">
-                                                                                Lokasi</th>
                                                                             <th
                                                                                 style="text-align:right;padding:8px 0 8px 8px">
                                                                                 Status</th>
@@ -130,12 +128,10 @@
                                                                             <td style="text-align:left;padding:8px 0">
                                                                                 {{ $transaction->details[0]->schedule->user->name }}
                                                                             </td>
-                                                                            <td style="text-align:left;padding:8px 0">
-                                                                                {{ $transaction->details[0]->schedule->user->detail->province }}
-                                                                            </td>
                                                                             <td
                                                                                 style="text-align:right;padding:8px 0 8px 8px">
-                                                                                Rp&nbsp;{{ $transaction->status->name }}
+                                                                                {{-- Rp&nbsp; --}}
+                                                                                {{ $transaction->status->name }}
                                                                             </td>
                                                                         </tr>
                                                                     </tbody>
