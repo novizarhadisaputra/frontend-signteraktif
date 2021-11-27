@@ -158,11 +158,11 @@
                     }
                 });
 
-                $("#selectDate").on("change.datetimepicker", function(e) {
-                    let date = moment(e.date._d).format('YYYY-MM-DD');
-                    window.location =
-                        `{{ route('transaction.form.order', ['partnerId' => $partner->id]) }}?date=${date}`;
-                });
+                // $("#selectDate").on("change.datetimepicker", function(e) {
+                //     let date = moment(e.date._d).format('YYYY-MM-DD');
+                //     window.location =
+                //         `{{ route('transaction.form.order', ['partnerId' => $partner->id]) }}?date=${date}`;
+                // });
 
                 $("#selectTime").change(function() {
                     if ($(this).val() != '') {
