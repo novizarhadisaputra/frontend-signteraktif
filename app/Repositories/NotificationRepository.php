@@ -12,7 +12,7 @@ class NotificationRepository
     protected $firebase, $notifications;
 
     public function __construct(
-        Notification $notifications,
+        Notification $notifications
     ) {
         $this->notifications = $notifications;
         $this->firebase = app()->make('repo.api.firebase');
