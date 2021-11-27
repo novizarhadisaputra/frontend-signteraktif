@@ -13,7 +13,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-center text-md-end py-md-5">
-                        <img src="assets/img/illustration1.png" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/img/illustration1.png') }}" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
@@ -26,7 +26,8 @@
                                     <div class="input-group">
                                         <span class="input-group-text bg-transparent text-secondary border-0"><i
                                                 class="bi bi-geo-alt"></i></span>
-                                        <select class="form-select border-0 border-end rounded-0" name="province" id="province">
+                                        <select class="form-select border-0 border-end rounded-0" name="province"
+                                            id="province">
                                             <option value="All">All Location</option>
                                             <option value="Yogyakarta">Yogyakarta</option>
                                             <option value="Boyolali">Boyolali</option>
@@ -87,7 +88,7 @@
                 <div class="col-md-3 col-6">
                     <div class="card border-0">
                         <div class="card-body">
-                            <img src="assets/img/vector1.svg" class="img-fluid mb-4" alt="">
+                            <img src="{{ asset('assets/img/vector1.svg') }}" class="img-fluid mb-4" alt="">
                             <h3 class="mb-3">Easy and fast</h3>
                             <p>Easy to find and contact sign language interpreter</p>
                         </div>
@@ -96,7 +97,7 @@
                 <div class="col-md-3 col-6">
                     <div class="card border-0">
                         <div class="card-body">
-                            <img src="assets/img/vector2.svg" class="img-fluid mb-4" alt="">
+                            <img src="{{ asset('assets/img/vector2.svg') }}" class="img-fluid mb-4" alt="">
                             <h3 class="mb-3">Real time</h3>
                             <p>Communicate directly through the Interpreter</p>
                         </div>
@@ -105,7 +106,7 @@
                 <div class="col-md-3 col-6">
                     <div class="card border-0">
                         <div class="card-body">
-                            <img src="assets/img/vector3.svg" class="img-fluid mb-4" alt="">
+                            <img src="{{ asset('assets/img/vector3.svg') }}" class="img-fluid mb-4" alt="">
                             <h3 class="mb-3">On-Demand Service</h3>
                             <p>Adjusting the needs of the deaf either directly, scheduled or dialect choice.</p>
                         </div>
@@ -114,7 +115,7 @@
                 <div class="col-md-3 col-6">
                     <div class="card border-0">
                         <div class="card-body">
-                            <img src="assets/img/vector4.svg" class="img-fluid mb-4" alt="">
+                            <img src="{{ asset('assets/img/vector4.svg') }}" class="img-fluid mb-4" alt="">
                             <h3 class="mb-3">Provides many choices</h3>
                             <p>You can choose JBI according to the needs of the situation (online or on site)</p>
                         </div>
@@ -187,13 +188,13 @@
             <h2 class="h1 mb-5 text-center"> Our Partners </h2>
             <div class="row justify-content-center">
                 <div class="col col-md-2">
-                    <img src="assets/img/logo-partner1.png" class="img-fluid my-4" alt="">
+                    <img src="{{ asset('assets/img/logo-partner1.png') }}" class="img-fluid my-4" alt="">
                 </div>
                 <div class="col col-md-2">
-                    <img src="assets/img/logo-partner2.png" class="img-fluid my-4" alt="">
+                    <img src="{{ asset('assets/img/logo-partner2.png') }}" class="img-fluid my-4" alt="">
                 </div>
                 <div class="col col-md-2">
-                    <img src="assets/img/logo-partner3.png" class="img-fluid my-4" alt="">
+                    <img src="{{ asset('assets/img/logo-partner3.png') }}" class="img-fluid my-4" alt="">
                 </div>
             </div>
         </div>
@@ -208,13 +209,13 @@
                         </h6>
                     </div>
                     <div class="text-center text-md-start pb-5">
-                        <a href="#"><img src="assets/img/ic-playstore.png" height="50" alt=""></a>
-                        <a href="#"><img src="assets/img/ic-appstore.png" height="50" alt=""></a>
+                        <a href="#"><img src="{{ asset('assets/img/ic-playstore.png') }}" height="50" alt=""></a>
+                        <a href="#"><img src="{{ asset('assets/img/ic-appstore.png') }}" height="50" alt=""></a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-center text-md-end">
-                        <img src="assets/img/illustration3.png" class="img-fluid" alt="">
+                        <img src="{{ asset('assets/img/illustration3.png') }}" class="img-fluid" alt="">
                     </div>
                 </div>
             </div>
