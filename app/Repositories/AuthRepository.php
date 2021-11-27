@@ -44,7 +44,7 @@ class AuthRepository
             $user->detail()->create($request->input());
             Mail::to($request->email)->send(new RegistrationMail($user));
             DB::commit();
-            return redirect()->back()->with('success', 'Registration success');
+            return redirect()->route('root')->with('success', 'Registration success');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', $e->getMessage());
