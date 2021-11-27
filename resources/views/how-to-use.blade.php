@@ -95,7 +95,7 @@
                         <div class="col-md-3 col-6 mb-3">
                             <div class="card border-0 h-100 bg-transparent">
                                 <div class="card-body">
-                                    <img src="assets/img/vector9.svg" class="img-fluid mb-4" alt="">
+                                    <img src="{{ asset('assets/img/vector9.svg') }}" class="img-fluid mb-4" alt="">
                                     <div class="d-flex">
                                         <div class="flex-shrink-0">
                                             <h1>01</h1>
@@ -110,7 +110,7 @@
                         <div class="col-md-3 col-6 mb-3">
                             <div class="card border-0 h-100 bg-transparent">
                                 <div class="card-body">
-                                    <img src="assets/img/vector10.svg" class="img-fluid mb-4" alt="">
+                                    <img src="{{ asset('assets/img/vector10.svg') }}" class="img-fluid mb-4" alt="">
                                     <div class="d-flex">
                                         <div class="flex-shrink-0">
                                             <h1>02</h1>
