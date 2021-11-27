@@ -50,7 +50,7 @@ class TransactionRepository
             $request->merge([
                 'user_id' => auth('api')->user()->id,
                 'transaction_status_id' => 1,
-                'transaction_code' => 'TRANS/' . str_pad(getTransactionId(), 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y')
+                'transaction_code' => 'TRANS/' . str_pad(getLastTransactionId() + 1, 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y')
             ]);
             $transaction = $this->transaction->create($request->input());
             foreach ($request->details as $detail) {

@@ -31,13 +31,16 @@ function hasManyRole($nameRole)
 
 function getLastTransactionId()
 {
-    return Transaction::orderBy('id', 'desc')->first()->id;
+    if (Transaction::count()) {
+        return Transaction::orderBy('id', 'desc')->first()->id;
+    }
+    return 0;
 }
 
 function getCode($code)
 {
-    if($code) {
-        if($code >= 500) {
+    if ($code) {
+        if ($code >= 500) {
             return 500;
         } else {
             return $code;
