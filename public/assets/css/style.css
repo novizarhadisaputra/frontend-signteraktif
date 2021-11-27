@@ -179,16 +179,16 @@ span[data-notif-items]:before {
 }
 
 .btn-primary:hover,
-.btn-primary:not(:disabled):not(.disabled).active, 
-.btn-primary:not(:disabled):not(.disabled):active, 
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
 .show>.btn-primary.dropdown-toggle{
   background-color: hsl(var(--primary),calc(var(--pl) - 10%));
   border-color: hsl(var(--primary),calc(var(--pl) - 10%));
 }
-.btn-primary.focus, 
+.btn-primary.focus,
 .btn-primary:focus,
-.btn-primary:not(:disabled):not(.disabled).active:focus, 
-.btn-primary:not(:disabled):not(.disabled):active:focus, 
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-primary.dropdown-toggle:focus{
   background-color: hsl(var(--primary),calc(var(--pl) - 10%));
   border-color: hsl(var(--primary),calc(var(--pl) - 10%));
@@ -201,16 +201,16 @@ span[data-notif-items]:before {
 }
 
 .btn-secondary:hover,
-.btn-secondary:not(:disabled):not(.disabled).active, 
-.btn-secondary:not(:disabled):not(.disabled):active, 
+.btn-secondary:not(:disabled):not(.disabled).active,
+.btn-secondary:not(:disabled):not(.disabled):active,
 .show>.btn-secondary.dropdown-toggle{
   background-color: hsl(var(--secondary),calc(var(--sl) - 10%));
   border-color: hsl(var(--secondary),calc(var(--sl) - 10%));
 }
-.btn-secondary.focus, 
+.btn-secondary.focus,
 .btn-secondary:focus,
-.btn-secondary:not(:disabled):not(.disabled).active:focus, 
-.btn-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-secondary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-secondary.dropdown-toggle:focus{
   background-color: hsl(var(--secondary),calc(var(--sl) - 10%));
   border-color: hsl(var(--secondary),calc(var(--sl) - 10%));
@@ -223,16 +223,16 @@ span[data-notif-items]:before {
 }
 
 .btn-info:hover,
-.btn-info:not(:disabled):not(.disabled).active, 
-.btn-info:not(:disabled):not(.disabled):active, 
+.btn-info:not(:disabled):not(.disabled).active,
+.btn-info:not(:disabled):not(.disabled):active,
 .show>.btn-info.dropdown-toggle{
   background-color: hsl(var(--info),calc(var(--il) - 10%));
   border-color: hsl(var(--info),calc(var(--il) - 10%));
 }
-.btn-info.focus, 
+.btn-info.focus,
 .btn-info:focus,
-.btn-info:not(:disabled):not(.disabled).active:focus, 
-.btn-info:not(:disabled):not(.disabled):active:focus, 
+.btn-info:not(:disabled):not(.disabled).active:focus,
+.btn-info:not(:disabled):not(.disabled):active:focus,
 .show>.btn-info.dropdown-toggle:focus{
   background-color: hsl(var(--info),calc(var(--il) - 10%));
   border-color: hsl(var(--info),calc(var(--il) - 10%));
@@ -245,16 +245,16 @@ span[data-notif-items]:before {
 }
 
 .btn-success:hover,
-.btn-success:not(:disabled):not(.disabled).active, 
-.btn-success:not(:disabled):not(.disabled):active, 
+.btn-success:not(:disabled):not(.disabled).active,
+.btn-success:not(:disabled):not(.disabled):active,
 .show>.btn-success.dropdown-toggle{
   background-color: hsl(var(--success),calc(var(--ul) - 10%));
   border-color: hsl(var(--success),calc(var(--ul) - 10%));
 }
-.btn-success.focus, 
+.btn-success.focus,
 .btn-success:focus,
-.btn-success:not(:disabled):not(.disabled).active:focus, 
-.btn-success:not(:disabled):not(.disabled):active:focus, 
+.btn-success:not(:disabled):not(.disabled).active:focus,
+.btn-success:not(:disabled):not(.disabled):active:focus,
 .show>.btn-success.dropdown-toggle:focus{
   background-color: hsl(var(--success),calc(var(--ul) - 10%));
   border-color: hsl(var(--success),calc(var(--ul) - 10%));
@@ -267,16 +267,16 @@ span[data-notif-items]:before {
 }
 
 .btn-warning:hover,
-.btn-warning:not(:disabled):not(.disabled).active, 
-.btn-warning:not(:disabled):not(.disabled):active, 
+.btn-warning:not(:disabled):not(.disabled).active,
+.btn-warning:not(:disabled):not(.disabled):active,
 .show>.btn-warning.dropdown-toggle{
   background-color: hsl(var(--warning),calc(var(--wl) - 10%));
   border-color: hsl(var(--warning),calc(var(--wl) - 10%));
 }
-.btn-warning.focus, 
+.btn-warning.focus,
 .btn-warning:focus,
-.btn-warning:not(:disabled):not(.disabled).active:focus, 
-.btn-warning:not(:disabled):not(.disabled):active:focus, 
+.btn-warning:not(:disabled):not(.disabled).active:focus,
+.btn-warning:not(:disabled):not(.disabled):active:focus,
 .show>.btn-warning.dropdown-toggle:focus{
   background-color: hsl(var(--warning),calc(var(--wl) - 10%));
   border-color: hsl(var(--warning),calc(var(--wl) - 10%));
@@ -289,16 +289,16 @@ span[data-notif-items]:before {
 }
 
 .btn-danger:hover,
-.btn-danger:not(:disabled):not(.disabled).active, 
-.btn-danger:not(:disabled):not(.disabled):active, 
+.btn-danger:not(:disabled):not(.disabled).active,
+.btn-danger:not(:disabled):not(.disabled):active,
 .show>.btn-danger.dropdown-toggle{
   background-color: hsl(var(--danger),calc(var(--dl) - 10%));
   border-color: hsl(var(--danger),calc(var(--dl) - 10%));
 }
-.btn-danger.focus, 
+.btn-danger.focus,
 .btn-danger:focus,
-.btn-danger:not(:disabled):not(.disabled).active:focus, 
-.btn-danger:not(:disabled):not(.disabled):active:focus, 
+.btn-danger:not(:disabled):not(.disabled).active:focus,
+.btn-danger:not(:disabled):not(.disabled):active:focus,
 .show>.btn-danger.dropdown-toggle:focus{
   background-color: hsl(var(--danger),calc(var(--dl) - 10%));
   border-color: hsl(var(--danger),calc(var(--dl) - 10%));
@@ -314,16 +314,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-primary:hover,
-.btn-outline-primary:not(:disabled):not(.disabled).active, 
-.btn-outline-primary:not(:disabled):not(.disabled):active, 
+.btn-outline-primary:not(:disabled):not(.disabled).active,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
 .show>.btn-outline-primary.dropdown-toggle{
   background-color: hsl(var(--primary),var(--pl));
   border-color: hsl(var(--primary),var(--pl));
 }
-.btn-outline-primary.focus, 
+.btn-outline-primary.focus,
 .btn-outline-primary:focus,
-.btn-outline-primary:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-primary:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-primary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-primary.dropdown-toggle:focus{
   background-color: hsl(var(--primary),var(--pl));
   border-color: hsl(var(--primary),var(--pl));
@@ -337,16 +337,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-secondary:hover,
-.btn-outline-secondary:not(:disabled):not(.disabled).active, 
-.btn-outline-secondary:not(:disabled):not(.disabled):active, 
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.btn-outline-secondary:not(:disabled):not(.disabled):active,
 .show>.btn-outline-secondary.dropdown-toggle{
   background-color: hsl(var(--secondary),var(--sl));
   border-color: hsl(var(--secondary),var(--sl));
 }
-.btn-outline-secondary.focus, 
+.btn-outline-secondary.focus,
 .btn-outline-secondary:focus,
-.btn-outline-secondary:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-secondary.dropdown-toggle:focus{
   background-color: hsl(var(--secondary),var(--sl));
   border-color: hsl(var(--secondary),var(--sl));
@@ -360,16 +360,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-secondary:hover,
-.btn-outline-secondary:not(:disabled):not(.disabled).active, 
-.btn-outline-secondary:not(:disabled):not(.disabled):active, 
+.btn-outline-secondary:not(:disabled):not(.disabled).active,
+.btn-outline-secondary:not(:disabled):not(.disabled):active,
 .show>.btn-outline-secondary.dropdown-toggle{
   background-color: hsl(var(--secondary),var(--sl));
   border-color: hsl(var(--secondary),var(--sl));
 }
-.btn-outline-secondary.focus, 
+.btn-outline-secondary.focus,
 .btn-outline-secondary:focus,
-.btn-outline-secondary:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-secondary:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-secondary:not(:disabled):not(.disabled).active:focus,
+.btn-outline-secondary:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-secondary.dropdown-toggle:focus{
   background-color: hsl(var(--secondary),var(--sl));
   border-color: hsl(var(--secondary),var(--sl));
@@ -384,16 +384,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-info:hover,
-.btn-outline-info:not(:disabled):not(.disabled).active, 
-.btn-outline-info:not(:disabled):not(.disabled):active, 
+.btn-outline-info:not(:disabled):not(.disabled).active,
+.btn-outline-info:not(:disabled):not(.disabled):active,
 .show>.btn-outline-info.dropdown-toggle{
   background-color: hsl(var(--info),var(--il));
   border-color: hsl(var(--info),var(--il));
 }
-.btn-outline-info.focus, 
+.btn-outline-info.focus,
 .btn-outline-info:focus,
-.btn-outline-info:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-info:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-info:not(:disabled):not(.disabled).active:focus,
+.btn-outline-info:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-info.dropdown-toggle:focus{
   background-color: hsl(var(--info),var(--il));
   border-color: hsl(var(--info),var(--il));
@@ -408,16 +408,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-success:hover,
-.btn-outline-success:not(:disabled):not(.disabled).active, 
-.btn-outline-success:not(:disabled):not(.disabled):active, 
+.btn-outline-success:not(:disabled):not(.disabled).active,
+.btn-outline-success:not(:disabled):not(.disabled):active,
 .show>.btn-outline-success.dropdown-toggle{
   background-color: hsl(var(--success),var(--ul));
   border-color: hsl(var(--success),var(--ul));
 }
-.btn-outline-success.focus, 
+.btn-outline-success.focus,
 .btn-outline-success:focus,
-.btn-outline-success:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-success:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-success:not(:disabled):not(.disabled).active:focus,
+.btn-outline-success:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-success.dropdown-toggle:focus{
   background-color: hsl(var(--success),var(--ul));
   border-color: hsl(var(--success),var(--ul));
@@ -431,16 +431,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-warning:hover,
-.btn-outline-warning:not(:disabled):not(.disabled).active, 
-.btn-outline-warning:not(:disabled):not(.disabled):active, 
+.btn-outline-warning:not(:disabled):not(.disabled).active,
+.btn-outline-warning:not(:disabled):not(.disabled):active,
 .show>.btn-outline-warning.dropdown-toggle{
   background-color: hsl(var(--warning),var(--wl));
   border-color: hsl(var(--warning),var(--wl));
 }
-.btn-outline-warning.focus, 
+.btn-outline-warning.focus,
 .btn-outline-warning:focus,
-.btn-outline-warning:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-warning:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-warning:not(:disabled):not(.disabled).active:focus,
+.btn-outline-warning:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-warning.dropdown-toggle:focus{
   background-color: hsl(var(--warning),var(--wl));
   border-color: hsl(var(--warning),var(--wl));
@@ -454,16 +454,16 @@ span[data-notif-items]:before {
 }
 
 .btn-outline-danger:hover,
-.btn-outline-danger:not(:disabled):not(.disabled).active, 
-.btn-outline-danger:not(:disabled):not(.disabled):active, 
+.btn-outline-danger:not(:disabled):not(.disabled).active,
+.btn-outline-danger:not(:disabled):not(.disabled):active,
 .show>.btn-outline-danger.dropdown-toggle{
   background-color: hsl(var(--danger),var(--dl));
   border-color: hsl(var(--danger),var(--dl));
 }
-.btn-outline-danger.focus, 
+.btn-outline-danger.focus,
 .btn-outline-danger:focus,
-.btn-outline-danger:not(:disabled):not(.disabled).active:focus, 
-.btn-outline-danger:not(:disabled):not(.disabled):active:focus, 
+.btn-outline-danger:not(:disabled):not(.disabled).active:focus,
+.btn-outline-danger:not(:disabled):not(.disabled):active:focus,
 .show>.btn-outline-danger.dropdown-toggle:focus{
   background-color: hsl(var(--danger),var(--dl));
   border-color: hsl(var(--danger),var(--dl));
@@ -584,7 +584,7 @@ span[data-notif-items]:before {
 }
 
 .text-secondary {
-  color: hsl(var(--secondary),var(--sl)) !important;
+  color: #FF3B30 !important;
 }
 
 .text-info {
@@ -632,35 +632,36 @@ a.text-danger:focus, a.text-danger:hover{
 /* Style Background */
 
 .bg-primary {
-  background-color: hsl(var(--primary),var(--pl)) !important; 
+  background-color: hsl(var(--primary),var(--pl)) !important;
 }
 
 .bg-secondary {
-  background-color: hsl(var(--secondary),var(--sl)) !important; 
+  background-color: hsl(var(--secondary),var(--sl)) !important;
 }
 
 .bg-info {
-  background-color: hsl(var(--info),var(--il)) !important; 
+  background-color: hsl(var(--info),var(--il)) !important;
 }
 
 .bg-success {
-  background-color: hsl(var(--success),var(--ul)) !important; 
+  background-color: hsl(var(--success),var(--ul)) !important;
 }
 
 .bg-warning {
-  background-color: hsl(var(--warning),var(--wl)) !important; 
+  background-color: hsl(var(--warning),var(--wl)) !important;
 }
 
 .bg-danger {
-  background-color: hsl(var(--danger),var(--dl)) !important; 
+  background-color: hsl(var(--danger),var(--dl)) !important;
 }
 
 .bg-gradient-secondary{
-  background: linear-gradient(to right, hsl(var(--secondary),var(--sl)) 0%, hsl(var(--secondary),calc(var(--sl) + 10%))  100%);
+    background: #E62129;
+  /* background: linear-gradient(to right, hsl(var(--secondary),var(--sl)) 0%, hsl(var(--secondary),calc(var(--sl) + 10%))  100%); */
 }
 
 .bg-secondary-dark {
-  background-color: hsl(var(--secondary),calc(var(--sl) - 10%));
+  background-color: #F64B4B;
 }
 
 /* End Style Background */
@@ -836,7 +837,7 @@ a.text-danger:focus, a.text-danger:hover{
   background-color: hsl(var(--secondary),calc(var(--sl) + 40%));
   color: hsl(var(--secondary),var(--sl));
 }
-.bootstrap-datetimepicker-widget table td.today::before, 
+.bootstrap-datetimepicker-widget table td.today::before,
 .bootstrap-datetimepicker-widget table td.active.today::before {
   border-bottom-color: hsl(var(--secondary),var(--sl));
 }

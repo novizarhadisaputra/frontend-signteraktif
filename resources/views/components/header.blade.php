@@ -154,7 +154,7 @@
                                 data-bs-target="#modalSignup">Sign Up</a>
                         </li>
                         <li class="nav-item">
-                            <button class="btn btn-outline-secondary" data-bs-toggle="modal"
+                            <button class="btn btn-outline-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalSignin">Sign In</button>
                         </li>
                     </ul>
