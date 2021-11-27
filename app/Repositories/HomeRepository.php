@@ -52,7 +52,7 @@ class HomeRepository
                 }
             }
 
-            if ($request->filled('province')) {
+            if ($request->filled('sex')) {
                 if ($request->sex == 'All') {
                     $query->where('sex', '<>', null);
                 } else  if ($request->sex == 'Man') {

@@ -23,37 +23,49 @@ class PartnerRepository
     }
     public function index($request)
     {
-        $request->per_page = $request->per_page ?? 10;
+        $request->per_page = $request->per_page ?? 4;
         $request->province = $request->province ?? 'All';
-        $request->sex = $request->sex ?? 'All';
         $user = $this->user->whereHas('detail', function (Builder $query) use ($request) {
-            if ($request->province == 'All') {
-                $query->where('province', '<>', null);
-            } else {
-                $query->where('province', $request->province);
+            if ($request->filled('province')) {
+                if ($request->province == 'All') {
+                    $query->where('province', '<>', null);
+                } else {
+                    $query->where('province', $request->province);
+                }
             }
 
-            if ($request->sex == 'All') {
-                $query->where('sex', '<>', null);
-            } else  if ($request->sex == 'Man') {
-                $query->where('sex', 1);
-            } else {
-                $query->where('sex', 0);
+            if ($request->filled('sex')) {
+                if ($request->sex == 'All') {
+                    $query->where('sex', '<>', null);
+                } else  if ($request->sex == 'Man') {
+                    $query->where('sex', 1);
+                } else {
+                    $query->where('sex', 0);
+                }
             }
         })->with(['detail' => function ($query) use ($request) {
-            if ($request->province == 'All') {
-                $query->where('province', '<>', null);
-            } else {
-                $query->where('province', $request->province);
+            if ($request->filled('province')) {
+                if ($request->province == 'All') {
+                    $query->where('province', '<>', null);
+                } else {
+                    $query->where('province', $request->province);
+                }
             }
-            if ($request->sex == 'All') {
-                $query->where('sex', '<>', null);
-            } else  if ($request->sex == 'Man') {
-                $query->where('sex', 1);
-            } else {
-                $query->where('sex', 0);
+
+            if ($request->filled('sex')) {
+                if ($request->sex == 'All') {
+                    $query->where('sex', '<>', null);
+                } else  if ($request->sex == 'Man') {
+                    $query->where('sex', 1);
+                } else {
+                    $query->where('sex', 0);
+                }
             }
         }]);
+
+        if ($request->filled('search')) {
+            $user->where('name', 'like', '%' . $request->search . '%');
+        }
 
         if (!$request->filled('date')) {
             $request->merge(['date' => date('Y-m-d')]);
