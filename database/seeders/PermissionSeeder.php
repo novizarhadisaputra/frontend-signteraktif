@@ -91,6 +91,12 @@ class PermissionSeeder extends Seeder
                 'name' => 'Not All Data Roles'
             ],
             [
+                'name' => 'All Data Schedules'
+            ],
+            [
+                'name' => 'Not All Data Schedules'
+            ],
+            [
                 'name' => 'All Data Permissions'
             ],
             [
