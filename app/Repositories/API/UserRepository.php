@@ -58,7 +58,7 @@ class UserRepository
             $user = $this->user->find($id);
             $data = [];
             foreach ($request->input() as $key => $value) {
-                if($request->filled($key)) {
+                if ($request->filled($key)) {
                     $data[$key] = $value;
                 }
             }
@@ -81,7 +81,7 @@ class UserRepository
                 $fileName = Str::slug($request->name . ' ' . Str::random(10));
                 $path = Storage::disk('public_assets')->putFileAs('photo', $request->file('photo_profile'), $fileName . '.png');
                 $user->image()->delete();
-                $user->image()->create(['url' => $path]);
+                $user->image()->create(['url' => asset("") . $path]);
             }
             $user = $this->user->with('image')->find(auth('api')->user()->id);
             DB::commit();
