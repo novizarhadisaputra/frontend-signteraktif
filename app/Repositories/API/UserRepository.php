@@ -77,7 +77,7 @@ class UserRepository
         try {
             DB::beginTransaction();
             $user = $this->user->find(auth('api')->user()->id);
-            if ($request->hasFile('photo_product')) {
+            if ($request->hasFile('photo_profile')) {
                 $fileName = Str::slug($user->id . ' ' . $user->name . ' ' . Str::random(10));
                 // $data = substr($request->photo_profile, strpos($request->photo_profile, ',') + 1);
                 // $data = base64_decode($data);
