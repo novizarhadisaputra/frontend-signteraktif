@@ -58,7 +58,7 @@ class UserRepository
             $user = $this->user->find($id);
             $data = [];
             foreach ($request->input() as $key => $value) {
-                if ($request->filled($key)) {
+                if($request->filled($key)) {
                     $data[$key] = $value;
                 }
             }
@@ -72,22 +72,20 @@ class UserRepository
         }
     }
 
-    public function uploadAvatar($request)
+    public function upload_avatar($request)
     {
         try {
             DB::beginTransaction();
             $user = $this->user->find(auth('api')->user()->id);
-            if ($request->hasFile('photo_profile')) {
-                $fileName = Str::slug($user->id . ' ' . $user->name . ' ' . Str::random(10));
-                // $data = substr($request->photo_profile, strpos($request->photo_profile, ',') + 1);
-                // $data = base64_decode($data);
-                Storage::disk('public_assets')->put('photo', $request->file('photo_product'), $fileName . '.png');
+            if ($request->photo_profile) {
+                $fileName = Str::slug($request->name . ' ' . Str::random(10));
+                $path = Storage::disk('public_assets')->putFileAs('photo', $request->file('photo_profile'), $fileName . '.png');
                 $user->image()->delete();
-                $user->image()->create(['url' => asset('photo') . '/' . $fileName . '.png']);
+                $user->image()->create(['url' => $path]);
             }
-            DB::commit();
             $user = $this->user->with('image')->find(auth('api')->user()->id);
-            return response()->json(['message' => 'Avatar uploaded', 'data' => compact('user')], 201);
+            DB::commit();
+            return response()->json(['message' => 'User created', 'data' => compact('user')], 201);
         } catch (\Exception $e) {
             DB::rollback();
             throw new Exception($e->getMessage());
