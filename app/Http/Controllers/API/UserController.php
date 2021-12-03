@@ -105,10 +105,10 @@ class UserController extends Controller
         //
     }
 
-    public function upload_avatar(Request $request, $id)
+    public function uploadAvatar(Request $request)
     {
         try {
-            $response = $this->userRepo->upload_avatar($request, $id);
+            $response = $this->userRepo->uploadAvatar($request);
             return $response;
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], 500);

@@ -72,11 +72,11 @@ class UserRepository
         }
     }
 
-    public function upload_avatar($request, $id)
+    public function uploadAvatar($request)
     {
         try {
             DB::beginTransaction();
-            $user = $this->user->find($id);
+            $user = $this->user->find(auth('api')->user()->id);
             if ($request->photo_profile) {
                 $fileName = Str::slug($user->id . ' ' . $user->name . ' ' . Str::random(10));
                 $data = substr($request->photo_profile, strpos($request->photo_profile, ',') + 1);

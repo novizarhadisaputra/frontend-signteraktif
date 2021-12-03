@@ -22,7 +22,7 @@ use App\Http\Controllers\API\TransactionController;
 
 Route::middleware(['auth:api'])->group(function () {
     Route::resource('user', UserController::class);
-    Route::post('user/{id}/upload-avatar', [UserController::class, 'upload_avatar']);
+    Route::post('user/upload/avatar', [UserController::class, 'uploadAvatar']);
     Route::prefix('auth')->group(function () {
         Route::get('me', [AuthController::class, 'me']);
         Route::post('logout', [AuthController::class, 'logout']);
