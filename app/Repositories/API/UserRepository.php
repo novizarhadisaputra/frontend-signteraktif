@@ -86,7 +86,8 @@ class UserRepository
                 $user->image()->create(['url' => asset('photo') . '/' . $fileName . '.png']);
             }
             DB::commit();
-            return response()->json(['message' => 'Avatar uploaded'], 201);
+            $user = $this->user->with('image')->find(auth('api')->user()->id);
+            return response()->json(['message' => 'Avatar uploaded', 'data' => compact('user')], 201);
         } catch (\Exception $e) {
             DB::rollback();
             throw new Exception($e->getMessage());
