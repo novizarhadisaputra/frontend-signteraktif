@@ -86,7 +86,7 @@ class UserRepository
                 $user->image()->create(['url' => $path]);
             }
             DB::commit();
-            return response()->json(['message' => 'User created'], 201);
+            return response()->json(['message' => 'Avatar uploaded'], 201);
         } catch (\Exception $e) {
             DB::rollback();
             throw new Exception($e->getMessage());
