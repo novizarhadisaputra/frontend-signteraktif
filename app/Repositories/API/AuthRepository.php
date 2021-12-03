@@ -131,7 +131,8 @@ class AuthRepository
 
     public function me()
     {
-        return response()->json(['message' => 'My Profile', 'data' => auth('api')->user()]);
+        $user = $this->user->with('image')->find(auth('api')->user()->id);
+        return response()->json(['message' => 'My Profile', 'data' => $user]);
     }
 
     public function logout()
