@@ -81,9 +81,9 @@ class UserRepository
                 $fileName = Str::slug($user->id . ' ' . $user->name . ' ' . Str::random(10));
                 // $data = substr($request->photo_profile, strpos($request->photo_profile, ',') + 1);
                 // $data = base64_decode($data);
-                $path = Storage::disk('public_assets')->put('photo', $request->file('photo_product'), $fileName . '.png');
+                Storage::disk('public_assets')->put('photo', $request->file('photo_product'), $fileName . '.png');
                 $user->image()->delete();
-                $user->image()->create(['url' => $path]);
+                $user->image()->create(['url' => asset('photo') . '/' . $fileName . '.png']);
             }
             DB::commit();
             return response()->json(['message' => 'Avatar uploaded'], 201);
