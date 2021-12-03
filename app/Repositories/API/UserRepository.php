@@ -72,7 +72,7 @@ class UserRepository
         }
     }
 
-    public function upload_avatar($request)
+    public function uploadAvatar($request)
     {
         try {
             DB::beginTransaction();
