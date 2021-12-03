@@ -111,7 +111,7 @@ class UserController extends Controller
             $response = $this->userRepo->uploadAvatar($request);
             return $response;
         } catch (\Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 500);
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 }
