@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "932c7c0c0e6645901122cbac1fe41f66",
+    "content-hash": "d72a7562666b958bd781011e46a21fea",
     "packages": [
         {
             "name": "acaronlex/laravel-calendar",
@@ -6954,63 +6954,6 @@
                 }
             ],
             "time": "2021-10-26T09:30:15+00:00"
-        },
-        {
-            "name": "therobfonz/laravel-mandrill-driver",
-            "version": "v3.1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/therobfonz/laravel-mandrill-driver.git",
-                "reference": "46aa3f532af708e8b2ad003b293875d1490c988c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/therobfonz/laravel-mandrill-driver/zipball/46aa3f532af708e8b2ad003b293875d1490c988c",
-                "reference": "46aa3f532af708e8b2ad003b293875d1490c988c",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^7.2",
-                "illuminate/support": "^8.0",
-                "php": "^7.3|^8.0"
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.3.1",
-                "phpunit/phpunit": "^9.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "LaravelMandrill\\MandrillServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelMandrill\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rob Fonseca",
-                    "email": "robfonseca@gmail.com"
-                }
-            ],
-            "description": "Mandrill Driver for Laravel 7+",
-            "keywords": [
-                "laravel",
-                "mandrill"
-            ],
-            "support": {
-                "issues": "https://github.com/therobfonz/laravel-mandrill-driver/issues",
-                "source": "https://github.com/therobfonz/laravel-mandrill-driver/tree/v3.1.0"
-            },
-            "time": "2021-05-19T12:54:04+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
