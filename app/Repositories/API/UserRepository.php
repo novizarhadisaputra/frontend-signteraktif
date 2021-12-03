@@ -78,7 +78,7 @@ class UserRepository
             DB::beginTransaction();
             $user = $this->user->find(auth('api')->user()->id);
             if ($request->photo_profile) {
-                $fileName = Str::slug($request->name . ' ' . Str::random(10));
+                $fileName = Str::slug($user->id . ' ' . Str::random(10));
                 $path = Storage::disk('public_assets')->putFileAs('photo', $request->file('photo_profile'), $fileName . '.png');
                 $user->image()->delete();
                 $user->image()->create(['url' => asset("") . $path]);
