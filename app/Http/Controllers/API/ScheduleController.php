@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\ScheduleCreate;
 
 class ScheduleController extends Controller
 {
@@ -38,9 +39,14 @@ class ScheduleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ScheduleCreate $request)
     {
-        //
+        try {
+            $response = $this->scheduleRepo->store($request);
+            return $response;
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+        }
     }
 
     /**

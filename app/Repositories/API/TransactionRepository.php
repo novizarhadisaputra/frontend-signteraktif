@@ -115,4 +115,23 @@ class TransactionRepository
             'data' => compact('transactions')
         ], 200);
     }
+
+    public function historyPartner($request)
+    {
+        $request->per_page = $request->per_page ?? 10;
+        $transaction_id = $this->schedule->has('transactionDetail')->pluck('transaction_id');
+        $transactions = $this->transaction->whereIn('id', $transaction_id)
+            ->with(['status', 'details' => function ($query) {
+                $query->with(['schedule' => function ($query) {
+                    $query->with(['user' => function ($query) {
+                        $query->with(['detail']);
+                    }]);
+                }]);
+            }])
+            ->paginate($request->per_page)->getCollection();
+        return response()->json([
+            'message' => 'List transactions',
+            'data' => compact('transactions')
+        ], 200);
+    }
 }

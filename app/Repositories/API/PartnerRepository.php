@@ -2,9 +2,10 @@
 
 namespace App\Repositories\API;
 
-use App\Models\Schedule;
 use Exception;
 use App\Models\User;
+use App\Models\Schedule;
+use App\Models\Transaction;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -15,13 +16,15 @@ class PartnerRepository
 {
     const partnerRole = 3;
 
-    protected $user, $schedules;
+    protected $user, $schedules, $transactions;
 
-    public function __construct(User $user, Schedule $schedules)
+    public function __construct(User $user, Schedule $schedules, Transaction $transaction)
     {
         $this->user = $user;
         $this->schedules = $schedules;
+        $this->transactions = $transaction;
     }
+
     public function index($request)
     {
         $request->per_page = $request->per_page ?? 10;
@@ -178,5 +181,15 @@ class PartnerRepository
         }
         $schedules = $schedules->paginate($request->per_page)->getCollection();
         return response()->json(['message' => 'List schedules', 'data' => compact('schedules')], 200);
+    }
+
+    public function listTransaction($request)
+    {
+        $transactions = $this->transaction->whereHas('details', function (Builder $query) {
+            $query->whereHas('schedule', function (Builder $query) {
+                $query->where(['user_id' => auth('api')->user()->id]);
+            });
+        })->get();
+        return response()->json(['message' => 'List transactions', 'data' => compact('transactions')], 200);
     }
 }

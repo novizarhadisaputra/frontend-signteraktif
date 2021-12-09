@@ -124,4 +124,14 @@ class PartnerController extends Controller
             return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
+
+    public function listTransaction(Request $request)
+    {
+        try {
+            $response = $this->partner->listTransaction($request);
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
 }

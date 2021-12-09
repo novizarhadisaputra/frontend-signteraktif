@@ -30,6 +30,16 @@ class ScheduleController extends Controller
         }
     }
 
+    public function partner_index(Request $request)
+    {
+        try {
+            $response = $this->scheduleRepo->partner_index($request);
+            return $response;
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      *

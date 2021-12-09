@@ -18,6 +18,7 @@ class ScheduleRepository
     {
         $this->schedule = $schedule;
     }
+
     public function index($request)
     {
         $request->per_page = $request->per_page ?? 10;
@@ -28,20 +29,57 @@ class ScheduleRepository
         ], 200);
     }
 
+    public function partner_index($request)
+    {
+        $request->per_page = $request->per_page ?? 10;
+        $schedules = $this->schedule->where(['user_id' => auth('api')->user()->id])->paginate($request->per_page)->getCollection();
+        return response()->json([
+            'message' => 'List schedules',
+            'data' => compact('schedules')
+        ], 200);
+    }
+
     public function store($request)
     {
         try {
             DB::beginTransaction();
-            $schedule = $this->schedule->create($request->input());
-            $schedule->detail()->create($request->input());
+            $start = strtotime($request->start);
+            $end = strtotime($request->end);
+
+            if ($start > $end) {
+                throw new Exception('Start Date smaller than End Date', 422);
+            }
+            $trigger = true;
+            $day = 0;
+            while ($trigger) {
+                $date = strtotime(date('Y-m-d', $start) . " +$day day");
+                if ($date > $end) {
+                    $trigger = false;
+                }
+                $getDay = date('l', $date);
+                if ($request->filled('start-' . $getDay)) {
+                    for ($i = 0; $i < count($request->input('start-' . $getDay)); $i++) {
+                        $startTime = $request->input('start-' . $getDay)[$i];
+                        $endTime = $request->input("end-" . $getDay)[$i];
+                        $data = [
+                            'user_id' => $request->user_id,
+                            'start_date' => date('Y-m-d', $date) . " $startTime",
+                            'end_date' => date('Y-m-d', $date) . " $endTime",
+                        ];
+                        $this->schedule->create($data);
+                    }
+                }
+                $day++;
+            }
             DB::commit();
-            return response()->json(['message' => 'Schedule created'], 201);
+            return response()->json([
+                'message' => 'Schedule Created'
+            ], 201);
         } catch (\Exception $e) {
             DB::rollback();
             throw new Exception($e->getMessage());
         }
     }
-
     public function show($id)
     {
         $schedule = $this->schedule->with(['schedules', 'detail'])->find($id);

@@ -4,7 +4,7 @@ namespace App\Services\Midtrans;
 
 use Midtrans\Snap;
 
-class CreateSnapTokenService extends Midtrans
+class CreateSnapUrlService extends Midtrans
 {
     protected $order;
 
@@ -15,7 +15,7 @@ class CreateSnapTokenService extends Midtrans
         $this->order = $order;
     }
 
-    public function getSnapToken()
+    public function getSnapUrl()
     {
         $params = [
             /**

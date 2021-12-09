@@ -45,6 +45,17 @@ class AuthRepository
         return response()->json(['message' => 'Login success', 'data' => compact('user', 'token')], 200);
     }
 
+    public function loginPartner($request)
+    {
+        if (!$token = auth('api')->attempt(['email' => $request->email, 'password' => $request->password, 'is_active' => 1, 'role_id' => 3])) {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
+        $this->user->where(['id' => auth('api')->user()->id])->update(['is_online' => 1]);
+        $user = $this->user->where(['id' => auth('api')->user()->id])->first();
+        $token = $this->respondWithToken($token)->original;
+        return response()->json(['message' => 'Login success', 'data' => compact('user', 'token')], 200);
+    }
+
     public function loginThirdParty($request)
     {
         if (!$user = $this->user->where(['email' => $request->email])->first()) {

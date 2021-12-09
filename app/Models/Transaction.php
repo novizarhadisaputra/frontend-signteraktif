@@ -10,6 +10,8 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
+        'snap_url',
+        'snap_token',
         'transaction_code',
         'user_id',
         'total_price',

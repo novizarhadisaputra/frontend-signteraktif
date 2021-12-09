@@ -28,6 +28,7 @@ Route::middleware(['auth:api'])->group(function () {
         Route::post('logout', [AuthController::class, 'logout']);
     });
     Route::resource('partner', PartnerController::class);
+    Route::get('/partner/list/transaction', [PartnerController::class, 'listTransaction']);
     Route::prefix('partner')->group(function () {
         Route::get('/list/active', [PartnerController::class, 'listActive']);
         Route::get('/{partner}/schedules', [PartnerController::class, 'schedules']);
@@ -41,6 +42,7 @@ Route::middleware(['auth:api'])->group(function () {
 Route::prefix('auth')->group(function () {
     Route::post('login', [AuthController::class, 'login']);
     Route::post('login/customer', [AuthController::class, 'loginCustomer']);
+    Route::post('login/partner', [AuthController::class, 'loginPartner']);
     Route::post('login/third-party', [AuthController::class, 'loginThirdParty']);
     Route::post('registration', [AuthController::class, 'registration']);
     Route::post('reset-password', [AuthController::class, 'requestResetPassword']);

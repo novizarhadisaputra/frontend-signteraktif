@@ -119,4 +119,14 @@ class TransactionController extends Controller
             return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
+
+    public function historyPartner(Request $request)
+    {
+        try {
+            $response = $this->transaction->historyPartner($request);
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
 }

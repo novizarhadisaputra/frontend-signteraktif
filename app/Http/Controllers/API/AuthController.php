@@ -38,6 +38,15 @@ class AuthController extends Controller
         }
     }
 
+    public function loginPartner(Login $request) {
+        try {
+            $response = $this->auth->loginPartner($request);
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
+
     public function loginThirdParty(LoginThirdParty $request) {
         try {
             $response = $this->auth->loginThirdParty($request);

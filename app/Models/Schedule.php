@@ -51,4 +51,14 @@ class Schedule extends Model
         $date = date_create($this->end_date);
         return date_format($date, "H:i");
     }
+
+    /**
+     * Get the user that owns the Schedule
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function transactionDetail()
+    {
+        return $this->belongsTo(TransactionDetail::class, 'schedule_id', 'id');
+    }
 }

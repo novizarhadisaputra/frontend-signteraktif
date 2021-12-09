@@ -26,7 +26,6 @@ class ScheduleCreate extends FormRequest
         return [
             'start' => 'required',
             'end' => 'required',
-            'days' => 'required',
         ];
     }
 }

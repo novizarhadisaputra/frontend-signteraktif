@@ -26,12 +26,12 @@ class UserSeeder extends Seeder
 
         $superadmin->detail()->create([
             'title' => 'Mr',
-            'phone' => '+6285888426559',
+            'phone' => '+6285888426550',
             'sex' => 1,
             'province' => 'Jakarta',
             'city' => 'Jakarta Selatan',
             'has_whatsapp' => 1,
-            'has_telegram' => 1
+            'has_telegram' => 1,
         ]);
 
         $admin = User::create([
@@ -41,7 +41,7 @@ class UserSeeder extends Seeder
             'password_user' => 'tul1pqaz',
             'role_id' => 2,
             'is_active' => 1,
-
+            'email_verified_at' => date('Y-m-d H:i:s'),
         ]);
 
         $admin->detail()->create([
@@ -54,25 +54,26 @@ class UserSeeder extends Seeder
             'has_telegram' => 1
         ]);
 
-        // $penerjemah = User::create([
-        //     'name' => 'Firda',
-        //     'email' => 'n.ovizarhadisaputra@gmail.com',
-        //     'password' => 'Nn122012!!',
-        //     'password_user' => 'Nn122012!!',
-        //     'role_id' => 3,
-        //     'agency_id' => 1,
-        //     'is_active' => 1
-        // ]);
+        $penerjemah = User::create([
+            'name' => 'Novizar',
+            'email' => 'novizar.hadisaputra@gmail.com',
+            'password' => 'Nn122012!!',
+            'password_user' => 'Nn122012!!',
+            'role_id' => 3,
+            'agency_id' => 1,
+            'is_active' => 1,
+            'email_verified_at' => date('Y-m-d H:i:s'),
+        ]);
 
-        // $penerjemah->detail()->create([
-        //     'title' => 'Miss',
-        //     'phone' => '+6281804741998',
-        //     'sex' => 0,
-        //     'province' => 'Yogyakarta',
-        //     'city' => 'Bantul',
-        //     'has_whatsapp' => 1,
-        //     'has_telegram' => 1
-        // ]);
+        $penerjemah->detail()->create([
+            'title' => 'Mr',
+            'phone' => '+6285888426559',
+            'sex' => 0,
+            'province' => 'Yogyakarta',
+            'city' => 'Bantul',
+            'has_whatsapp' => 1,
+            'has_telegram' => 1
+        ]);
 
         // $penerjemah = User::create([
         //     'name' => 'Sari',

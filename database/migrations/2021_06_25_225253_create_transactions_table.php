@@ -16,6 +16,8 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('transaction_code');
+            $table->string('snap_url')->nullable();
+            $table->string('snap_token')->nullable();
             $table->foreignId('user_id')->constrained();
             $table->bigInteger('total_price')->default(0);
             $table->bigInteger('total_paid')->default(0);
