@@ -2,6 +2,7 @@
 
 namespace App\Repositories\API;
 
+use stdClass;
 use Exception;
 use App\Mail\OrderMail;
 use App\Models\Schedule;
@@ -10,6 +11,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Services\Midtrans\CreateSnapUrlService;
 
 class TransactionRepository
 {
@@ -47,12 +49,22 @@ class TransactionRepository
     {
         try {
             DB::beginTransaction();
+            $transaction_code = 'TRANS/' . str_pad(getLastTransactionId() + 1, 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y');
             $request->merge([
                 'user_id' => auth('api')->user()->id,
                 'transaction_status_id' => 1,
-                'transaction_code' => 'TRANS/' . str_pad(getLastTransactionId() + 1, 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y')
+                'transaction_code' => $transaction_code
             ]);
+            $order = new stdClass();
+
             $transaction = $this->transaction->create($request->input());
+            $total_price = 0;
+            $details = [];
+            $customer_details = [
+                'first_name' => auth()->user()->name,
+                'email' => auth()->user()->email,
+                'phone' => auth()->user()->detail->phone,
+            ];
             foreach ($request->details as $detail) {
                 $data = [
                     'transaction_id' => $transaction->id,
@@ -61,16 +73,37 @@ class TransactionRepository
                     'total_paid' => $detail->total_paid,
                     'total_paid' => $detail->total_paid
                 ];
+
                 $transaction->details()->create($data);
+
                 $this->schedule->where(['id' => $detail->schedule_id])->update([
                     'is_available' => 0,
                 ]);
-                $partner = $this->schedule->find($detail->schedule_id);
-                Mail::to($partner->email)->send(new OrderMail($transaction, 'Order Mail'));
+                $total_price = $total_price + $detail->total_price;
+                $schedule = $this->schedule->find($detail->schedule_id);
+                $details[] = [
+                    'id' => $detail->schedule_id, // primary key produk
+                    'price' => $detail->total_price, // harga satuan produk
+                    'quantity' => 1, // kuantitas pembelian
+                    'name' => $schedule->user->name, // nama produk
+                ];
+                Mail::to($schedule->user->email)->send(new OrderMail($transaction, 'Order Mail'));
             }
+
+            $order->id = $transaction_code;
+            $order->gross_amount = $total_price;
+            $order->details = $details;
+            $order->customer_details = $customer_details;
+
+            $snap_url = new CreateSnapUrlService($order);
+            $transaction->snap_url = $snap_url;
+            $transaction->save();
+
+            $transaction = $this->transaction->where(['transaction_code' => $transaction_code])->first();
+
             Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
             DB::commit();
-            return response()->json(['message' => 'Transaction created', 'data' => compact('transaction')], 201);
+            return response()->json(['message' => 'Transaction created', 'data' => compact('transaction', 'snap_url')], 201);
         } catch (\Exception $e) {
             DB::rollback();
             throw new Exception($e->getMessage());

@@ -24,33 +24,29 @@ class CreateSnapUrlService extends Midtrans
              * 'gross_amount' => merupakan total harga yang harus dibayar customer.
              */
             'transaction_details' => [
-                'order_id' => $this->order->number,
-                'gross_amount' => $this->order->total_price,
+                'order_id' => $this->order->id,
+                'gross_amount' => $this->order->gross_amount,
             ],
             /**
              * 'item_details' bisa diisi dengan detail item dalam order.
              * Umumnya, data ini diambil dari tabel `order_items`.
              */
-            'item_details' => [
-                [
-                    'id' => 1, // primary key produk
-                    'price' => '150000', // harga satuan produk
-                    'quantity' => 1, // kuantitas pembelian
-                    'name' => 'Flashdisk Toshiba 32GB', // nama produk
-                ],
-                [
-                    'id' => 2,
-                    'price' => '60000',
-                    'quantity' => 2,
-                    'name' => 'Memory Card VGEN 4GB',
-                ],
-            ],
-            'customer_details' => [
-                // Key `customer_details` dapat diisi dengan data customer yang melakukan order.
-                'first_name' => 'Martin Mulyo Syahidin',
-                'email' => 'mulyosyahidin95@gmail.com',
-                'phone' => '081234567890',
-            ]
+            // [
+                // [
+                //     'id' => 1, // primary key produk
+                //     'price' => '150000', // harga satuan produk
+                //     'quantity' => 1, // kuantitas pembelian
+                //     'name' => 'Flashdisk Toshiba 32GB', // nama produk
+                // ],
+            //     [
+            //         'id' => 2,
+            //         'price' => '60000',
+            //         'quantity' => 2,
+            //         'name' => 'Memory Card VGEN 4GB',
+            //     ],
+            // ]
+            'item_details' => $this->order->details,
+            'customer_details' => $this->order->customer_details
         ];
 
         $snapToken = Snap::getSnapUrl($params);
