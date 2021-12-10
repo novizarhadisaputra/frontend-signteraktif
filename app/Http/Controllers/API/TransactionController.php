@@ -129,4 +129,34 @@ class TransactionController extends Controller
             return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
+
+    public function partnerCancel(Request $request, $id)
+    {
+        try {
+            $response = $this->transaction->partnerCancel($request, $id);
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
+
+    public function partnerAccept(Request $request, $id)
+    {
+        try {
+            $response = $this->transaction->partnerAccept($request, $id);
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
+
+    public function partnerFinish(Request $request, $id)
+    {
+        try {
+            $response = $this->transaction->partnerFinish($request, $id);
+            return $response;
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
 }

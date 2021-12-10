@@ -42,10 +42,10 @@ class ScheduleController extends Controller
     public function store(ScheduleCreate $request)
     {
         try {
-            $response = $this->scheduleRepo->store($request);
+            $response = $this->schedule->store($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
         }
     }
 

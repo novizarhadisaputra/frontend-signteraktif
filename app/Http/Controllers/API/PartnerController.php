@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ListActivePartner;
 use App\Http\Requests\RegistrationPartner;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -115,7 +116,7 @@ class PartnerController extends Controller
         }
     }
 
-    public function listActive(Request $request)
+    public function listActive(ListActivePartner $request)
     {
         try {
             $response = $this->partner->listActive($request);

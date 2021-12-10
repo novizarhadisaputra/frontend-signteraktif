@@ -62,7 +62,7 @@ class ScheduleRepository
                         $startTime = $request->input('start-' . $getDay)[$i];
                         $endTime = $request->input("end-" . $getDay)[$i];
                         $data = [
-                            'user_id' => $request->user_id,
+                            'user_id' => auth('api')->user()->id,
                             'start_date' => date('Y-m-d', $date) . " $startTime",
                             'end_date' => date('Y-m-d', $date) . " $endTime",
                         ];

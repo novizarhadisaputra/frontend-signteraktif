@@ -16,13 +16,13 @@ class PartnerRepository
 {
     const partnerRole = 3;
 
-    protected $user, $schedules, $transactions;
+    protected $user, $schedules, $transaction;
 
     public function __construct(User $user, Schedule $schedules, Transaction $transaction)
     {
         $this->user = $user;
         $this->schedules = $schedules;
-        $this->transactions = $transaction;
+        $this->transaction = $transaction;
     }
 
     public function index($request)
@@ -185,11 +185,12 @@ class PartnerRepository
 
     public function listTransaction($request)
     {
+        $per_page = $request->per_page ?? 100;
         $transactions = $this->transaction->whereHas('details', function (Builder $query) {
             $query->whereHas('schedule', function (Builder $query) {
                 $query->where(['user_id' => auth('api')->user()->id]);
             });
-        })->get();
+        })->paginate($per_page)->getCollection();
         return response()->json(['message' => 'List transactions', 'data' => compact('transactions')], 200);
     }
 }

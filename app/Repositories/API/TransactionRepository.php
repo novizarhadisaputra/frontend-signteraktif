@@ -167,4 +167,55 @@ class TransactionRepository
             'data' => compact('transactions')
         ], 200);
     }
+
+    public function partnerCancel($request, $id)
+    {
+        try {
+            $transaction = $this->transaction->find($id);
+            $transaction->transaction_status_id = $request->status;
+            $transaction->notes = $request->notes ?? '';
+            $transaction->save();
+            $transaction = $this->transaction->find($id);
+            return response()->json([
+                'message' => 'Transaction Updated',
+                'data' => compact('transactions')
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
+
+    public function partnerAccept($request, $id)
+    {
+        try {
+            $transaction = $this->transaction->find($id);
+            $transaction->transaction_status_id = $request->status;
+            $transaction->notes = $request->notes ?? '';
+            $transaction->save();
+            $transaction = $this->transaction->find($id);
+            return response()->json([
+                'message' => 'Transaction Updated',
+                'data' => compact('transactions')
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
+
+    public function partnerFinish($request, $id)
+    {
+        try {
+            $transaction = $this->transaction->find($id);
+            $transaction->transaction_status_id = $request->status;
+            $transaction->notes = $request->notes ?? '';
+            $transaction->save();
+            $transaction = $this->transaction->find($id);
+            return response()->json([
+                'message' => 'Transaction Updated',
+                'data' => compact('transactions')
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
+        }
+    }
 }
