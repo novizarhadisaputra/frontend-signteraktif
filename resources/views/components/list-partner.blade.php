@@ -15,7 +15,8 @@
                                         class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i>
                                     Contact</span>
                             </a>
-                            <a type="button" data-bs-toggle="modal" data-bs-target="#modalPerson{{ $schedule->user->id }}">
+                            <a type="button" data-bs-toggle="modal"
+                                data-bs-target="#modalPerson{{ $schedule->user->id }}">
                                 <img src="{{ $schedule->user->image->url ?? asset('assets/img/no-photo.jpg') }}"
                                     alt="{{ $schedule->user->name }}">
                                 <div class="overlay"></div>
@@ -33,6 +34,7 @@
                                 <span class="small text-white">
                                     <i class="bi bi-cash mx-1" aria-hidden="true"></i> Rp.
                                     {{ number_format($schedule->price, 0, ',', '.') }}
+                                    {{ "($schedule->time_start - $schedule->time_end)" }}
                                 </span>
                             </div>
                         </div>

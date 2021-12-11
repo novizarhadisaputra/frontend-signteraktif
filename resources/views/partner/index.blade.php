@@ -105,6 +105,7 @@
                                     <span class="small text-white">
                                         <i class="bi bi-cash mx-1" aria-hidden="true"></i> Rp.
                                         {{ number_format($schedule->price, 0, ',', '.') }}
+                                        {{ "($schedule->time_start - $schedule->time_end)" }}
                                     </span>
                                 </div>
                             </div>
