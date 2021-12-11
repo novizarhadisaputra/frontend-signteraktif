@@ -61,10 +61,12 @@ class ScheduleRepository
                     for ($i = 0; $i < count($request->input('start-' . $getDay)); $i++) {
                         $startTime = $request->input('start-' . $getDay)[$i];
                         $endTime = $request->input("end-" . $getDay)[$i];
+                        $price = $request->input("price-" . $getDay)[$i];
                         $data = [
-                            'user_id' => auth('api')->user()->id,
+                            'user_id' => $request->user_id,
                             'start_date' => date('Y-m-d', $date) . " $startTime",
                             'end_date' => date('Y-m-d', $date) . " $endTime",
+                            'price' => $price
                         ];
                         $this->schedule->create($data);
                     }
