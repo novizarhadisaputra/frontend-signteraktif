@@ -14,7 +14,7 @@
                     <li class="mb-3">
                         <div>
                             <img class="avatar-md rounded-circle mb-2"
-                                src="{{ auth()->user()->image->url ?? asset('assets/img/default.png') }}" alt="...">
+                                src="{{ auth()->user()->image->url ?? asset('assets/img/no-photo.jpg') }}" alt="...">
                             <p>
                                 Welcome, <span class="fw-bold">{{ auth()->user()->name }}</span>
                                 <a href="">

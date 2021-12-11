@@ -13,8 +13,8 @@
                         <div class="col-md-4">
                             <div class="person-card mb-4">
                                 <div class="position-relative img-hover-zoom ">
-                                    <img src="{{ $partner->image->url ?? asset('assets/img/default.png') }}"
-                                        alt="...">
+                                    <img src="{{ $partner->image->url ?? asset('assets/img/no-photo.jpg') }}"
+                                        alt="{{ $partner->name }}">
                                     <div class="overlay"></div>
                                 </div>
                             </div>

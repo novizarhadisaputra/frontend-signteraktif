@@ -11,7 +11,7 @@
                                     <div class="">
                                         <div class="p-2 text-center">
                                             <img class="avatar-md rounded-circle mb-2"
-                                                src="{{ auth()->user()->image->url ?? asset('assets/img/default.png') }}"
+                                                src="{{ auth()->user()->image->url ?? asset('assets/img/no-photo.jpg') }}"
                                                 alt="...">
                                             <p class="mb-0">
                                                 <span class="fw-bold">{{ auth()->user()->name }}</span>

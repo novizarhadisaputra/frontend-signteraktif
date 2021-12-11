@@ -19,7 +19,7 @@
                                         class="bi bi-chat-dots-fill text-secondary mx-1" aria-hidden="true"></i>
                                     Contact</span>
                             </a>
-                            <img src="{{ $partner->image->url ?? asset('assets/img/default.png') }}" alt="...">
+                            <img src="{{ $partner->image->url ?? asset('assets/img/no-photo.jpg') }}" alt="...">
                             <div class="overlay"></div>
                         </div>
                         <div class="person-detail">

@@ -72,16 +72,12 @@ class HomeRepository
             $request->merge(['date' => date('Y-m-d')]);
         }
 
-        $partners = $user->whereHas('schedules', function (Builder $query) use ($request) {
-            $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
-            $query->where('start_date', '>=', $request->date);
-            $query->where('end_date', '<', $endDate);
-        })->with(['schedules' => function ($query) use ($request) {
-            $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
-            $query->where('start_date', '>=', $request->date);
-            $query->where('end_date', '<', $endDate)->orderBy('start_date');
-        }])->where(['role_id' => self::partnerRole])->where(['is_active' => 1])->paginate($request->per_page)->getCollection();
-
-        return view('welcome', compact('partners', 'home'));
+        $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
+        $schedules = $this->schedules->whereHas('user', function (Builder $query) {
+            $query->where(['role_id' => self::partnerRole])
+                ->where(['is_active' => 1]);
+        })->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate)
+            ->paginate($request->per_page)->getCollection();
+        return view('welcome', compact('schedules', 'home'));
     }
 }

@@ -37,7 +37,7 @@
                                 id="menuProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Welcome, <span class="mx-1 fw-bold ellipsis">{{ auth()->user()->name }}</span>
                                 <img class="avatar-sm rounded-circle"
-                                    src="{{ auth()->user()->image->url ?? asset('assets/img/default.png') }}"
+                                    src="{{ auth()->user()->image->url ?? asset('assets/img/no-photo.jpg') }}"
                                     alt="...">
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end border-0 p-4 h5 shadow"
@@ -45,7 +45,7 @@
                                 <li>
                                     <div class="text-center">
                                         <img class="avatar-md rounded-circle"
-                                            src="{{ auth()->user()->image->url ?? asset('assets/img/default.png') }}"
+                                            src="{{ auth()->user()->image->url ?? asset('assets/img/no-photo.jpg') }}"
                                             alt="...">
                                         <div class="my-2">{{ auth()->user()->name }}</div>
                                         <small class="fw-light">{{ auth()->user()->email }}</small>
