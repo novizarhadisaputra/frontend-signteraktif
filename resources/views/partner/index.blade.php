@@ -98,7 +98,7 @@
                                 <div class="mb-2">
                                     <span class="small text-white">
                                         <i class="bi bi-geo-alt mx-1" aria-hidden="true"></i>
-                                        {{ $schedule->user->detail->city . ', ' . $schedule->user->detail->province }}
+                                        {{ $schedule->user->detail->city ? ($schedule->user->detail->city . ', ' . $schedule->user->detail->province) : 'Indonesia' }}
                                     </span>
                                 </div>
                                 <div class="mb-2">
