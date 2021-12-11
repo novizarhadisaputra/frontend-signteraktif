@@ -19,7 +19,7 @@ class BillingController extends Controller
             $response = $this->billingRepo->index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 

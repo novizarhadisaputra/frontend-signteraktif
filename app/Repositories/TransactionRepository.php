@@ -2,8 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Mail\OrderMail;
+use stdClass;
 use Exception;
+use App\Mail\OrderMail;
 use App\Models\Schedule;
 use App\Models\Transaction;
 use Illuminate\Support\Str;
@@ -11,6 +12,7 @@ use App\Models\TransactionStatus;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use App\Services\Midtrans\CreateSnapUrlService;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 class TransactionRepository
@@ -58,13 +60,27 @@ class TransactionRepository
     {
         try {
             DB::beginTransaction();
+            $transaction_code = 'TRANS/' . str_pad(getLastTransactionId() + 1, 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y');
             $request->merge([
                 'user_id' => auth()->user()->id,
                 'transaction_status_id' => 1,
-                'details' => json_decode($request->details),
-                'transaction_code' => 'TRANS/' . str_pad(getLastTransactionId() + 1, 8, '0', STR_PAD_LEFT) . '/' . date('d/M/Y')
+                'transaction_code' => $transaction_code
             ]);
+
+
+            $order = new stdClass();
             $transaction = $this->transaction->create($request->input());
+            $total_price = 0;
+
+            $details = [];
+            $customer_details = [
+                'first_name' => auth()->user()->name,
+                'email' => auth()->user()->email,
+                'phone' => auth()->user()->detail->phone,
+            ];
+
+            $request->merge(['details' => json_decode($request->details)]);
+
             foreach ($request->details as $detail) {
                 $data = [
                     'transaction_id' => $transaction->id,
@@ -73,16 +89,40 @@ class TransactionRepository
                     'total_paid' => $detail->total_paid,
                     'total_paid' => $detail->total_paid
                 ];
+
                 $transaction->details()->create($data);
+
                 $this->schedule->where(['id' => $detail->schedule_id])->update([
                     'is_available' => 0,
                 ]);
-                $partner = $this->schedule->find($detail->schedule_id);
-                Mail::to($partner->email)->send(new OrderMail($transaction, 'Order Mail'));
+                $total_price = $total_price + $detail->total_price == 0 ? 10000 : $detail->total_price;
+                $schedule = $this->schedule->find($detail->schedule_id);
+                $details[] = [
+                    'id' => $detail->schedule_id, // primary key produk
+                    'price' => $detail->total_price == 0 ? 10000 : $detail->total_price, // harga satuan produk
+                    'quantity' => 1, // kuantitas pembelian
+                    'name' => $schedule->user->name, // nama produk
+                ];
+                // Mail::to($schedule->user->email)->send(new OrderMail($transaction, 'Order Mail'));
             }
-            Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
+
+            $order->id = $transaction_code;
+            $order->gross_amount = $total_price;
+            $order->details = $details;
+            $order->customer_details = $customer_details;
+
+            if (is_null($transaction->snap_url)) {
+                $snap_url = (new CreateSnapUrlService($order))->getSnapUrl();
+                $transaction->snap_url = $snap_url;
+            }
+
+            $transaction->save();
+            $transaction = $this->transaction->where(['transaction_code' => $transaction_code])->first();
+
+            // Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
             DB::commit();
-            return redirect()->route('user.event.booking', ['id' => auth()->user()->id])->with('success', 'Order Success');
+            return redirect($snap_url);
+            // return redirect()->route('user.event.booking', ['id' => auth()->user()->id])->with('success', 'Order Success');
         } catch (\Exception $e) {
             DB::rollback();
             return redirect()->back()->with('error', $e->getMessage())->withInput();

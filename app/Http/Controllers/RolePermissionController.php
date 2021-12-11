@@ -23,7 +23,7 @@ class RolePermissionController extends Controller
             $response = $this->rolePermissionRepo->index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -49,7 +49,7 @@ class RolePermissionController extends Controller
             $response = $this->rolePermissionRepo->store($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -87,7 +87,7 @@ class RolePermissionController extends Controller
             $response = $this->rolePermissionRepo->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -103,7 +103,7 @@ class RolePermissionController extends Controller
             $response = $this->rolePermissionRepo->destroy($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }

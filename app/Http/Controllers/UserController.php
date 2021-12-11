@@ -22,7 +22,7 @@ class UserController extends Controller
             $response = $this->userRepo->index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -37,7 +37,7 @@ class UserController extends Controller
             $response = $this->userRepo->create();
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -54,7 +54,7 @@ class UserController extends Controller
             $response = $this->userRepo->store($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -70,7 +70,7 @@ class UserController extends Controller
             $response = $this->userRepo->show($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -86,7 +86,7 @@ class UserController extends Controller
             $response = $this->userRepo->edit($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -103,7 +103,7 @@ class UserController extends Controller
             $response = $this->userRepo->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -119,7 +119,7 @@ class UserController extends Controller
             $response = $this->userRepo->destroy($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -129,7 +129,7 @@ class UserController extends Controller
             $response = $this->userRepo->upcomingEvent($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -139,7 +139,7 @@ class UserController extends Controller
             $response = $this->userRepo->listOrder($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -149,7 +149,7 @@ class UserController extends Controller
             $response = $this->userRepo->listNotification($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }

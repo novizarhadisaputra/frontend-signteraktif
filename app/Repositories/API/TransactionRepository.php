@@ -67,6 +67,7 @@ class TransactionRepository
 
             $transaction = $this->transaction->create($request->input());
             $total_price = 0;
+
             $details = [];
             $customer_details = [
                 'first_name' => auth()->user()->name,
@@ -87,11 +88,11 @@ class TransactionRepository
                 $this->schedule->where(['id' => $detail->schedule_id])->update([
                     'is_available' => 0,
                 ]);
-                $total_price = $total_price + $detail->total_price;
+                $total_price = $total_price + $detail->total_price == 0 ? 10000 : $detail->total_price;
                 $schedule = $this->schedule->find($detail->schedule_id);
                 $details[] = [
                     'id' => $detail->schedule_id, // primary key produk
-                    'price' => $detail->total_price, // harga satuan produk
+                    'price' => $detail->total_price == 0 ? 10000 : $detail->total_price, // harga satuan produk
                     'quantity' => 1, // kuantitas pembelian
                     'name' => $schedule->user->name, // nama produk
                 ];
@@ -103,13 +104,15 @@ class TransactionRepository
             $order->details = $details;
             $order->customer_details = $customer_details;
 
-            $snap_url = new CreateSnapUrlService($order);
-            $transaction->snap_url = $snap_url;
-            $transaction->save();
+            if (is_null($transaction->snap_url)) {
+                $snap_url = (new CreateSnapUrlService($order))->getSnapUrl();
+                $transaction->snap_url = $snap_url;
+            }
 
+            $transaction->save();
             $transaction = $this->transaction->where(['transaction_code' => $transaction_code])->first();
 
-            Mail::to(auth()->user()->email)->send(new OrderMail($transaction));
+            Mail::to(auth('api')->user()->email)->send(new OrderMail($transaction));
             DB::commit();
             return response()->json(['message' => 'Transaction created', 'data' => compact('transaction', 'snap_url')], 201);
         } catch (\Exception $e) {

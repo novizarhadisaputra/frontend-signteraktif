@@ -10,6 +10,7 @@ use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\HowToUseController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
 
@@ -75,3 +76,5 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+
+Route::get('notification/midtrans/receive', [NotificationController::class, 'fromMidtrans']);

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\TransactionCreate;
 
 class NotificationController extends Controller
 {
@@ -12,5 +11,15 @@ class NotificationController extends Controller
     public function __construct()
     {
         $this->notification = app()->make('repo.notification');
+    }
+
+    public function fromMidtrans(Request $request)
+    {
+        try {
+            $response = $this->notification->fromMidtrans($request);
+            return $response;
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
+        }
     }
 }

@@ -45,7 +45,7 @@ class PermissionController extends Controller
             $response = $this->permissionRepo->store($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -83,7 +83,7 @@ class PermissionController extends Controller
             $response = $this->permissionRepo->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -99,7 +99,7 @@ class PermissionController extends Controller
             $response = $this->permissionRepo->destroy($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }

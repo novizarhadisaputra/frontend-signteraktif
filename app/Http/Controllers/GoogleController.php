@@ -19,7 +19,7 @@ class GoogleController extends Controller
             $response = $this->googleRepo->loginWithGoogle();
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -29,7 +29,7 @@ class GoogleController extends Controller
             $response = $this->googleRepo->callbackFromGoogle();
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }

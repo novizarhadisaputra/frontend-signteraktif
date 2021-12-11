@@ -24,7 +24,7 @@ class NewsController extends Controller
             $response = $this->newsRepo->index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 

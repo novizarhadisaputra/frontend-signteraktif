@@ -23,7 +23,7 @@ class SettingController extends Controller
             $response = $this->settingRepo->index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 

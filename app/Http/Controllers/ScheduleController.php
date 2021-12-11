@@ -26,7 +26,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -36,7 +36,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->partner_index($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -51,7 +51,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->create();
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -67,7 +67,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->store($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -83,7 +83,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->show($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -99,7 +99,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->edit($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -116,7 +116,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -132,7 +132,7 @@ class ScheduleController extends Controller
             $response = $this->scheduleRepo->destroy($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }

@@ -45,7 +45,7 @@ class RoleController extends Controller
             $response = $this->roleRepo->store($request);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -83,7 +83,7 @@ class RoleController extends Controller
             $response = $this->roleRepo->update($request, $id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 
@@ -99,7 +99,7 @@ class RoleController extends Controller
             $response = $this->roleRepo->destroy($id);
             return $response;
         } catch (\Exception $e) {
-            return redirect()->back()->with('errorMessage', $e->getMessage())->withInput();
+            return redirect()->back()->with('error', $e->getMessage())->withInput();
         }
     }
 }
