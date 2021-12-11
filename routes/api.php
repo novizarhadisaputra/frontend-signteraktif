@@ -7,6 +7,7 @@ use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\GoogleController;
 use App\Http\Controllers\API\PartnerController;
 use App\Http\Controllers\API\FirebaseController;
+use App\Http\Controllers\API\ScheduleController;
 use App\Http\Controllers\API\TransactionController;
 
 /*
@@ -22,6 +23,7 @@ use App\Http\Controllers\API\TransactionController;
 
 Route::middleware(['auth:api'])->group(function () {
     Route::resource('user', UserController::class);
+    Route::resource('schedule', ScheduleController::class);
     Route::post('user/upload/avatar', [UserController::class, 'uploadAvatar']);
     Route::prefix('auth')->group(function () {
         Route::get('me', [AuthController::class, 'me']);
@@ -29,6 +31,10 @@ Route::middleware(['auth:api'])->group(function () {
     });
     Route::resource('partner', PartnerController::class);
     Route::get('/partner/list/transaction', [PartnerController::class, 'listTransaction']);
+    Route::post('/partner/transaction/{id}/cancel', [TransactionController::class, 'partnerCancel']);
+    Route::post('/partner/transaction/{id}/accept', [TransactionController::class, 'partnerAccept']);
+    Route::post('/partner/transaction/{id}/finish', [TransactionController::class, 'partnerFinish']);
+
     Route::prefix('partner')->group(function () {
         Route::get('/list/active', [PartnerController::class, 'listActive']);
         Route::get('/{partner}/schedules', [PartnerController::class, 'schedules']);

@@ -15,6 +15,14 @@ use App\Services\Midtrans\CreateSnapUrlService;
 
 class TransactionRepository
 {
+    //  1	Waiting Payment
+    //  2	Paid
+    //  3	Ongoing
+    //  4	Finish
+    //  5	Canceled
+
+    const WAITINGPAYMENT = 1, PAID = 2, ONGOING = 3, FINISH = 4, CANCEL = 5;
+
     protected $schedule;
     protected $transaction;
 
@@ -172,7 +180,7 @@ class TransactionRepository
     {
         try {
             $transaction = $this->transaction->find($id);
-            $transaction->transaction_status_id = $request->status;
+            $transaction->transaction_status_id = self::CANCEL;
             $transaction->notes = $request->notes ?? '';
             $transaction->save();
             $transaction = $this->transaction->find($id);
@@ -189,7 +197,7 @@ class TransactionRepository
     {
         try {
             $transaction = $this->transaction->find($id);
-            $transaction->transaction_status_id = $request->status;
+            $transaction->transaction_status_id = self::ONGOING;
             $transaction->notes = $request->notes ?? '';
             $transaction->save();
             $transaction = $this->transaction->find($id);
@@ -206,7 +214,7 @@ class TransactionRepository
     {
         try {
             $transaction = $this->transaction->find($id);
-            $transaction->transaction_status_id = $request->status;
+            $transaction->transaction_status_id = self::FINISH;
             $transaction->notes = $request->notes ?? '';
             $transaction->save();
             $transaction = $this->transaction->find($id);
