@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class JsonMiddleware
@@ -16,11 +17,10 @@ class JsonMiddleware
      */
     public function handle($request, Closure $next)
     {
-       // Verify if POST request is JSON
-        if ($request->isMethod('post') && !$request->expectsJson()) {
+        $header = $request->header('Content-type');
+        if ($request->isMethod('post') && !Str::contains($header, 'application/json')) {
             return response(['message' => 'Only JSON requests are allowed'], 406);
         }
-
         return $next($request);
     }
 }
