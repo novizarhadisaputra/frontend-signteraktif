@@ -54,8 +54,11 @@ class HomeRepository
             $request->merge(['date' => date('Y-m-d')]);
         }
 
+        $userIds = $user->pluck('id');
+
         $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
-        $schedules = $this->schedules->whereHas('user', function (Builder $query) {
+        $schedules = $this->schedules->whereHas('user', function (Builder $query) use($userIds) {
+            $query->whereIn('user_id', $userIds);
             $query->where(['role_id' => self::partnerRole])
                 ->where(['is_active' => 1]);
         })->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate)
