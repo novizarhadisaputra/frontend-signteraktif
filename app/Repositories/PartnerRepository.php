@@ -52,7 +52,7 @@ class PartnerRepository
                     }
                 }
             });
-        })->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate)
+        })->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate)->where(['is_available' => 1])
             ->paginate($request->per_page)->getCollection();
         return view('partner.index', compact('schedules', 'partner'));
     }
@@ -107,10 +107,12 @@ class PartnerRepository
             $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
             $query->where('start_date', '>=', $request->date);
             $query->where('end_date', '<', $endDate);
+            $query->where(['is_available' => 1]);
         })->with(['schedules' => function ($query) use ($request) {
             $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
             $query->where('start_date', '>=', $request->date);
             $query->where('end_date', '<', $endDate)->orderBy('start_date');
+            $query->where(['is_available' => 1]);
         }])->where(['role_id' => self::partnerRole])->where(['is_active' => 1])->paginate($request->per_page)->getCollection();
 
         return response()->json([

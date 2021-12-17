@@ -52,7 +52,7 @@ class HomeRepository
                     }
                 }
             });
-        })->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate)
+        })->where('start_date', '>=', $request->date)->where('end_date', '<', $endDate)->where(['is_available' => 1])
             ->paginate($request->per_page)->getCollection();
         return view('welcome', compact('schedules', 'home'));
     }
