@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\NotificationMidtrans;
 use Illuminate\Http\Request;
 
 class NotificationController extends Controller
@@ -13,7 +14,7 @@ class NotificationController extends Controller
         $this->notification = app()->make('repo.notification');
     }
 
-    public function fromMidtrans(Request $request)
+    public function fromMidtrans(NotificationMidtrans $request)
     {
         try {
             $response = $this->notification->fromMidtrans($request);

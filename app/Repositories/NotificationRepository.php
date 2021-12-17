@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Models\ApiLog;
 use Exception;
 use App\Models\Notification;
 use Illuminate\Support\Facades\DB;
@@ -10,11 +11,13 @@ class NotificationRepository
 {
     const WAITINGPAYMENT = 1, PAID = 2, ONGOING = 3, FINISH = 4, CANCEL = 5;
 
-    protected $firebase, $notifications;
+    protected $firebase, $notifications, $apiLog;
 
     public function __construct(
-        Notification $notifications
+        Notification $notifications,
+        ApiLog $apiLog
     ) {
+        $this->apiLog = $apiLog;
         $this->notifications = $notifications;
         $this->firebase = app()->make('repo.api.firebase');
     }
@@ -26,6 +29,14 @@ class NotificationRepository
 
     public function fromMidtrans($request)
     {
+        $this->apiLog->create([
+            'ip_address' => $request->ip(),
+            'url' => $request->fullUrl(),
+            'request_headers' => json_encode($request->header()),
+            'request_method' => $request->method(),
+            'request_body' => json_encode($request->input())
+        ]);
+
         try {
             DB::beginTransaction();
             $transaction = $this->transaction->where(['transaction_code' => $request->order_id])->first();
