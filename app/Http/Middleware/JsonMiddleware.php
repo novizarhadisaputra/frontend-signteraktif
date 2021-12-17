@@ -19,7 +19,7 @@ class JsonMiddleware
     {
         $accept = $request->header('Accept');
         $contentType = $request->header('Content-type');
-        if ($request->isMethod('post') && (!Str::contains($accept, 'application/json') || !Str::contains($contentType, 'application/json'))) {
+        if (!($request->isMethod('post') && (Str::contains($accept, 'application/json') || Str::contains($contentType, 'application/json')))) {
             return response(['message' => 'Only JSON requests are allowed'], 406);
         }
         return $next($request);
