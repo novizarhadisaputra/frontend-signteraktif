@@ -44,25 +44,7 @@ class HomeRepository
                     $query->where('sex', 0);
                 }
             }
-        })->with(['detail' => function ($query) use ($request) {
-            if ($request->filled('province')) {
-                if ($request->province == 'All') {
-                    $query->where('province', '<>', null);
-                } else {
-                    $query->where('province', $request->province);
-                }
-            }
-
-            if ($request->filled('sex')) {
-                if ($request->sex == 'All') {
-                    $query->where('sex', '<>', null);
-                } else  if ($request->sex == 'Man') {
-                    $query->where('sex', 1);
-                } else {
-                    $query->where('sex', 0);
-                }
-            }
-        }]);
+        });
 
         if ($request->filled('search')) {
             $user->where('name', 'like', '%' . $request->search . '%');
