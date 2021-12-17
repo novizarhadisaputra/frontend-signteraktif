@@ -12,22 +12,22 @@
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link {{ isset($home) ? $home : '' }}" aria-current="page"
-                            href="{{ route('root') }}">Home</a>
+                            href="{{ route('root') }}">Beranda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ isset($partner) ? $partner : '' }}" href="{{ route('partner.index') }}">Find Interpreter</a>
+                        <a class="nav-link {{ isset($partner) ? $partner : '' }}" href="{{ route('partner.index') }}">Temukan Penerjemah</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ isset($about) ? $about : '' }}" href="{{ route('about-us') }}">About Us</a>
+                        <a class="nav-link {{ isset($about) ? $about : '' }}" href="{{ route('about-us') }}">Tentang Kami</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ isset($service) ? $service : '' }}" href="{{ route('service') }}">Service</a>
+                        <a class="nav-link {{ isset($service) ? $service : '' }}" href="{{ route('service') }}">Layanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ isset($how) ? $how : '' }}" href="{{ route('how-to-use') }}">How To Use</a>
+                        <a class="nav-link {{ isset($how) ? $how : '' }}" href="{{ route('how-to-use') }}">Cara Penggunaan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ isset($contact) ? $contact : '' }}" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="nav-link {{ isset($contact) ? $contact : '' }}" href="{{ route('contact-us') }}">Hubungi Kami</a>
                     </li>
                 </ul>
                 @if (auth()->user())
@@ -57,11 +57,9 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('user.event.upcoming', ['id' => auth()->user()->id]) }}">Upcoming
-                                        Event</a></li>
+                                        href="{{ route('user.event.upcoming', ['id' => auth()->user()->id]) }}">Event Mendatang</a></li>
                                 <li><a class="dropdown-item"
-                                        href="{{ route('user.event.booking', ['id' => auth()->user()->id]) }}">List
-                                        order</a></li>
+                                        href="{{ route('user.event.booking', ['id' => auth()->user()->id]) }}">Daftar Pesanan</a></li>
                                 <li><a onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                                         class="dropdown-item text-center btn btn-sm btn-outline-danger mt-3"
                                         href="{{ route('logout') }}">Logout</a>
@@ -81,7 +79,7 @@
                             </a>
                             <div class="dropdown-menu dropdown-menu-end border-0 shadow menu-notif"
                                 aria-labelledby="menuNotif">
-                                <p class="h2 m-3">Notification</p>
+                                <p class="h2 m-3">Notifikasi</p>
                                 <div class="list-group list-group-flush">
                                     {{-- <a href="#" class="list-group-item list-group-item-action">
                                         <div class="d-flex align-items-center">
@@ -152,11 +150,11 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modalSignup">Sign Up</a>
+                                data-bs-target="#modalSignup">Daftar</a>
                         </li>
                         <li class="nav-item">
                             <button class="btn btn-outline-danger" data-bs-toggle="modal"
-                                data-bs-target="#modalSignin">Sign In</button>
+                                data-bs-target="#modalSignin">Masuk</button>
                         </li>
                     </ul>
                 @endif

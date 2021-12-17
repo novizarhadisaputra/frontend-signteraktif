@@ -26,22 +26,22 @@
                         </div>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" aria-current="page" href="{{ route('root') }}">Home</a>
+                        <a class="p-2" aria-current="page" href="{{ route('root') }}">Beranda</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('partner.index') }}">Find Interpreter</a>
+                        <a class="p-2" href="{{ route('partner.index') }}">Temukan Penerjemah</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('about-us') }}">About Us</a>
+                        <a class="p-2" href="{{ route('about-us') }}">Tentang Kami</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('service') }}">Service</a>
+                        <a class="p-2" href="{{ route('service') }}">Layanan</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('how-to-use') }}">How To Use</a>
+                        <a class="p-2" href="{{ route('how-to-use') }}">Cara Penggunaan</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="p-2" href="{{ route('contact-us') }}">Hubungi Kami</a>
                     </li>
                 </ul>
             </nav>
@@ -64,30 +64,30 @@
                     <li class="mb-3">
                         <div class="d-flex justify-content-between">
                             <button class="btn btn-outline-primary w-50 me-2" data-bs-toggle="modal"
-                                data-bs-target="#modalSignup">Sign Up</button>
+                                data-bs-target="#modalSignup">Daftar</button>
 
                             <button class="btn btn-outline-secondary w-50 ms-2" data-bs-toggle="modal"
-                                data-bs-target="#modalSignin">Sign In</button>
+                                data-bs-target="#modalSignin">Masuk</button>
                         </div>
 
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" aria-current="page" href="{{ route('root') }}">Home</a>
+                        <a class="p-2" aria-current="page" href="{{ route('root') }}">Beranda</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('partner.index') }}">Find Interpreter</a>
+                        <a class="p-2" href="{{ route('partner.index') }}">Temukan Penerjemah</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('about-us') }}">About Us</a>
+                        <a class="p-2" href="{{ route('about-us') }}">Tentang Kami</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('service') }}">Service</a>
+                        <a class="p-2" href="{{ route('service') }}">Layanan</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('how-to-use') }}">How To Use</a>
+                        <a class="p-2" href="{{ route('how-to-use') }}">Cara Penggunaan</a>
                     </li>
                     <li class="mb-3">
-                        <a class="p-2" href="{{ route('contact-us') }}">Contact Us</a>
+                        <a class="p-2" href="{{ route('contact-us') }}">Hubungi Kami</a>
                     </li>
                 </ul>
             </nav>
