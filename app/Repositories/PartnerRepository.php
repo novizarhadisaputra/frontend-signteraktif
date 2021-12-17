@@ -37,8 +37,11 @@ class PartnerRepository
                 ->where(['is_active' => 1]);
             $query->whereHas('detail', function (Builder $query) use ($request) {
                 if ($request->filled('province')) {
-                    $query->where('province', $request->province);
+                    if ($request->province != 'All') {
+                        $query->where('province', $request->province);
+                    }
                 }
+
                 if ($request->filled('sex')) {
                     if ($request->sex == 'All') {
                         $query->where('sex', '<>', null);
