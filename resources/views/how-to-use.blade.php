@@ -87,7 +87,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <a href="{{ route('partner.index') }}" class="btn btn-outline-primary">Find a sign interpreter</a>
+                        <a href="{{ route('partner.index') }}" class="btn btn-outline-primary">Temuka juru bahasa isyarat</a>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-become" role="tabpanel" aria-labelledby="pills-become-tab">

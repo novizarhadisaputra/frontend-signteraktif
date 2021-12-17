@@ -5,7 +5,7 @@
                 <img src="{{ asset('assets/img/logo.svg') }}" height="60" alt="">
             </div>
             <div class="col-md-6">
-                <p class="h5 mb-3">Customer Center </p>
+                <p class="h5 mb-3">Pusat Pelanggan</p>
                 <div class="d-flex mb-4">
                     <div class="flex-shrink-0">
                         <span><i class="h2 bi bi-geo-alt"></i></span>
@@ -37,17 +37,17 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-3 col-6 offset-md-6">
-                        <p class="h5 mb-3">Help</p>
+                        <p class="h5 mb-3">Bantuan</p>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="{{ route('contact-us') }}">Contact Us</a></li>
-                            <li class="mb-2"><a href="{{ route('how-to-use') }}">How To Use</a></li>
+                            <li class="mb-2"><a href="{{ route('contact-us') }}">Hubungi Kami</a></li>
+                            <li class="mb-2"><a href="{{ route('how-to-use') }}">Cara Penggunaan</a></li>
                         </ul>
                     </div>
                     <div class="col-md-3 col-6">
-                        <p class="h5 mb-3">About</p>
+                        <p class="h5 mb-3">Tentang</p>
                         <ul class="list-unstyled">
-                            <li class="mb-2"><a href="{{ route('about-us') }}">About Us</a></li>
-                            <li class="mb-2"><a href="{{ route('service') }}">Our Service</a></li>
+                            <li class="mb-2"><a href="{{ route('about-us') }}">Tentang Kami</a></li>
+                            <li class="mb-2"><a href="{{ route('service') }}">Layanan Kami</a></li>
                         </ul>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <button type="submit" class="btn btn-primary w-100">Find a sign interpreter</button>
+                            <button type="submit" class="btn btn-primary w-100">Temuka juru bahasa isyarat</button>
                         </div>
                     </form>
                 </div>

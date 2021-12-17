@@ -5,10 +5,9 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="text-center text-md-start py-5">
-                        <h1 class="display-4 text-white fw-bold mb-4">Find a Sign Interpreter Here </h1>
-                        <p class="text-white">Now looking for a sign language interpreter, you can just lay down
-                            by opening the website or downloading the signteraktif application, you can find a sign
-                            language interpreter.</p>
+                        <h1 class="display-4 text-white fw-bold mb-4">Temukan Juru Bahasa Isyarat Di Sini </h1>
+                        <p class="text-white">Sekarang mencari juru bahasa isyarat, Anda bisa berbaring dengan membuka
+                            situs web atau mengunduh aplikasi signteraktif, Anda dapat menemukan juru bahasa isyarat.</p>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -65,14 +64,15 @@
                 </div>
                 <div class="col-md-6">
                     <div class="text-center text-md-start py-5">
-                        <h2 class="h1 mb-4">What is <span class="text-secondary">Signteraktif</span></h2>
-                        <p>Signteraktif is an on-demand service that provides accessible communication between deaf friends
-                            and hearing people who are in the same location, using an interpreter through a gadget (mobile,
-                            tablet or laptop or computer PC) that has a camera and uses an internet connection.</p>
-                        <p> Signteractive answers the practical need for accessible public services. Such as transactions
-                            with customer service, health control, meetings and much more. Signteraktif can be used on
-                            Android, IOS systems.</p>
-                        <a class="btn btn-outline-primary my-5 px-5" href="{{ route('about-us') }}">More</a>
+                        <h2 class="h1 mb-4">Apa itu <span class="text-secondary">Signteraktif</span></h2>
+                        <p>Signteraktif adalah layanan on-demand yang menyediakan komunikasi yang dapat diakses antara teman
+                            tunarungu dan tunarungu yang berada di lokasi yang sama, menggunakan juru bahasa melalui gadget
+                            (ponsel, tablet atau laptop atau PC komputer) yang memiliki kamera dan menggunakan koneksi
+                            internet.</p>
+                        <p>Signteractive menjawab kebutuhan praktis akan layanan publik yang dapat diakses. Seperti
+                            transaksi dengan customer service, health control, meeting dan masih banyak lagi. Signteraktif
+                            dapat digunakan pada sistem Android, iOS.</p>
+                        <a class="btn btn-outline-primary my-5 px-5" href="{{ route('about-us') }}">Detail</a>
                     </div>
                 </div>
             </div>
@@ -81,14 +81,14 @@
 
     <section class="py-5">
         <div class="container">
-            <h2 class="h1 my-md-5"> Why Signteraktif ?</h2>
+            <h2 class="h1 my-md-5">Mengapa Signeraktif ?</h2>
             <div class="row">
                 <div class="col-md-3 col-6">
                     <div class="card border-0">
                         <div class="card-body">
                             <img src="{{ asset('assets/img/vector1.svg') }}" class="img-fluid mb-4" alt="">
-                            <h3 class="mb-3">Easy and fast</h3>
-                            <p>Easy to find and contact sign language interpreter</p>
+                            <h3 class="mb-3">Mudah dan cepat</h3>
+                            <p>Mudah untuk menemukan dan menghubungi juru bahasa isyarat</p>
                         </div>
                     </div>
                 </div>
@@ -96,8 +96,8 @@
                     <div class="card border-0">
                         <div class="card-body">
                             <img src="{{ asset('assets/img/vector2.svg') }}" class="img-fluid mb-4" alt="">
-                            <h3 class="mb-3">Real time</h3>
-                            <p>Communicate directly through the Interpreter</p>
+                            <h3 class="mb-3">Waktu sebenarnya</h3>
+                            <p>Berkomunikasi langsung melalui juru bahasa isyarat</p>
                         </div>
                     </div>
                 </div>
@@ -105,8 +105,8 @@
                     <div class="card border-0">
                         <div class="card-body">
                             <img src="{{ asset('assets/img/vector3.svg') }}" class="img-fluid mb-4" alt="">
-                            <h3 class="mb-3">On-Demand Service</h3>
-                            <p>Adjusting the needs of the deaf either directly, scheduled or dialect choice.</p>
+                            <h3 class="mb-3">Layanan Sesuai Permintaan</h3>
+                            <p>Menyesuaikan kebutuhan tunarungu baik secara langsung, terjadwal maupun pilihan dialek.</p>
                         </div>
                     </div>
                 </div>
@@ -114,8 +114,8 @@
                     <div class="card border-0">
                         <div class="card-body">
                             <img src="{{ asset('assets/img/vector4.svg') }}" class="img-fluid mb-4" alt="">
-                            <h3 class="mb-3">Provides many choices</h3>
-                            <p>You can choose JBI according to the needs of the situation (online or on site)</p>
+                            <h3 class="mb-3">Menyediakan banyak pilihan</h3>
+                            <p>Anda dapat memilih JBI sesuai dengan kebutuhan situasi (online atau on site)</p>
                         </div>
                     </div>
                 </div>
@@ -125,26 +125,27 @@
 
     <section class="bg-gradient-secondary py-5">
         <div class="container">
-            <h2 class="h1 mb-5 text-white text-center"> Our service </h2>
+            <h2 class="h1 mb-5 text-white text-center">Layanan kami</h2>
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <div class="card border-0 bg-secondary-dark h-100 mb-4">
                         <div class="card-body p-5">
-                            <h3 class="text-white mb-3">For User</h3>
-                            <p class="text-white ">We provide services to both deaf and non-deaf people (family,
-                                public servants and others) who want to find a sign language interpreter to
-                                communicate. We provide many options according to your needs and conditions.</p>
+                            <h3 class="text-white mb-3">Untuk Pengguna</h3>
+                            <p class="text-white ">Kami menyediakan layanan bagi penyandang tunarungu dan non-tunarungu
+                                (keluarga, pegawai negeri, dan lain-lain) yang ingin mencari juru bahasa isyarat untuk
+                                berkomunikasi. Kami menyediakan banyak pilihan sesuai kebutuhan dan kondisi Anda.
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5">
                     <div class="card border-0 bg-secondary-dark h-100 mb-4">
                         <div class="card-body p-5">
-                            <h3 class="text-white mb-3">For sign Language Interpreter</h3>
-                            <p class="text-white ">We provide opportunities for people who have the capacity to
-                                translate sign language to join us. To ensure the qualification of sign language
-                                interpreters, we work closely with the Yogyakarta Sign Language Interpreter Service
-                                Center (PLJ). </p>
+                            <h3 class="text-white mb-3">Untuk Penerjemah Bahasa isyarat</h3>
+                            <p class="text-white ">Kami memberikan kesempatan bagi orang-orang yang memiliki kapasitas
+                                untuk menerjemahkan bahasa isyarat untuk bergabung dengan kami. Untuk memastikan kualifikasi
+                                juru bahasa isyarat, kami bekerja sama dengan Pusat Layanan Juru Bahasa Isyarat (PLJ)
+                                Yogyakarta.</p>
                         </div>
                     </div>
                 </div>
@@ -154,7 +155,7 @@
 
     <section class="py-5">
         <div class="container">
-            <h2 class="h1 mb-5 text-center text-md-start"> Need a help ? </h2>
+            <h2 class="h1 mb-5 text-center text-md-start">Butuh bantuan?</h2>
             <div class="card border-0 bg-dark bg-opacity-25">
                 <div class="card-body p-5">
                     <form class="row g-3">
@@ -169,11 +170,11 @@
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text bg-white text-secondary"><i class="bi bi-person"></i></span>
                                 <input type="text" class="form-control border-start-0" id="InputLocation"
-                                    placeholder="Your Name">
+                                    placeholder="Nama">
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <button type="submit" class="btn btn-primary btn-lg w-100">Contact Us</button>
+                            <button type="submit" class="btn btn-primary btn-lg w-100">Hubungi Kami</button>
                         </div>
                     </form>
                 </div>
@@ -183,7 +184,7 @@
 
     <section class="py-5">
         <div class="container">
-            <h2 class="h1 mb-5 text-center"> Our Partners </h2>
+            <h2 class="h1 mb-5 text-center">Mitra Kami</h2>
             <div class="row justify-content-center">
                 <div class="col col-md-2">
                     <img src="{{ asset('assets/img/logo-partner1.png') }}" class="img-fluid my-4" alt="">
@@ -203,7 +204,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <div class="text-center text-md-start py-5">
-                        <h6 class="display-6 text-white fw-bold mb-4">Download Aplikasi Signteraktif Sekarang !
+                        <h6 class="display-6 text-white fw-bold mb-4">Unduh Aplikasi Signteraktif Sekarang !
                         </h6>
                     </div>
                     <div class="text-center text-md-start pb-5">
