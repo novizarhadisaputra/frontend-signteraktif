@@ -58,3 +58,5 @@ Route::prefix('auth')->group(function () {
 Route::prefix('firebase')->name('firebase.')->group(function () {
     Route::post('store-token', [FirebaseController::class, 'storeToken'])->name('store.token');
 });
+
+Route::post('notification/midtrans/receive', [NotificationController::class, 'fromMidtrans']);

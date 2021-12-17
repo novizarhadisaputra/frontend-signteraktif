@@ -76,5 +76,3 @@ Route::middleware(['auth'])->group(function () {
     });
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
-
-Route::post('notification/midtrans/receive', [NotificationController::class, 'fromMidtrans']);
