@@ -39,7 +39,7 @@
 
     @php
     $province = request()->input('province') ? request()->input('province') : '';
-    $date = request()->input('province') ? request()->input('province') : date('Y-m-d');
+    $date = request()->input('date') ? request()->input('date') : date('Y-m-d');
     $allSex = route('partner.index') . '?province=' . $province . '&date=' . $date . '&sex=All';
     $male = route('partner.index') . '?province=' . $province . '&date=' . $date . '&sex=Man';
     $female = route('partner.index') . '?province=' . $province . '&date=' . $date . '&sex=Woman';
