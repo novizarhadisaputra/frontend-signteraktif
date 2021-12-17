@@ -3,7 +3,7 @@
 @section('content')
     <section class="bg-gradient-secondary py-5">
         <div class="container">
-            <h1 class="text-white">How to ?</h1>
+            <h1 class="text-white">Bagaimana Caranya ?</h1>
         </div>
     </section>
     <section class="py-5">
@@ -11,13 +11,11 @@
             <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button class="nav-link active" id="pills-using-tab" data-bs-toggle="pill" data-bs-target="#pills-using"
-                        type="button" role="tab" aria-controls="pills-using" aria-selected="true">Using a Sign Language
-                        Interpreter</button>
+                        type="button" role="tab" aria-controls="pills-using" aria-selected="true">Menggunakan Penerjemah Bahasa Isyarat</button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="pills-become-tab" data-bs-toggle="pill" data-bs-target="#pills-become"
-                        type="button" role="tab" aria-controls="pills-become" aria-selected="false">Become a Sign Language
-                        Interpreter</button>
+                        type="button" role="tab" aria-controls="pills-become" aria-selected="false">Menjadi Penerjemah Bahasa Isyarat</button>
                 </li>
             </ul>
 
@@ -33,7 +31,7 @@
                                             <h1>01</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>Entering date, month and event type to search for an interpreter</p>
+                                            <p>Memasukkan tanggal, bulan, dan jenis acara untuk mencari juru bahasa</p>
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +46,7 @@
                                             <h1>02</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>Choose the Interpreter, according to the schedule you want</p>
+                                            <p>Pilih Interpreter, sesuai jadwal yang kamu inginkan</p>
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +61,7 @@
                                             <h1>03</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>Wait for feedback from the interpreter regarding your proposed schedule</p>
+                                            <p>Tunggu umpan balik dari juru bahasa mengenai jadwal yang Anda usulkan</p>
                                         </div>
                                     </div>
                                 </div>
@@ -78,8 +76,7 @@
                                             <h1>04</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>The Interpreter will come or fill the event according to your proposed
-                                                schedule</p>
+                                            <p>Interpreter akan datang atau mengisi acara sesuai dengan jadwal yang anda usulkan</p>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +98,7 @@
                                             <h1>01</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>Go to the registration page, click the button below </p>
+                                            <p>Masuk ke halaman pendaftaran, klik tombol di bawah ini</p>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +113,7 @@
                                             <h1>02</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>Complete the data related to the application requirements to become JBI </p>
+                                            <p>Lengkapi data terkait persyaratan aplikasi menjadi JBI </p>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +128,7 @@
                                             <h1>03</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>After registration is confirmed, fill in your availability schedule data</p>
+                                            <p>Setelah pendaftaran dikonfirmasi, isi data jadwal ketersediaan Anda</p>
                                         </div>
                                     </div>
                                 </div>
@@ -146,8 +143,7 @@
                                             <h1>04</h1>
                                         </div>
                                         <div class="flex-grow-1 ms-3">
-                                            <p>Profile is active and will appear in the application, interested users will
-                                                use your services</p>
+                                            <p>Profil aktif dan akan muncul di aplikasi, pengguna yang tertarik akan menggunakan layanan Anda</p>
                                         </div>
                                     </div>
                                 </div>
