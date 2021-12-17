@@ -8,6 +8,7 @@ use App\Http\Controllers\API\GoogleController;
 use App\Http\Controllers\API\PartnerController;
 use App\Http\Controllers\API\FirebaseController;
 use App\Http\Controllers\API\ScheduleController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\API\TransactionController;
 
 /*
