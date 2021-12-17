@@ -17,8 +17,9 @@ class JsonMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $header = $request->header('Content-type');
-        if ($request->isMethod('post') && !Str::contains($header, 'application/json')) {
+        $accept = $request->header('Accept');
+        $contentType = $request->header('Content-type');
+        if ($request->isMethod('post') && (!Str::contains($accept, 'application/json') || !Str::contains($contentType, 'application/json'))) {
             return response(['message' => 'Only JSON requests are allowed'], 406);
         }
         return $next($request);
