@@ -186,7 +186,7 @@ class PartnerRepository
     public function listTransaction($request)
     {
         $per_page = $request->per_page ?? 100;
-        $transactions = $this->transaction->with(['user', 'details' => function ($query) use ($request) {
+        $transactions = $this->transaction->with(['user', 'status', 'payment_method', 'details' => function ($query) use ($request) {
             $query->with(['schedule' => function ($query) use ($request) {
                 $query->where(['user_id' => auth('api')->user()->id]);
             }]);
