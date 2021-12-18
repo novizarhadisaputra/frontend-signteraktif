@@ -186,14 +186,8 @@ class PartnerRepository
     public function listTransaction($request)
     {
         $per_page = $request->per_page ?? 100;
-        $transactions = $this->transaction->whereHas('details', function (Builder $query) {
-            $query->whereHas('schedule', function (Builder $query) {
-                $query->where(['user_id' => auth('api')->user()->id]);
-            });
-        })->with(['details' => function ($query) use ($request) {
-            $query->whereHas('schedule', function (Builder $query) {
-                $query->where(['user_id' => auth('api')->user()->id]);
-            });
+        $transactions = $this->transaction->with(['details' => function ($query) use ($request) {
+            $query>with(['schedule']);
         }])->paginate($per_page)->getCollection();
         return response()->json(['message' => 'List transactions', 'data' => compact('transactions')], 200);
     }
