@@ -190,7 +190,11 @@ class PartnerRepository
             $query->whereHas('schedule', function (Builder $query) {
                 $query->where(['user_id' => auth('api')->user()->id]);
             });
-        })->paginate($per_page)->getCollection();
+        })->with(['details' => function ($query) use ($request) {
+            $query->whereHas('schedule', function (Builder $query) {
+                $query->where(['user_id' => auth('api')->user()->id]);
+            });
+        }])->paginate($per_page)->getCollection();
         return response()->json(['message' => 'List transactions', 'data' => compact('transactions')], 200);
     }
 }
