@@ -189,7 +189,7 @@ class TransactionRepository
             $transaction = $this->transaction->find($id);
             return response()->json([
                 'message' => 'Transaction Updated',
-                'data' => compact('transactions')
+                'data' => compact('transaction')
             ], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
@@ -206,7 +206,7 @@ class TransactionRepository
             $transaction = $this->transaction->find($id);
             return response()->json([
                 'message' => 'Transaction Updated',
-                'data' => compact('transactions')
+                'data' => compact('transaction')
             ], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
@@ -223,7 +223,7 @@ class TransactionRepository
             $transaction = $this->transaction->find($id);
             return response()->json([
                 'message' => 'Transaction Updated',
-                'data' => compact('transactions')
+                'data' => compact('transaction')
             ], 200);
         } catch (\Exception $e) {
             return response()->json(['message' => $e->getMessage()], getCode($e->getCode()));
