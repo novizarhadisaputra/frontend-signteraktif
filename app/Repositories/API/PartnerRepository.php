@@ -187,7 +187,9 @@ class PartnerRepository
     {
         $per_page = $request->per_page ?? 100;
         $transactions = $this->transaction->with(['details' => function ($query) use ($request) {
-            $query>with(['schedule']);
+            $query->with(['schedule' => function ($query) use ($request) {
+                $query->where(['user_id' => auth('api')->user()->id]);
+            }]);
         }])->paginate($per_page)->getCollection();
         return response()->json(['message' => 'List transactions', 'data' => compact('transactions')], 200);
     }
