@@ -189,6 +189,7 @@ class PartnerRepository
         $transactions = $this->transaction->with(['user', 'status', 'payment_method', 'details' => function ($query) use ($request) {
             $query->with(['schedule' => function ($query) use ($request) {
                 $query->where(['user_id' => auth('api')->user()->id]);
+                $query->with(['user']);
             }]);
         }])->paginate($per_page)->getCollection();
         return response()->json(['message' => 'List transactions', 'data' => compact('transactions')], 200);
