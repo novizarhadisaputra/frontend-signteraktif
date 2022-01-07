@@ -3,27 +3,28 @@
 namespace App\Providers;
 
 use App\Http\Middleware\ApiLog;
+use Illuminate\Support\Facades\URL;
 use App\Repositories\AuthRepository;
 use App\Repositories\HomeRepository;
+use App\Repositories\NewsRepository;
 use App\Repositories\RoleRepository;
 use App\Repositories\UserRepository;
+use App\Repositories\GoogleRepository;
 use App\Repositories\BillingRepository;
+use App\Repositories\PartnerRepository;
 use App\Repositories\SettingRepository;
+use Illuminate\Support\ServiceProvider;
 use App\Repositories\ScheduleRepository;
 use App\Repositories\PermissionRepository;
+use App\Repositories\TransactionRepository;
+use App\Repositories\NotificationRepository;
 use App\Repositories\RolePermissionRepository;
 use App\Repositories\API\AuthRepository as ApiAuthRepository;
-use App\Repositories\API\FirebaseRepository as ApiFirebaseRepository;
+use App\Repositories\API\UserRepository as ApiUserRepository;
 use App\Repositories\API\PartnerRepository as ApiPartnerRepository;
+use App\Repositories\API\FirebaseRepository as ApiFirebaseRepository;
 use App\Repositories\API\ScheduleRepository as APIScheduleRepository;
 use App\Repositories\API\TransactionRepository as ApiTransactionRepository;
-use App\Repositories\API\UserRepository as ApiUserRepository;
-use App\Repositories\GoogleRepository;
-use App\Repositories\NewsRepository;
-use App\Repositories\NotificationRepository;
-use App\Repositories\PartnerRepository;
-use App\Repositories\TransactionRepository;
-use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -66,5 +67,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        // URL::forceScheme('https');
     }
 }

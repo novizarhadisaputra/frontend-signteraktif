@@ -22,11 +22,11 @@
                         <div class="col-md-8">
                             <h2 class="display-6 mb-3">{{ $partner->name }}</h2>
                             <p>{{ $partner->detail->description }}</p>
-                            <h3>Languages spoken</h3>
+                            <h3>Bahasa Bicara</h3>
                             <div class="py-2">
                                 <span class="badge alert-secondary p-2">Bahasa Isyarat Indonesia (BISINDO)</span>
                             </div>
-                            <h3>Organizational Affiliation</h3>
+                            <h3>Organisasi</h3>
                             <div class="py-2">
                                 <span
                                     class="badge alert-secondary p-2">{{ $partner->agency->name ?? 'PLJ Daerah Istimewa Yogyakarta' }}</span>
@@ -37,7 +37,7 @@
                                     class="btn btn-outline-primary w-50 me-3"><i
                                         class="bi bi-chat-dots-fill mx-5 mx-md-1" aria-hidden="true"></i>Contact</a>
                                 <a href="{{ route('transaction.form.order', ['partnerId' => $partner->id]) }}?date={{ request()->input('date') }}"
-                                    class="btn btn-primary w-50 ms-3">Make appointment</a>
+                                    class="btn btn-primary w-50 ms-3">Buat Jani</a>
                             </div>
                         </div>
                     </div>

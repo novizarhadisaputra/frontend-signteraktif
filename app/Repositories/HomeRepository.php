@@ -43,12 +43,10 @@ class HomeRepository
                 }
 
                 if ($request->filled('sex')) {
-                    if ($request->sex == 'All') {
-                        $query->where('sex', '<>', null);
-                    } else  if ($request->sex == 'Man') {
-                        $query->where('sex', 1);
-                    } else {
+                    if ($request->sex == 'Woman') {
                         $query->where('sex', 0);
+                    } else if ($request->sex == 'Man') {
+                        $query->where('sex', 1);
                     }
                 }
             });

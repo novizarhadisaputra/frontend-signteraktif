@@ -80,48 +80,53 @@ class PartnerRepository
         $request->province = $request->province ?? 'All';
         $user = $this->user->whereHas('detail', function (Builder $query) use ($request) {
             if ($request->filled('province')) {
-                if ($request->province == 'All') {
-                    $query->where('province', '<>', null);
-                } else {
+                if ($request->province != 'All') {
                     $query->where('province', $request->province);
                 }
             }
 
             if ($request->filled('sex')) {
-                if ($request->sex == 'All') {
-                    $query->where('sex', '<>', null);
-                } else  if ($request->sex == 'Man') {
-                    $query->where('sex', 1);
-                } else {
+                if ($request->sex == 'Woman') {
                     $query->where('sex', 0);
+                } else if ($request->sex == 'Man') {
+                    $query->where('sex', 1);
                 }
             }
         })->with(['detail' => function ($query) use ($request) {
             if ($request->filled('province')) {
-                if ($request->province == 'All') {
-                    $query->where('province', '<>', null);
-                } else {
+                if (!$request->province != 'All') {
                     $query->where('province', $request->province);
                 }
             }
 
-            if ($request->filled('province')) {
-                if ($request->sex == 'All') {
-                    $query->where('sex', '<>', null);
-                } else  if ($request->sex == 'Man') {
-                    $query->where('sex', 1);
-                } else {
+            if ($request->filled('sex')) {
+                if ($request->sex == 'Woman') {
                     $query->where('sex', 0);
+                } else if ($request->sex == 'Man') {
+                    $query->where('sex', 1);
                 }
             }
         }]);
+
+        $console = new ConsoleOutput();
 
         if ($request->filled('search')) {
             $user->where('name', 'like', '%' . $request->search . '%');
         }
 
-        $partners = $user->whereHas('schedules', function (Builder $query) use ($request) {
+        $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
+        $test = $user->whereHas('schedules', function (Builder $query) use ($request, $console) {
             $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
+
+            $query->where('start_date', '>=', $request->date);
+            $query->where('end_date', '<=', $endDate)->where(['is_available' => 1]);
+        })->get();
+        $console->writeln(json_encode($this->schedules->where('start_date', '>=', $request->date)->where('end_date', '<=', $endDate)->where(['is_available' => 1])->get()));
+
+        $partners = $user->whereHas('schedules', function (Builder $query) use ($request, $console) {
+            $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
+            $console->writeln($request->date);
+            $console->writeln($endDate);
             $query->where('start_date', '>=', $request->date);
             $query->where('end_date', '<', $endDate);
         })->with(['schedules' => function ($query) use ($request) {
