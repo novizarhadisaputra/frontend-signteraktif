@@ -28,7 +28,7 @@ class HomeRepository
         $request->province = $request->province ?? 'All';
 
         if (!$request->filled('date')) {
-            $request->merge(['date' => date('Y-m-d')]);
+            $request->merge(['date' => date('Y-m-d H:i:s')]);
         }
 
         $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));

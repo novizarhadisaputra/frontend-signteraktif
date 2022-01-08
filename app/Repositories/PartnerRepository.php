@@ -28,7 +28,15 @@ class PartnerRepository
         $request->province = $request->province ?? 'All';
 
         if (!$request->filled('date')) {
-            $request->merge(['date' => date('Y-m-d')]);
+            $request->merge(['date' => date('Y-m-d H:i:s')]);
+        }
+
+        $currentDate = strtotime(date('Y-m-d'));
+
+        $requestDate = strtotime(date('Y-m-d', strtotime($request->date)));
+
+        if ($requestDate > $currentDate) {
+            $request->merge(['date' => date('Y-m-d', strtotime($request->date))]);
         }
 
         $endDate = date('Y-m-d', strtotime($request->date . '+1 day'));
@@ -43,12 +51,10 @@ class PartnerRepository
                 }
 
                 if ($request->filled('sex')) {
-                    if ($request->sex == 'All') {
-                        $query->where('sex', '<>', null);
-                    } else  if ($request->sex == 'Man') {
-                        $query->where('sex', 1);
-                    } else {
+                    if ($request->sex == 'Woman') {
                         $query->where('sex', 0);
+                    } else if ($request->sex == 'Man') {
+                        $query->where('sex', 1);
                     }
                 }
             });
